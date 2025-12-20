@@ -266,6 +266,14 @@ end
 
 @testset "Type $T" for T in (ComplexF32, )
 
+    @testset "carg" begin
+        @test FN.carg(T(1.0 + 1.0im)) ≈ angle(T(1.0 + 1.0im))
+    end
+
+    @testset "clog10" begin
+        @test FN.clog10(T(100.0)) ≈ T(2.0)
+    end
+
     @testset "cbrt" begin
         @test FN.cbrt(T(27.0)) ≈ T(3.0)
         x = T(1.0 + 1.0im)
@@ -290,10 +298,51 @@ end
         @test FN.r9ln2r(x) ≈ expected
     end
 
+    @testset "ctan" begin
+        z = T(0.5 + 0.5im)
+        @test FN.ctan(z) ≈ tan(z) rtol=1e-5
+    end
+
     @testset "cot" begin
         x = T(0.5 + 0.5im)
         expected = cos(x) / sin(x)
         @test FN.cot(x) ≈ expected rtol=1e-5
+    end
+
+    @testset "casin" begin
+        z = T(0.5 + 0.5im)
+        @test FN.casin(z) ≈ asin(z) rtol=1e-5
+    end
+
+    @testset "cacos" begin
+        z = T(0.5 + 0.5im)
+        @test FN.cacos(z) ≈ acos(z) rtol=1e-5
+    end
+
+    @testset "catan" begin
+        z = T(0.5 + 0.5im)
+        @test FN.catan(z) ≈ atan(z) rtol=1e-5
+    end
+
+    @testset "catan2" begin
+        z1 = T(1.0 + 1.0im)
+        z2 = T(1.0 + 0.0im)
+        @test FN.catan2(z1, z2) ≈ atan(z1/z2) rtol=1e-5
+    end
+
+    @testset "csinh" begin
+        z = T(0.5 + 0.5im)
+        @test FN.csinh(z) ≈ sinh(z) rtol=1e-5
+    end
+
+    @testset "ccosh" begin
+        z = T(0.5 + 0.5im)
+        @test FN.ccosh(z) ≈ cosh(z) rtol=1e-5
+    end
+
+    @testset "ctanh" begin
+        z = T(0.5 + 0.5im)
+        @test FN.ctanh(z) ≈ tanh(z) rtol=1e-5
     end
 
     @testset "asinh" begin
