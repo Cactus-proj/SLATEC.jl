@@ -1,5 +1,5 @@
 module SLATEC
 
-# Write your package code here.
+import SLATEC_jll
 
-end
+end # module SLATEC

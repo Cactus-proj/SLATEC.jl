@@ -2,5 +2,5 @@ using SLATEC
 using Test
 
 @testset "SLATEC.jl" begin
-    # Write your tests here.
+    @test SLATEC.SLATEC_jll.is_available()
 end
