@@ -5,6 +5,8 @@ module FNLIB
 using SLATEC_jll
 const libslatec = SLATEC_jll.libslatec
 
+#= --- Intrinsic Functions and Fundamental Functions --- =#
+
 """
 Unpack a floating point number X so that `X = Y * 2^N`,
 where `Y` is between 0.5 and 1.0.
@@ -112,6 +114,8 @@ Fortran Name: `CSEVL(X`, `CS`, `N)`, `DCSEVL(X`, `CS`, `N)`
 function dcsevl()
     ccall((:dcsevl_, libslatec), Cdouble, (), )
 end
+
+#= --- Elementary Functions --- =#
 
 """
 Argument = theta in radians.
@@ -260,6 +264,8 @@ Fortran Name: `R9LN2R(X)`, `D9LN2R(X)`, `C9LN2R(X)`
 function c9ln2r(x::ComplexF32)
     ccall((:c9ln2r_, libslatec), ComplexF32, (Ref{ComplexF32},), x)
 end
+
+#= --- Trigonometric and Hyperbolic Functions --- =#
 
 """
 Tangent.
@@ -547,6 +553,8 @@ function d9atn1(x::Float64)
     ccall((:d9atn1_, libslatec), Cdouble, (Ref{Float64},), x)
 end
 
+#= --- Exponential Integrals and Related Functions --- =#
+
 """
 Exponential integral Ei(x).
 
@@ -612,6 +620,8 @@ Fortran Name: `ALI(X)`, `DLI(X)`
 function dli(x::Float64)
     ccall((:dli_, libslatec), Cdouble, (Ref{Float64},), x)
 end
+
+#= --- Gamma Functions and Related Functions --- =#
 
 """
 Factorial.
@@ -1070,6 +1080,8 @@ function c9lgmc(x::ComplexF32)
     ccall((:c9lgmc_, libslatec), ComplexF32, (Ref{ComplexF32},), x)
 end
 
+#= --- Error Functions and Fresnel Integrals --- =#
+
 """
 Error function.
 
@@ -1135,6 +1147,8 @@ Fortran Name: `DAWS(X)`, `DDAWS(X)`
 function ddaws(x::Float64)
     ccall((:ddaws_, libslatec), Cdouble, (Ref{Float64},), x)
 end
+
+#= --- Bessel Functions --- =#
 
 """
 Bessel function of the first kind, order zero.
@@ -1400,6 +1414,8 @@ function dbsk1e(x::Float64)
     ccall((:dbsk1e_, libslatec), Cdouble, (Ref{Float64},), x)
 end
 
+#= --- Bessel Functions of Fractional Order --- =#
+
 """
 Airy function Ai.
 
@@ -1488,6 +1504,8 @@ function dbie(x::Float64)
     ccall((:dbie_, libslatec), Cdouble, (Ref{Float64},), x)
 end
 
+#= --- Confluent Hypergeometric Functions --- =#
+
 """
 Confluent hypergeometric function.
 
@@ -1509,6 +1527,8 @@ Fortran Name: `CHU(A`, `B`, `X)`, `DCHU(A`, `B`, `X)`
 function dchu(a::Float64, b::Float64, x::Float64)
     ccall((:dchu_, libslatec), Cdouble, (Ref{Float64}, Ref{Float64}, Ref{Float64}), a, b, x)
 end
+
+#= --- Miscellaneous Functions --- =#
 
 """
 Spence dilogarithm.
