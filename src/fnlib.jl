@@ -16,8 +16,11 @@ Fortran Name: `R9UPAK(X`, `Y`, `N)`, `D9UPAK(X`, `Y`, `N)`
 @param[out] y  Mantissa
 @param[out] n  Exponent
 """
-function r9upak(y::Float32, n::Int32)
-    ccall((:r9upak_, libslatec), Cvoid, (Ref{Float32}, Ref{Int32}), y, n)
+function r9upak(x::Float32)
+    y, n = Ref{Float32}(NaN32), Ref{Int32}(0)
+    ccall((:r9upak_, libslatec), Cvoid, (Ref{Float32}, Ref{Float32}, Ref{Int32}),
+        x, y, n)
+    y[], n[]
 end
 
 """
@@ -29,8 +32,11 @@ Fortran Name: `R9UPAK(X`, `Y`, `N)`, `D9UPAK(X`, `Y`, `N)`
 @param[out] y  Mantissa
 @param[out] n  Exponent
 """
-function d9upak(y::Float64, n::Int32)
-    ccall((:d9upak_, libslatec), Cvoid, (Ref{Float64}, Ref{Int32}), y, n)
+function d9upak(x::Float64)
+    y, n = Ref{Float64}(NaN), Ref{Int32}(0)
+    ccall((:d9upak_, libslatec), Cvoid, (Ref{Float64}, Ref{Float64}, Ref{Int32}),
+        x, y, n)
+    y[], n[]
 end
 
 """
@@ -41,8 +47,8 @@ Fortran Name: `R9PAK(Y`, `N)`, `D9PAK(Y`, `N)`
 @param[in]  n  Exponent
 @return        Packed floating point number
 """
-function r9pak()
-    ccall((:r9pak_, libslatec), Cfloat, (), )
+function r9pak(y::Float32, n::Int32)
+    ccall((:r9pak_, libslatec), Cfloat, (Ref{Float32}, Ref{Int32}), y, n)
 end
 
 """
@@ -53,8 +59,8 @@ Fortran Name: `R9PAK(Y`, `N)`, `D9PAK(Y`, `N)`
 @param[in]  n  Exponent
 @return        Packed floating point number
 """
-function d9pak()
-    ccall((:d9pak_, libslatec), Cdouble, (), )
+function d9pak(y::Float64, n::Int32)
+    ccall((:d9pak_, libslatec), Cdouble, (Ref{Float64}, Ref{Int32}), y, n)
 end
 
 """
@@ -1569,9 +1575,8 @@ end
 #= --- Forwarding functions for Float64 --- =#
 
 # Intrinsic Functions and Fundamental Functions
-r9upak(y::Float64, n::Int32) = d9upak(y, n)
-r9pak(::Type{Float64}) = d9pak()
-r9pak(::Type{Float32}) = r9pak()
+r9upak(x::Float64) = d9upak(x)
+r9pak(y::Float64, n::Int32) = d9pak(y, n)
 inits(::Type{Float64}) = initds()
 inits(::Type{Float32}) = inits()
 csevl(::Type{Float64}) = dcsevl()

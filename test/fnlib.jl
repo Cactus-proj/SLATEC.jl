@@ -7,6 +7,20 @@ const FN = SLATEC.FNLIB
         @test FN.cbrt(T(-27.0)) == T(-3.0)
     end
 
+    @testset "r9upak/r9pak" begin
+        x = T(3.0)
+        y, n = FN.r9upak(x)
+        @test 0.5 <= abs(y) < 1.0
+        @test x ≈ y * exp2(n)
+        @test FN.r9pak(y, n) ≈ x
+
+        x = T(-12.0)
+        y, n = FN.r9upak(x)
+        @test 0.5 <= abs(y) < 1.0
+        @test x ≈ y * exp2(n)
+        @test FN.r9pak(y, n) ≈ x
+    end
+
     @testset "exprel" begin
         # ((e^x) - 1) / x
         # x -> 0, limit is 1
