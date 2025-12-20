@@ -23,9 +23,10 @@ typedef struct { real r, i; } complex;
 /* --- Intrinsic Functions and Fundamental Functions --- */
 
 /**
- * Unpack floating point number.
+ * Unpack a floating point number X so that `X = Y * 2^N`,
+ *  where `Y` is between 0.5 and 1.0.
  *
- * Fortran Name: R9UPAK(X,Y,N), D9UPAK(X,Y,N)
+ * Fortran Name: R9UPAK(X, Y,N), D9UPAK(X, Y,N)
  * @param[in]  x  Input floating point number
  * @param[out] y  Mantissa
  * @param[out] n  Exponent
@@ -34,29 +35,41 @@ void r9upak_(const real *x, real *y, integer *n);
 void d9upak_(const doublereal *x, doublereal *y, integer *n);
 
 /**
- * Pack floating point number.
+ * Pack a base 2 exponent into a floating point number.
  *
  * Fortran Name: R9PAK(Y,N), D9PAK(Y,N)
+ * @param[in]  y  Mantissa
+ * @param[in]  n  Exponent
+ * @return        Packed floating point number
  */
-real r9pak_(real *y, integer *n);
-doublereal d9pak_(doublereal *y, integer *n);
+real r9pak_(const real *y, const integer *n);
+doublereal d9pak_(const doublereal *y, const integer *n);
 
 /**
- * Initialize orthogonal polynomial series.
+ * Determine the number of terms needed in an orthogonal
+ *  polynomial series so that it meets a specified accuracy.
  *
  * Fortran Name: INITS(OS,NOS,ETA), INITDS(OS,NOS,ETA)
+ * @param[in]  os   Coefficients in an orthogonal series.
+ * @param[in]  nos  Number of coefficients in `os`.
+ * @param[in]  eta  Requested accuracy of the series.
+ * @return          Number of terms needed to meet the accuracy.
  */
-integer inits_(real *os, integer *nos, real *eta);
-integer initds_(doublereal *os, integer *nos, doublereal *eta);
+integer inits_(const real *os, const integer *nos, const real *eta);
+integer initds_(const doublereal *os, const integer *nos, const doublereal *eta);
 
 /**
  * Evaluate Chebyshev series.
  *
  * Formula: summation for i = 1 to n of cs(i)*(2*x)**(i-1)
  * Fortran Name: CSEVL(X,CS,N), DCSEVL(X,CS,N)
+ * @param[in]  x  Input value
+ * @param[in]  cs Coefficients in the Chebyshev series.
+ * @param[in]  n  Number of coefficients in `cs`.
+ * @return        Value of the Chebyshev series at `x`.
  */
-real csevl_(real *x, real *cs, integer *n);
-doublereal dcsevl_(doublereal *x, doublereal *cs, integer *n);
+real csevl_(const real *x, const real *cs, const integer *n);
+doublereal dcsevl_(const doublereal *x, const doublereal *cs, const integer *n);
 
 /* --- Elementary Functions --- */
 
@@ -278,15 +291,15 @@ real ali_(real *x);
 doublereal dli_(doublereal *x);
 
 /**
- * Exponential integral E sub n+k (x).
+ * Compute an `m` member sequence of Exponential integral ``E_{n+k}(x)``.
  *
  * Formula: the integral from 1 to infinity of (e**(-x*t)/t**(n+k))dt
  * Fortran Name: EXINT(X,N,KODE,M,TOL, EN,NZ,IERR), DEXINT(X,N,KODE,M,TOL, EN,NZ,IERR)
- * @param[in]  x     Argument
- * @param[in]  n     Order
- * @param[in]  kode  Selection parameter
- * @param[in]  m     Number of terms to compute
- * @param[in]  tol   Tolerance
+ * @param[in]  x     `x > 0 for n=1` and `x >= 0 for n >=2`
+ * @param[in]  n     Order, `n >= 1`
+ * @param[in]  kode  Selection parameter (1=normal, 2=scaled)
+ * @param[in]  m     Number of terms to compute, `m >= 1`
+ * @param[in]  tol   Relative accuracy wanted, `ETOL=R1MACH(4) < tol < 0.1`
  * @param[out] en    Result array
  * @param[out] nz    underflow indicator
  * @param[out] ierr  Error flag
@@ -330,8 +343,8 @@ complex cgamma_(complex *x);
  * Gamma(x) under and overflow limits.
  *
  * Fortran Name: GAMLIM(XMIN,XMAX), DGAMLM(XMIN,XMAX)
- * @param[out] xmin  Minimum valid argument
- * @param[out] xmax  Maximum valid argument
+ * @param[out] xmin  Minimum legal value of X in gamma(X)
+ * @param[out] xmax  Maximum legal value of X in gamma(X)
  */
 void gamlim_(real *xmin, real *xmax);
 void dgamlm_(doublereal *xmin, doublereal *xmax);
@@ -370,7 +383,7 @@ complex clngam_(complex *z);
  * Fortran Name: ALGAMS(X, G,S), DLGAMS(X, G,S)
  * @param[in]  x  Argument
  * @param[out] g  Log absolute gamma
- * @param[out] s  Sign of gamma
+ * @param[out] s  Sign of gamma, `+1.0` or `-1.0`
  */
 void algams_(const real *x, real *g, real *s);
 void dlgams_(const doublereal *x, doublereal *g, doublereal *s);
