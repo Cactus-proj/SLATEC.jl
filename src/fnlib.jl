@@ -1511,6 +1511,8 @@ Confluent hypergeometric function.
 
 Formula: `U(a,b,x)`
 
+This routine is not valid when `1+A-B` is close to zero if X is small.
+
 Fortran Name: `CHU(A`, `B`, `X)`, `DCHU(A`, `B`, `X)`
 """
 function chu(a::Float32, b::Float32, x::Float32)
@@ -1519,6 +1521,8 @@ end
 
 """
 Confluent hypergeometric function.
+
+This routine is not valid when `1+A-B` is close to zero if X is small.
 
 Formula: `U(a,b,x)`
 

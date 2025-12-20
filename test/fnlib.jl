@@ -261,7 +261,7 @@
     @testset "chu" begin
         # U(a,b,x)
         # U(a,b,x) for a=0 is 1
-        @test SLATEC.FNLIB.chu(0.0f0, 1.0f0, 1.0f0) ≈ 1.0f0
+        @test SLATEC.FNLIB.chu(0.0f0, 1.0f0, 10.0f0) ≈ 1.0f0
     end
 
     @testset "spenc" begin
