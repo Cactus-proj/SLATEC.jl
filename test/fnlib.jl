@@ -252,3 +252,91 @@ const FN = SLATEC.FNLIB
         @test FN.spenc(T(1.0)) ≈ T(1.644934) rtol=1e-5
     end
 end
+
+@testset "Type $T" for T in (ComplexF32, )
+
+    @testset "cbrt" begin
+        @test FN.cbrt(T(27.0)) ≈ T(3.0)
+        x = T(1.0 + 1.0im)
+        @test FN.cbrt(x)^3 ≈ x rtol=1e-5
+    end
+
+    @testset "exprel" begin
+        x = T(1)
+        expected = (exp(x) - 1) / x
+        @test FN.exprel(x) ≈ expected
+    end
+
+    @testset "alnrel" begin
+        x = T(0.1 + 0.1im)
+        expected = log(1 + x)
+        @test FN.alnrel(x) ≈ expected rtol=1e-5
+    end
+
+    @testset "r9ln2r" begin
+        x = T(1.0)
+        expected = (log(1+x) - x + x^2/2) / x^3
+        @test FN.r9ln2r(x) ≈ expected
+    end
+
+    @testset "cot" begin
+        x = T(0.5 + 0.5im)
+        expected = cos(x) / sin(x)
+        @test FN.cot(x) ≈ expected rtol=1e-5
+    end
+
+    @testset "asinh" begin
+        x = T(0.5 + 0.5im)
+        @test FN.asinh(x) ≈ asinh(x) rtol=1e-5
+    end
+
+    @testset "acosh" begin
+        x = T(1.5 + 0.5im)
+        @test FN.acosh(x) ≈ acosh(x) rtol=1e-5
+    end
+
+    @testset "atanh" begin
+        x = T(0.5 + 0.1im)
+        @test FN.atanh(x) ≈ atanh(x) rtol=1e-5
+    end
+
+    @testset "gamma" begin
+        z = T(1.5 + 0.5im)
+        @test FN.gamma(z+1) ≈ z * FN.gamma(z) rtol=1e-5
+    end
+
+    @testset "gamr" begin
+        z = T(1.5 + 0.5im)
+        @test FN.gamr(z) ≈ 1/FN.gamma(z) rtol=1e-5
+    end
+
+    @testset "alngam" begin
+        z = T(1.5 + 0.5im)
+        @test exp(FN.alngam(z)) ≈ FN.gamma(z) rtol=1e-5
+    end
+
+    @testset "psi" begin
+        z = T(1.5 + 0.5im)
+        @test FN.psi(z+1) ≈ FN.psi(z) + 1/z rtol=1e-5
+    end
+
+    @testset "beta" begin
+        a = T(1.0 + 0.5im)
+        b = T(2.0 + 0.5im)
+        expected = FN.gamma(a) * FN.gamma(b) / FN.gamma(a+b)
+        @test FN.beta(a, b) ≈ expected rtol=1e-5
+    end
+
+    @testset "albeta" begin
+        a = T(1.0 + 0.5im)
+        b = T(2.0 + 0.5im)
+        @test exp(FN.albeta(a, b)) ≈ FN.beta(a, b) rtol=1e-5
+    end
+
+    @testset "r9lgmc" begin
+        x = T(10.0 + 1.0im)
+        lhs = log(FN.gamma(x))
+        rhs = (log(2*T(pi))/2) + (x-0.5)*log(x) - x + FN.r9lgmc(x)
+        @test exp(lhs) ≈ exp(rhs) rtol=1e-4
+    end
+end

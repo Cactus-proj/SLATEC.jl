@@ -1635,4 +1635,21 @@ chu(a::Float64, b::Float64, x::Float64) = dchu(a, b, x)
 # Miscellaneous Functions
 spenc(x::Float64) = dspenc(x)
 
+# Complex Functions forwarding
+cbrt(x::ComplexF32) = ccbrt(x)
+exprel(x::ComplexF32) = cexprl(x)
+alnrel(x::ComplexF32) = clnrel(x)
+r9ln2r(x::ComplexF32) = c9ln2r(x)
+cot(x::ComplexF32) = ccot(x)
+asinh(x::ComplexF32) = casinh(x)
+acosh(x::ComplexF32) = cacosh(x)
+atanh(x::ComplexF32) = catanh(x)
+gamma(x::ComplexF32) = cgamma(x)
+gamr(x::ComplexF32) = cgamr(x)
+alngam(x::ComplexF32) = clngam(x)
+psi(x::ComplexF32) = cpsi(x)
+beta(a::ComplexF32, b::ComplexF32) = cbeta(a, b)
+albeta(a::ComplexF32, b::ComplexF32) = clbeta(a, b)
+r9lgmc(x::ComplexF32) = c9lgmc(x)
+
 end # module FNLIB
