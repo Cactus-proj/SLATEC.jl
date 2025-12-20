@@ -1,2 +1,4 @@
 [deps]
+LocalCoverage = "5f6e1e16-694c-5876-87ef-16b5274f298e"
+SLATEC = "a1859f3a-fe65-4b87-bdd1-f377d99d5967"
 Test = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
