@@ -5,6 +5,6 @@ using Test
     @test SLATEC.SLATEC_jll.is_available()
 end
 
-@testset "fnlib.jl" begin
+@testset "FNLIB" begin
     include("fnlib.jl")
 end

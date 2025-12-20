@@ -1556,4 +1556,83 @@ function dspenc(x::Float64)
     ccall((:dspenc_, libslatec), Cdouble, (Ref{Float64},), x)
 end
 
+#= --- Forwarding functions for Float64 --- =#
+
+# Intrinsic Functions and Fundamental Functions
+r9upak(y::Float64, n::Int32) = d9upak(y, n)
+r9pak(::Type{Float64}) = d9pak()
+r9pak(::Type{Float32}) = r9pak()
+inits(::Type{Float64}) = initds()
+inits(::Type{Float32}) = inits()
+csevl(::Type{Float64}) = dcsevl()
+csevl(::Type{Float32}) = csevl()
+# Elementary Functions
+cbrt(x::Float64) = dcbrt(x)
+exprel(x::Float64) = dexprl(x)
+alnrel(x::Float64) = dlnrel(x)
+r9ln2r(x::Float64) = d9ln2r(x)
+# Trigonometric and Hyperbolic Functions
+cot(x::Float64) = dcot(x)
+sindg(x::Float64) = dsindg(x)
+cosdg(x::Float64) = dcosdg(x)
+asinh(x::Float64) = dasinh(x)
+acosh(x::Float64) = dacosh(x)
+atanh(x::Float64) = datanh(x)
+r9atn1(x::Float64) = d9atn1(x)
+# Exponential Integrals and Related Functions
+ei(x::Float64) = dei(x)
+e1(x::Float64) = de1(x)
+ali(x::Float64) = dli(x)
+# Gamma Functions and Related Functions
+fac(n::Int32, ::Type{Float64}) = dfac(n)
+fac(n::Int32, ::Type{Float32}) = fac(n)
+binom(n::Int32, m::Int32, ::Type{Float64}) = dbinom(n, m)
+binom(n::Int32, m::Int32, ::Type{Float32}) = binom(n, m)
+gamma(x::Float64) = dgamma(x)
+gamlim(xmin::Float64, xmax::Float64) = dgamlm(xmin, xmax)
+gamr(x::Float64) = dgamr(x)
+alngam(x::Float64) = dlngam(x)
+algams(g::Float64, s::Float64) = dlgams(g, s)
+gami(a::Float64, x::Float64) = dgami(a, x)
+gamic(a::Float64, x::Float64) = dgamic(a, x)
+gamit(a::Float64, x::Float64) = dgamit(a, x)
+psi(x::Float64) = dpsi(x)
+poch(a::Float64, x::Float64) = dpoch(a, x)
+poch1(a::Float64, x::Float64) = dpoch1(a, x)
+beta(a::Float64, b::Float64) = dbeta(a, b)
+albeta(a::Float64, b::Float64) = dlbeta(a, b)
+betai(x::Float64, a::Float64, b::Float64) = dbetai(x, a, b)
+r9lgmc(x::Float64) = d9lgmc(x)
+# Error Functions and Fresnel Integrals
+erf(x::Float64) = derf(x)
+erfc(x::Float64) = derfc(x)
+daws(x::Float64) = ddaws(x)
+# Bessel Functions
+#   Bessel functions of special integer order
+besj0(x::Float64) = dbesj0(x)
+besj1(x::Float64) = dbesj1(x)
+besy0(x::Float64) = dbesy0(x)
+besy1(x::Float64) = dbesy1(x)
+#   Modified (hyperbolic) Bessel functions of special integer order
+#   scaled by an exponential
+besi0(x::Float64) = dbesi0(x)
+besi1(x::Float64) = dbesi1(x)
+besk0(x::Float64) = dbesk0(x)
+besk1(x::Float64) = dbesk1(x)
+besi0e(x::Float64) = dbsi0e(x)
+besi1e(x::Float64) = dbsi1e(x)
+besk0e(x::Float64) = dbsk0e(x)
+besk1e(x::Float64) = dbsk1e(x)
+#   Sequences of Bessel functions.
+
+# Bessel Functions of Fractional Order
+ai(x::Float64) = dai(x)
+bi(x::Float64) = dbi(x)
+aie(x::Float64) = daie(x)
+bie(x::Float64) = dbie(x)
+# Confluent Hypergeometric Functions
+chu(a::Float64, b::Float64, x::Float64) = dchu(a, b, x)
+# Miscellaneous Functions
+spenc(x::Float64) = dspenc(x)
+
 end # module FNLIB
