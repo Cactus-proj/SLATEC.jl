@@ -1,0 +1,7 @@
+name = "SLATEC"
+uuid = "a1859f3a-fe65-4b87-bdd1-f377d99d5967"
+authors = ["Chengyu HAN <cyhan.dev@outlook.com> and contributors"]
+version = "1.0.0-DEV"
+
+[compat]
+julia = "1.10.10"

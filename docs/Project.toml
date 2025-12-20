@@ -1,0 +1,6 @@
+[deps]
+Documenter = "e30172f5-a6a5-5a46-863b-614d45cd2de4"
+SLATEC = "a1859f3a-fe65-4b87-bdd1-f377d99d5967"
+
+[sources]
+SLATEC = {path = ".."}
