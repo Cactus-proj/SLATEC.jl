@@ -104,8 +104,9 @@ Fortran Name: `CSEVL(X`, `CS`, `N)`, `DCSEVL(X`, `CS`, `N)`
 @param[in]  n  Number of coefficients in `cs`.
 @return        Value of the Chebyshev series at `x`.
 """
-function csevl()
-    ccall((:csevl_, libslatec), Cfloat, (), )
+function csevl(x::Float32, cs::Vector{Float32})
+    ccall((:csevl_, libslatec), Cfloat, (Ref{Float32}, Ptr{Cfloat}, Ref{Cint}),
+        x, cs, Ref(Cint(length(cs))))
 end
 
 """
@@ -119,8 +120,9 @@ Fortran Name: `CSEVL(X`, `CS`, `N)`, `DCSEVL(X`, `CS`, `N)`
 @param[in]  n  Number of coefficients in `cs`.
 @return        Value of the Chebyshev series at `x`.
 """
-function dcsevl()
-    ccall((:dcsevl_, libslatec), Cdouble, (), )
+function dcsevl(x::Float64, cs::Vector{Float64})
+    ccall((:dcsevl_, libslatec), Cdouble, (Ref{Float64}, Ptr{Cdouble}, Ref{Cint}),
+        x, cs, Ref(Cint(length(cs))))
 end
 
 #= --- Elementary Functions --- =#
@@ -1580,8 +1582,7 @@ end
 r9upak(x::Float64) = d9upak(x)
 r9pak(y::Float64, n::Int32) = d9pak(y, n)
 inits(os::Vector{Float64}, eta::Float64) = initds(os, eta)
-csevl(::Type{Float64}) = dcsevl()
-csevl(::Type{Float32}) = csevl()
+csevl(x::Float64, cs::Vector{Float64}) = dcsevl(x, cs)
 # Elementary Functions
 cbrt(x::Float64) = dcbrt(x)
 exprel(x::Float64) = dexprl(x)

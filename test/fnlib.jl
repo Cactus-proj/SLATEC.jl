@@ -34,6 +34,21 @@ const FN = SLATEC.FNLIB
     #     @test FN.inits(coeffs2, eps_lim) == 3
     # end
 
+    @testset "csevl" begin
+        x = T(0.5)
+        # T0(x) = 1. Term: 0.5 * c1 * T0(x).
+        # If cs=[2.0], result = 0.5 * 2.0 * 1 = 1.0.
+        @test FN.csevl(x, T[2.0]) ≈ T(1.0)
+        
+        # T1(x) = x. Term: c2 * T1(x).
+        # If cs=[0.0, 1.0], result = 1.0 * 0.5 = 0.5.
+        @test FN.csevl(x, T[0.0, 1.0]) ≈ T(0.5)
+        
+        # T2(x) = 2x^2 - 1. Term: c3 * T2(x).
+        # If cs=[0.0, 0.0, 1.0], result = 2(0.5)^2 - 1 = -0.5.
+        @test FN.csevl(x, T[0.0, 0.0, 1.0]) ≈ T(-0.5)
+    end
+
     @testset "exprel" begin
         # ((e^x) - 1) / x
         # x -> 0, limit is 1

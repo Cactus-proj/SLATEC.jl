@@ -68,8 +68,8 @@ integer initds_(const doublereal os[], const integer *nos, const doublereal *eta
  * @param[in]  n  Number of coefficients in `cs`.
  * @return        Value of the Chebyshev series at `x`.
  */
-real csevl_(const real *x, const real *cs, const integer *n);
-doublereal dcsevl_(const doublereal *x, const doublereal *cs, const integer *n);
+real csevl_(const real *x, const real cs[], const integer *n);
+doublereal dcsevl_(const doublereal *x, const doublereal cs[], const integer *n);
 
 /* --- Elementary Functions --- */
 
