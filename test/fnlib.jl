@@ -21,6 +21,19 @@ const FN = SLATEC.FNLIB
         @test FN.r9pak(y, n) ≈ x
     end
 
+    # TODO
+    # @testset "inits" begin
+    #     eps_lim = T == Float32 ? T(1e-5) : T(1e-10)
+    #     # 1.0 * T_0(x) + 0.5 * T_1(x) + 0.0 * T_2(x) ...
+    #     # Significant terms are first 2.
+    #     coeffs = T[1.0, 0.5, eps_lim/10, 0.0]
+    #     @test FN.inits(coeffs, eps_lim) == 2
+        
+    #     # Test with all significant
+    #     coeffs2 = T[1.0, 1.0, 1.0, 0.0]
+    #     @test FN.inits(coeffs2, eps_lim) == 3
+    # end
+
     @testset "exprel" begin
         # ((e^x) - 1) / x
         # x -> 0, limit is 1

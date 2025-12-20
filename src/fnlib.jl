@@ -73,8 +73,9 @@ Fortran Name: `INITS(OS`, `NOS`, `ETA)`, `INITDS(OS`, `NOS`, `ETA)`
 @param[in]  eta  Requested accuracy of the series.
 @return          Number of terms needed to meet the accuracy.
 """
-function inits()
-    ccall((:inits_, libslatec), Cint, (), )
+function inits(os::Vector{Float32}, eta::Float32)
+    ccall((:inits_, libslatec), Cint, (Ptr{Cfloat}, Ref{Cint}, Ref{Cfloat}),
+        os, Ref(Cint(length(os))), Ref(eta))
 end
 
 """
@@ -87,8 +88,9 @@ Fortran Name: `INITS(OS`, `NOS`, `ETA)`, `INITDS(OS`, `NOS`, `ETA)`
 @param[in]  eta  Requested accuracy of the series.
 @return          Number of terms needed to meet the accuracy.
 """
-function initds()
-    ccall((:initds_, libslatec), Cint, (), )
+function initds(os::Vector{Float64}, eta::Float64)
+    ccall((:initds_, libslatec), Cint, (Ptr{Cdouble}, Ref{Cint}, Ref{Cdouble}),
+        os, Ref(Cint(length(os))), Ref(eta))
 end
 
 """
@@ -1577,8 +1579,7 @@ end
 # Intrinsic Functions and Fundamental Functions
 r9upak(x::Float64) = d9upak(x)
 r9pak(y::Float64, n::Int32) = d9pak(y, n)
-inits(::Type{Float64}) = initds()
-inits(::Type{Float32}) = inits()
+inits(os::Vector{Float64}, eta::Float64) = initds(os, eta)
 csevl(::Type{Float64}) = dcsevl()
 csevl(::Type{Float32}) = csevl()
 # Elementary Functions

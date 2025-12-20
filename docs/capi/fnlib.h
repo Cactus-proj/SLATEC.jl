@@ -55,8 +55,8 @@ doublereal d9pak_(const doublereal *y, const integer *n);
  * @param[in]  eta  Requested accuracy of the series.
  * @return          Number of terms needed to meet the accuracy.
  */
-integer inits_(const real *os, const integer *nos, const real *eta);
-integer initds_(const doublereal *os, const integer *nos, const doublereal *eta);
+integer inits_(const real os[], const integer *nos, const real *eta);
+integer initds_(const doublereal os[], const integer *nos, const doublereal *eta);
 
 /**
  * Evaluate Chebyshev series.
