@@ -1,0 +1,129 @@
+tape from Fullerton at IMSL sent 21 Feb 84, read onto bowell 24 Feb by ehg
+tr A-Z a-z <tapefile1 | fsplit
+
+21 Mar '86
+  duplicate declarations removed from dbetai, dgamma, dbinom, dshi by wmc
+From dessert.cam.nist.gov!boisvert Wed Mar 27 15:59:16 EST 1991
+Date: Wed, 27 Mar 91 15:59:16 EST
+From: boisvert@dessert.cam.nist.gov (Ronald_Boisvert_x3812)
+To: ehg@research.att.com, na.brophy@na-net.ornl.gov, slatec@lanl.gov
+Subject: FNLIB Bug Alert
+
+
+                                  ---------
+                                  Bug Alert
+                                  ---------
+
+  A serious bug is present in the routine DBESJ1 of FNLIB.  This routine 
+  computes the J1 Bessel function in double precision.  The function values 
+  produced by this software have the wrong sign for all arguments less 
+  than -4.
+
+  The error is present in the version of FNLIB currently included in :
+
+     * netlib
+     * SLATEC
+     * CMLIB
+     * IMSL SFUN/LIBRARY (routine name : DBSJ1)
+
+  The following simple program illustrates the error.  In it we tabulate 
+  J1(x) for x in the interval (-10,0) as computed by BESJ1 and DBESJ1, the 
+  single and double precision FNLIB routines, respectively.
+
+      real x, besj1
+      double precision xd, dbesj1
+      print *,'      x         besj1(x)         dbesj1(x)'
+      print *,' ------------------------------------------------'
+      do 10 j=1,50
+         xd = -j*0.20d0
+         x = xd
+         print '(1p,2x,e9.2,2x,e12.5,2x,d20.13)',
+     +         x,besj1(x),dbesj1(xd)
+   10 continue
+      end
+
+  This program produces the following output on a Sun SPARCstation 1+ :
+
+      x         besj1(x)         dbesj1(x)
+ ------------------------------------------------
+  -2.00E-01  -9.95008E-02  -9.9500832639236D-02
+  -4.00E-01  -1.96027E-01  -1.9602657795532D-01
+  -6.00E-01  -2.86701E-01  -2.8670098806392D-01
+  -8.00E-01  -3.68842E-01  -3.6884204609417D-01
+  -1.00E+00  -4.40051E-01  -4.4005058574493D-01
+  -1.20E+00  -4.98289E-01  -4.9828905756722D-01
+  -1.40E+00  -5.41948E-01  -5.4194771393085D-01
+  -1.60E+00  -5.69896E-01  -5.6989593526168D-01
+  -1.80E+00  -5.81517E-01  -5.8151695173117D-01
+  -2.00E+00  -5.76725E-01  -5.7672480775687D-01
+  -2.20E+00  -5.55963E-01  -5.5596304981906D-01
+  -2.40E+00  -5.20185E-01  -5.2018526818193D-01
+  -2.60E+00  -4.70818E-01  -4.7081826651758D-01
+  -2.80E+00  -4.09709E-01  -4.0970924685229D-01
+  -3.00E+00  -3.39059E-01  -3.3905895852594D-01
+  -3.20E+00  -2.61343E-01  -2.6134324878050D-01
+  -3.40E+00  -1.79226E-01  -1.7922585168151D-01
+  -3.60E+00  -9.54656E-02  -9.5465547177876D-02
+  -3.80E+00  -1.28210E-02  -1.2821002926731D-02
+  -4.00E+00   6.60434E-02   6.6043328023549D-02
+  -4.20E+00   1.38647E-01  -1.3864694212605D-01
+  -4.40E+00   2.02776E-01  -2.0277552192309D-01
+  -4.60E+00   2.56553E-01  -2.5655283609744D-01
+  -4.80E+00   2.98500E-01  -2.9849985809956D-01
+  -5.00E+00   3.27579E-01  -3.2757913759147D-01
+  -5.20E+00   3.43223E-01  -3.4322300587192D-01
+  -5.40E+00   3.45345E-01  -3.4534479077959D-01
+  -5.60E+00   3.34333E-01  -3.3433283629101D-01
+  -5.80E+00   3.11028E-01  -3.1102774430394D-01
+  -6.00E+00   2.76684E-01  -2.7668385812757D-01
+  -6.20E+00   2.32917E-01  -2.3291656707322D-01
+  -6.40E+00   1.81637E-01  -1.8163750902418D-01
+  -6.60E+00   1.24980E-01  -1.2498016516056D-01
+  -6.80E+00   6.52186E-02  -6.5218663401686D-02
+  -7.00E+00   4.68279E-03  -4.6828234823459D-03
+  -7.20E+00  -5.43274E-02   5.4327420222367D-02
+  -7.40E+00  -1.09625E-01   1.0962509485399D-01
+  -7.60E+00  -1.59214E-01   1.5921376839636D-01
+  -7.80E+00  -2.01357E-01   2.0135687275590D-01
+  -8.00E+00  -2.34636E-01   2.3463634685391D-01
+  -8.20E+00  -2.57999E-01   2.5799859764868D-01
+  -8.40E+00  -2.70786E-01   2.7078626827684D-01
+  -8.60E+00  -2.72755E-01   2.7275484454588D-01
+  -8.80E+00  -2.64074E-01   2.6407370323968D-01
+  -9.00E+00  -2.45312E-01   2.4531178657333D-01
+  -9.20E+00  -2.17409E-01   2.1740865496045D-01
+  -9.40E+00  -1.81632E-01   1.8163220400702D-01
+  -9.60E+00  -1.39525E-01   1.3952481174069D-01
+  -9.80E+00  -9.28400E-02   9.2840091112810D-02
+  -1.00E+01  -4.34728E-02   4.3472746168861D-02
+
+  As you can see, the single and double precision versions differ in 
+  sign for x less than -4.  The single precision routine returns the
+  correct result.
+
+  The code is easily patched by analogy with the single precision 
+  version.  The last assignment statement in the code should be changed 
+  from
+
+      dbesj1 = ampl * dcos(theta)
+
+  to
+
+      dbesj1 = sign(ampl,x) * dcos(theta)
+
+
+  ---------------------------------------------------------------------------
+
+    Ron Boisvert
+    Computing and Applied Mathematics Laboratory
+    National Institute of Standards and Technology
+    Gaithersburg, MD 20899
+
+    boisvert@cam.nist.gov
+
+    21 March 91
+
+  ---------------------------------------------------------------------------
+
+26 Nov 86 ehg
+  *ci.f:  /ntci/s//nci/         reported by Igor Bray

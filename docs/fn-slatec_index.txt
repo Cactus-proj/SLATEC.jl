@@ -1,0 +1,347 @@
+index from slatec
+
+ 2.  intrinsic functions and fundamental functions
+
+
+
+                                             sngl.      dble.
+ name                     notation           prec.      prec.   complex
+
+
+ unpack floating point                   call
+ number                                  r9upak(x,y,n)  d9upak    --
+
+ pack floating point                        r9pak(y,n)  d9pak     --
+ number
+
+ initialize orthogonal               inits(os,nos,eta)  initds    --
+ polynomial series
+
+ evaluate chebyshev       summation for  csevl(x,cs,n)  dcsevl    --
+ series                   i = 1 to n of
+                          cs(i)*(2*x)**(i-1)
+
+
+
+ 3.  elementary functions
+
+
+
+                                             sngl.      dble.
+ name                     notation           prec.      prec.   complex
+
+
+ argument = theta in      z = \ z \ *          --         --    carg(z)
+ radians                  e**(i * theta)
+
+ cube root                                   cbrt(x)    dcbrt   ccbrt
+
+ relative error exponen-  ((e**x) -1) / x    exprel(x)  dexprl  cexprl
+ tial from first order
+
+ common logarithm         log to the base 10   --         --    clog10(
+                          of z
+
+ relative error logarithm ln(1 + x)          alnrel(x)  dlnrel  clnrel
+
+ relative error logarithm (ln(1 + x) - x     r9ln2r(x)  d9ln2r  c9ln2r
+ from second order of     + x**2/2) / x**3
+ expansion
+
+
+
+ 4.  trigonometric and hyperbolic functions
+
+
+
+                                             sngl.      dble.
+ name                     notation           prec.      prec.   complex
+
+
+ tangent                  tan z                --         --    ctan(z)
+
+ cotangent                cot x              cot(x)     dcot    ccot
+
+ sine x in degrees        sin ((2 * pi * x)  sindg(x)   dsindg    --
+                          / 360)
+
+ cosine x in degrees      cos ((2 * pi * x)  cosdg(x)   dcosdg    --
+                          / 360)
+
+ arc sine                 arcsin (z)           --         --    casin(z
+
+ arc cosine               arccos (z)           --         --    cacos(z
+
+ arc tangent              arctan (z)           --         --    catan(z
+
+ quadrant correct         arctan (sin(z) /     --         --    catan2(
+ arc tangent              cos(z))
+
+ hyperbolic sine          sinh x             sinh(x)    dsinh   csinh
+
+ hyperbolic cosine        cosh x             cosh(x)    dcosh   ccosh
+
+ hyperbolic tangent       tanh x             tanh(x)    dtanh   ctanh
+
+ arc hyperbolic sine      arcsinh (x)        asinh(x)   dasinh  casinh
+
+ arc hyperbolic cosine    arccosh (x)        acosh(x)   dacosh  cacosh
+
+ arc hyperbolic tangent   arctanh (x)        atanh(x)   datanh  catanh
+
+ relative error arc       (arctan (x) - x)   r9atn1(x)  d9atn1    --
+ tangent from first order / x**3
+
+
+
+ 5.  exponential integrals and related functions
+
+
+
+                                             sngl.      dble.
+ name                     notation           prec.      prec.   complex
+
+
+ exponential integral     ei(x) =            ei(x)      dei       --
+                          the integral from
+                          -x to infinity of
+                          (e**-t / t)dt
+
+ exponential integral     e sub 1 (x) =      e1(x)      de1       --
+                          the integral from x
+                          to infinity of
+                          (e**-t / t) dt
+
+ logarithmic integral     li(x) = the        ali(x)     dli       --
+                          integral from 0 to x
+                          of (1 / ln t) dt
+
+
+
+ 6.  gamma functions and related functions
+
+
+
+                                             sngl.      dble.
+ name                     notation           prec.      prec.   complex
+
+
+ factorial                n!                 fac(n)     dfac      --
+
+ binomial                 n! / (m! * (n-m)!) binom(n,m) dbinom    --
+
+ gamma                    gamma(x)           gamma(x)   dgamma  cgamma
+
+ gamma(x) under and                          call
+ overflow limits                      gamlim(xmin,xmax) dgamlm    --
+
+ reciprocal gamma         1 / gamma(x)       gamr(x)    dgamr   cgamr
+
+ log abs gamma            ln \gamma(x)\      alngam(x)  dlngam    --
+
+ log gamma                ln gamma(z)          --         --    clngam
+
+ log abs gamma          g = ln \gamma(x)\    call
+ with sign of gamma     s = sign gamma(x) algams(x,g,s) dlgams    --
+
+ incomplete gamma         gamma(a,x) =       gami(a,x)  dgami     --
+                          the integral from
+                          0 to x of
+                          (t**(a-1) * e**-t)dt
+
+ complementary            gamma(a,x) =       gamic(a,x) dgamic    --
+ incomplete gamma         the integral from
+                          x to infinity of
+                          (t**(a-1) * e**-t)dt
+
+ tricomi's             gamma super star(a,x) gamit(a,x) dgamit    --
+ incomplete gamma         = x**-a *
+                          incomplete gamma(a,x)
+                          / gamma(a)
+
+ psi (digamma)            psi(x) = gamma'(x) psi(x)     dpsi    cpsi
+                          / gamma(x)
+
+ pochhammer's         (a) sub x = gamma(a+x) poch(a,x)  dpoch     --
+ generalized symbol       / gamma(a)
+
+ pochhammer's symbol    ((a) sub x -1) / x   poch1(a,x) dpoch1    --
+ from first order
+
+ beta                     b(a,b) = (gamma(a) beta(a,b)  dbeta   cbeta
+                          * gamma(b))
+                          / gamma(a+b)
+
+                          = the integral
+                          from 0 to 1 of
+                          (t**(a-1) *
+                          (1-t)**(b-1))dt
+
+ log beta                 ln b(a,b)         albeta(a,b) dlbeta  clbeta
+
+ incomplete beta          i sub x (a,b) =  betai(x,a,b) dbetai    __
+                          b sub x (a,b) / b(a,b)
+
+                          = 1 / b(a,b) *
+                          the integral
+                          from 0 to x of
+                          (t**(a-1) *
+                          (1-t)**(b-1))dt
+
+ log gamma correction     ln gamma(x) -      r9lgmc(x)  d9lgmc  c9lgmc
+ term when stirling's     (ln(2 * pi))/2 -
+ approximation is valid   (x - 1/2) * ln(x) + x
+
+
+
+ 7.  error functions and fresnel integrals
+
+
+
+                                             sngl.      dble.
+ name                     notation           prec.      prec.   complex
+
+
+ error function           erf x = (2 /       erf(x)     derf      --
+                          square root of pi) *
+                          the integral from
+                          0 to x of
+                          e**(-t**2)dt
+
+ complementary            erfc x = (2 /      erfc(x)    derfc     --
+ error function           square root of pi) *
+                          the integral from
+                          x to infinity of
+                          e**(-t**2)dt
+
+ dawson's function        f(x) = e**(-x**2)  daws(x)    ddaws     --
+                          * the integral from
+                          from 0 to x of
+                          e**(t**2)dt
+
+
+
+ 9.  bessel functions
+
+
+
+                                             sngl.      dble.
+ name                     notation           prec.      prec.   complex
+
+ bessel functions of
+ special integer order
+
+ first kind, order zero   j sub 0 (x)        besj0(x)   dbesj0    --
+
+ first kind, order one    j sub 1 (x)        besj1(x)   dbesj1    --
+
+ second kind, order zero  y sub 0 (x)        besy0(x)   dbesy0    --
+
+ second kind, order one   y sub 1 (x)        besy1(x)   dbesy1    --
+
+
+ modified (hyperbolic)
+ bessel functions of
+ special integer order
+
+ first kind, order zero   i sub 0 (x)        besi0(x)   dbesi0    --
+
+ first kind, order one    i sub 1 (x)        besi1(x)   dbesi1    --
+
+ third kind, order zero   k sub 0 (x)        besk0(x)   dbesk0    --
+
+ third kind, order one    k sub 1 (x)        besk1(x)   dbesk1    --
+
+
+ modified (hyperbolic)
+ bessel functions of
+ special integer order
+ scaled by an exponential
+
+ first kind, order zero   e**-\x\ * i sub 0(x) besi0e(x) dbsi0e   --
+
+ first kind, order one    e**-\x\ * i sub 1(x) besi1e(x) dbsi1e   --
+
+ third kind, order zero   e**x * k sub 0 (x)   besk0e(x) dbsk0e   --
+
+ third kind, order one    e**x * k sub 1 (x)   besk1e(x) dbsk1e   --
+
+ sequences of bessel
+ functions.  \n\ values
+ are computed where
+ i = 0, 1, 2, ..., n-1
+ for n > 0 or
+ i = 0, -1, -2, ..., n+1
+ for n < 0.
+
+ modified third kind      k sub v+i (x)      call
+                                             besks(     dbesks    --
+                                           xnu,x,n,bk)
+ sequences of bessel
+ functions scaled by an
+ exponential.  \n\ values
+ are computed where
+ i = 0, 1, 2, ..., n-1
+ for n > 0 or
+ i = 0, -1, -2, ..., n+1
+ for n < 0.
+
+ modified third kind      e**x *             call
+                          k sub v+i (x)      beskes(    dbskes    --
+                                           xnu,x,n,bk)
+
+
+ 10.  bessel functions of fractional order
+
+
+
+                                             sngl.      dble.
+ name                     notation           prec.      prec.   complex
+
+
+ airy functions
+
+ airy                     ai(x)              ai(x)      dai       --
+
+ bairy                    bi(x)              bi(x)      dbi       --
+
+ exponentially scaled
+ airy functions
+
+ airy                     ai(x), x <= 0      aie(x)     daie      --
+                          exp(2/3 * x**(3/2))
+                          * ai(x), x >= 0
+
+ bairy                    bi(x), x <= 0      bie(x)     dbie      --
+                          exp(-2/3 * x**(3/2))
+                          * bi(x), x >= 0
+
+
+ 13.  confluent hypergeometric functions
+
+
+                                             sngl.      dble.
+ name                     notation           prec.      prec.   complex
+
+
+ confluent                u(a,b,x)           chu(a,b,x) dchu      --
+ hypergeometric
+
+
+
+ 27.  miscellaneous functions
+
+
+
+                                             sngl.      dble.
+ name                     notation           prec.      prec.   complex
+
+
+ spence                   s(x) = - the       spenc(x)   dspenc    --
+ dilogarithm              integral from
+                          0 to x of
+                          ((ln \1-y\) / y)dy
+***end prologue  fnlibd
+***first executable statement  fnlibd
+      return
+      end
