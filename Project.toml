@@ -4,8 +4,10 @@ version = "1.0.0-DEV"
 authors = ["Chengyu HAN <cyhan.dev@outlook.com> and contributors"]
 
 [deps]
+OpenBLAS32 = "51095b67-9e93-468d-a683-508b52f74e81"
 SLATEC_jll = "2967fdeb-73c1-5946-ae15-4ce8b52d4346"
 
 [compat]
+OpenBLAS32 = "0.1.0"
 SLATEC_jll = "4.1.1"
 julia = "1.10.10"
