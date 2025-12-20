@@ -166,9 +166,9 @@
         # Formula: ln gamma(x) - (ln(2pi)/2) - (x-0.5)ln(x) + x
         # This is Stirling's approximation error term.
         x = 10.0f0
-        val = SLATEC.FNLIB.r9lgmc(x)
-        approx = log(SLATEC.FNLIB.gamma(x)) - (log(2.0f0*pi)/2.0f0) - (x-0.5f0)*log(x) + x
-        @test val ≈ approx rtol=1e-4
+        lhs = log(SLATEC.FNLIB.gamma(x))
+        rhs = (log(2*pi)/2) + (x-0.5)*log(x) - x + SLATEC.FNLIB.r9lgmc(x)
+        @test lhs ≈ rhs
     end
 
     @testset "erf" begin
