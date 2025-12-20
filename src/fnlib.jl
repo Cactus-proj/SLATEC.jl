@@ -707,8 +707,10 @@ Fortran Name: `GAMLIM(XMIN`, `XMAX)`, `DGAMLM(XMIN`, `XMAX)`
 @param[out] xmin  Minimum legal value of X in gamma(X)
 @param[out] xmax  Maximum legal value of X in gamma(X)
 """
-function gamlim(xmin::Float32, xmax::Float32)
+function gamlim()
+    xmin, xmax = Ref{Float32}(NaN32), Ref{Float32}(NaN32)
     ccall((:gamlim_, libslatec), Cvoid, (Ref{Float32}, Ref{Float32}), xmin, xmax)
+    xmin[], xmax[]
 end
 
 """
@@ -718,8 +720,10 @@ Fortran Name: `GAMLIM(XMIN`, `XMAX)`, `DGAMLM(XMIN`, `XMAX)`
 @param[out] xmin  Minimum legal value of X in gamma(X)
 @param[out] xmax  Maximum legal value of X in gamma(X)
 """
-function dgamlm(xmin::Float64, xmax::Float64)
+function dgamlm()
+    xmin, xmax = Ref{Float64}(NaN), Ref{Float64}(NaN)
     ccall((:dgamlm_, libslatec), Cvoid, (Ref{Float64}, Ref{Float64}), xmin, xmax)
+    xmin[], xmax[]
 end
 
 """
@@ -1589,7 +1593,8 @@ fac(n::Int32, ::Type{Float32}) = fac(n)
 binom(n::Int32, m::Int32, ::Type{Float64}) = dbinom(n, m)
 binom(n::Int32, m::Int32, ::Type{Float32}) = binom(n, m)
 gamma(x::Float64) = dgamma(x)
-gamlim(xmin::Float64, xmax::Float64) = dgamlm(xmin, xmax)
+gamlim(::Type{Float32}) = gamlim()
+gamlim(::Type{Float64}) = dgamlm()
 gamr(x::Float64) = dgamr(x)
 alngam(x::Float64) = dlngam(x)
 algams(g::Float64, s::Float64) = dlgams(g, s)

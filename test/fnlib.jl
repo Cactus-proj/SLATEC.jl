@@ -94,6 +94,11 @@ const FN = SLATEC.FNLIB
         @test FN.gamma(T(0.5)) ≈ sqrt(T(pi))
     end
 
+    @testset "gamlim" begin
+        xmin, xmax = FN.gamlim(T)
+        @test xmin < 0 && xmax > 0
+    end
+
     @testset "gamr" begin
         @test FN.gamr(T(5.0)) ≈ T(1.0) / T(24.0)
     end
