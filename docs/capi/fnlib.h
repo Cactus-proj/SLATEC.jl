@@ -615,85 +615,101 @@ doublereal dbsk1e_(doublereal *x);
 /**
  * Sequence of modified Bessel functions of the first kind.
  *
- * Formula: I sub v+k-1 (x), k = 1,2,...N. Optional scaling by e**(-x).
+ * Formula: ``I_{a+k-1}(x), k = 1,2,...,N``.  Optional scaling by `exp(-x)`.
  * Fortran Name: BESI(X,ALPHA,KODE,N, Y(*),NZ), DBESI(X,ALPHA,KODE,N, Y(*),NZ)
- * @param[in]  x      Argument
- * @param[in]  alpha  Order
+ * @param[in]  x      `x >= 0`
+ * @param[in]  alpha  Order of first member of the sequence, `alpha >= 0`
  * @param[in]  kode   Selection parameter (1=unscaled, 2=scaled)
- * @param[in]  n      Number of values
+ * @param[in]  n      Number of members in the sequence, `n >= 1`
  * @param[out] y      Result array
  * @param[out] nz     Number of underflows
  */
-void besi_(const real *x, const real *alpha, const integer *kode, const integer *n, real y[], integer *nz);
-void dbesi_(const doublereal *x, const doublereal *alpha, const integer *kode, const integer *n, doublereal y[], integer *nz);
+void besi_(const real *x, const real *alpha, const integer *kode, const integer *n,
+    real y[], integer *nz);
+void dbesi_(const doublereal *x, const doublereal *alpha, const integer *kode, const integer *n,
+    doublereal y[], integer *nz);
 
 /**
  * Sequence of Bessel functions of the first kind.
  *
- * Formula: J sub v+k-1 (x), k = 1,2,...N
+ * Formula: ``J_{a+k-1}(x), k = 1,2,...,N``
  * Fortran Name: BESJ(X,ALPHA,N, Y(*),NZ), DBESJ(X,ALPHA,N, Y(*),NZ)
- * @param[in]  x      Argument
- * @param[in]  alpha  Order
- * @param[in]  n      Number of values
+ * @param[in]  x      `x >= 0`
+ * @param[in]  alpha  Order of first member of the sequence, `alpha >= 0`
+ * @param[in]  n      Number of members in the sequence, `n >= 1`
  * @param[out] y      Result array
  * @param[out] nz     Number of underflows
  */
-void besj_(const real *x, const real *alpha, const integer *n, real y[], integer *nz);
-void dbesj_(const doublereal *x, const doublereal *alpha, const integer *n, doublereal y[], integer *nz);
+void besj_(const real *x, const real *alpha, const integer *n,
+    real y[], integer *nz);
+void dbesj_(const doublereal *x, const doublereal *alpha, const integer *n,
+    doublereal y[], integer *nz);
 
 /**
  * Sequence of Bessel functions of the second kind.
  *
- * Formula: Y sub v+k-1 (x), k = 1,2,...N
+ * Formula: ``Y_{a+k-1}(x), k = 1,2,...,N``
  * Fortran Name: BESY(X,FNU,N, Y(*)), DBESY(X,FNU,N, Y(*))
- * @param[in]  x    Argument
- * @param[in]  fnu  Order
- * @param[in]  n    Number of values
+ * @param[in]  x     `x >= 0`
+ * @param[in]  fnu  Order of first member of the sequence, `fnu >= 0`
+ * @param[in]  n    Number of members in the sequence, `n >= 1`
  * @param[out] y    Result array
  */
-void besy_(const real *x, const real *fnu, const integer *n, real y[]);
-void dbesy_(const doublereal *x, const doublereal *fnu, const integer *n, doublereal y[]);
+void besy_(const real *x, const real *fnu, const integer *n,
+    real y[]);
+void dbesy_(const doublereal *x, const doublereal *fnu, const integer *n,
+    doublereal y[]);
 
 /**
  * Sequence of modified Bessel functions of the third kind.
  *
- * Formula: K sub v+k-1 (x), k = 1,2,...N. Optional scaling by e**(x).
+ * Formula: ``K_{a+k-1}(x), k = 1,2,...,N``. Optional scaling by `exp(x)`.
  * Fortran Name: BESK(X,FNU,KODE,N, Y(*),NZ), DBESK(X,FNU,KODE,N, Y(*),NZ)
- * @param[in]  x     Argument
- * @param[in]  fnu   Order
+ * @param[in]  x     `x >= 0`
+ * @param[in]  fnu   Order of first member of the sequence, `fnu >= 0`
  * @param[in]  kode  Selection parameter (1=unscaled, 2=scaled)
- * @param[in]  n     Number of values
+ * @param[in]  n     Number of members in the sequence, `n >= 1`
  * @param[out] y     Result array
  * @param[out] nz    Number of underflows
  */
-void besk_(const real *x, const real *fnu, const integer *kode, const integer *n, real y[], integer *nz);
-void dbesk_(const doublereal *x, const doublereal *fnu, const integer *kode, const integer *n, doublereal y[], integer *nz);
+void besk_(const real *x, const real *fnu, const integer *kode, const integer *n,
+    real y[], integer *nz);
+void dbesk_(const doublereal *x, const doublereal *fnu, const integer *kode, const integer *n,
+    doublereal y[], integer *nz);
 
 /**
  * Sequence of modified Bessel functions of the third kind.
  *
- * Formula: K sub v+i (x), I = 0, 1, ..., N-1 for N > 0 or I = 0, -1, ..., N+1 for N < 0.
+ * Formula:
+ *      ``K_{a+i}(x), i = 0, 1, ..., N-1`` for `N > 0`
+ *      or `i = 0, -1, ..., N+1` for `N < 0`.
  * Fortran Name: BESKS(XNU,X,N, BK(*)), DBESKS(XNU,X,N, BK(*))
- * @param[in]  xnu  Order
- * @param[in]  x    Argument
- * @param[in]  n    Number of values
+ * @param[in]  xnu  Order of first member of the sequence, `xnu >= 0`
+ * @param[in]  x    Argument, `x >= 0`
+ * @param[in]  n    Number of members in the sequence, `n >= 1`
  * @param[out] bk   Result array
  */
-void besks_(const real *xnu, const real *x, const integer *n, real bk[]);
-void dbesks_(const doublereal *xnu, const doublereal *x, const integer *n, doublereal bk[]);
+void besks_(const real *xnu, const real *x, const integer *n,
+    real bk[]);
+void dbesks_(const doublereal *xnu, const doublereal *x, const integer *n,
+    doublereal bk[]);
 
 /**
  * Sequence of modified Bessel functions of the third kind, scaled.
  *
- * Formula: e**x * K sub v+i (x), I = 0, 1, ..., N-1 for N > 0 or I = 0, -1, ..., N+1 for N < 0.
+ * Formula:
+ *      ``e^x * K_{a+i}(x), i = 0, 1, ..., N-1`` for `N > 0`
+ *      or `i = 0, -1, ..., N+1` for `N < 0`.
  * Fortran Name: BESKES(XNU,X,N, BK(*)), DBSKES(XNU,X,N, BK(*))
- * @param[in]  xnu  Order
- * @param[in]  x    Argument
- * @param[in]  n    Number of values
+ * @param[in]  xnu  Order of first member of the sequence, `xnu >= 0`
+ * @param[in]  x    Argument, `x >= 0`
+ * @param[in]  n    Number of members in the sequence, `n >= 1`
  * @param[out] bk   Result array
  */
-void beskes_(const real *xnu, const real *x, const integer *n, real bk[]);
-void dbskes_(const doublereal *xnu, const doublereal *x, const integer *n, doublereal bk[]);
+void beskes_(const real *xnu, const real *x, const integer *n,
+    real bk[]);
+void dbskes_(const doublereal *xnu, const doublereal *x, const integer *n,
+    doublereal bk[]);
 
 /* --- Bessel Functions of Fractional Order --- */
 
