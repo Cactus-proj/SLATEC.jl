@@ -802,8 +802,11 @@ Fortran Name: `ALGAMS(X`, `G`, `S)`, `DLGAMS(X`, `G`, `S)`
 @param[out] g  Log absolute gamma
 @param[out] s  Sign of gamma, `+1.0` or `-1.0`
 """
-function algams(g::Float32, s::Float32)
-    ccall((:algams_, libslatec), Cvoid, (Ref{Float32}, Ref{Float32}), g, s)
+function algams(x::Float32)
+    loggam, sgn = Ref{Float32}(NaN32), Ref{Float32}(NaN32)
+    ccall((:algams_, libslatec), Cvoid, (Ref{Float32}, Ref{Float32}, Ref{Float32}),
+        x, loggam, sgn)
+    loggam[], sgn[]
 end
 
 """
@@ -816,8 +819,11 @@ Fortran Name: `ALGAMS(X`, `G`, `S)`, `DLGAMS(X`, `G`, `S)`
 @param[out] g  Log absolute gamma
 @param[out] s  Sign of gamma, `+1.0` or `-1.0`
 """
-function dlgams(g::Float64, s::Float64)
-    ccall((:dlgams_, libslatec), Cvoid, (Ref{Float64}, Ref{Float64}), g, s)
+function dlgams(x::Float64)
+    loggam, sgn = Ref{Float64}(NaN), Ref{Float64}(NaN)
+    ccall((:dlgams_, libslatec), Cvoid, (Ref{Float64}, Ref{Float64}, Ref{Float64}),
+        x, loggam, sgn)
+    loggam[], sgn[]
 end
 
 """
@@ -1597,7 +1603,7 @@ gamlim(::Type{Float32}) = gamlim()
 gamlim(::Type{Float64}) = dgamlm()
 gamr(x::Float64) = dgamr(x)
 alngam(x::Float64) = dlngam(x)
-algams(g::Float64, s::Float64) = dlgams(g, s)
+algams(x::Float64) = dlgams(x)
 gami(a::Float64, x::Float64) = dgami(a, x)
 gamic(a::Float64, x::Float64) = dgamic(a, x)
 gamit(a::Float64, x::Float64) = dgamit(a, x)

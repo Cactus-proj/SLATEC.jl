@@ -107,6 +107,12 @@ const FN = SLATEC.FNLIB
         @test FN.alngam(T(5.0)) ≈ log(T(24.0))
     end
 
+    @testset "algams" begin
+        loggam, sgn = FN.algams(T(5.0))
+        @test loggam ≈ log(T(24.0))
+        @test sgn ≈ T(1.0)
+    end
+
     @testset "gami" begin
         @test FN.gami(T(1.0), T(1.0)) ≈ T(1.0) - exp(T(-1.0)) rtol=1e-5
     end
