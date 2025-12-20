@@ -26,9 +26,12 @@ typedef struct { real r, i; } complex;
  * Unpack floating point number.
  *
  * Fortran Name: R9UPAK(X,Y,N), D9UPAK(X,Y,N)
+ * @param[in]  x  Input floating point number
+ * @param[out] y  Mantissa
+ * @param[out] n  Exponent
  */
-void r9upak_(real *x, real *y, integer *n);
-void d9upak_(doublereal *x, doublereal *y, integer *n);
+void r9upak_(const real *x, real *y, integer *n);
+void d9upak_(const doublereal *x, doublereal *y, integer *n);
 
 /**
  * Pack floating point number.
@@ -278,10 +281,20 @@ doublereal dli_(doublereal *x);
  * Exponential integral E sub n+k (x).
  *
  * Formula: the integral from 1 to infinity of (e**(-x*t)/t**(n+k))dt
- * Fortran Name: EXINT(X,N,KODE,M,TOL,EN,IERR), DEXINT(X,N,KODE,M,TOL,EN,IERR)
+ * Fortran Name: EXINT(X,N,KODE,M,TOL, EN,NZ,IERR), DEXINT(X,N,KODE,M,TOL, EN,NZ,IERR)
+ * @param[in]  x     Argument
+ * @param[in]  n     Order
+ * @param[in]  kode  Selection parameter
+ * @param[in]  m     Number of terms to compute
+ * @param[in]  tol   Tolerance
+ * @param[out] en    Result array
+ * @param[out] nz    underflow indicator
+ * @param[out] ierr  Error flag
  */
-void exint_(real *x, integer *n, integer *kode, integer *m, real *tol, real *en, integer *ierr);
-void dexint_(doublereal *x, integer *n, integer *kode, integer *m, doublereal *tol, doublereal *en, integer *ierr);
+void exint_(const real *x, const integer *n, const integer *kode, const integer *m, const real *tol,
+    real en[], integer *nz, integer *ierr);
+void dexint_(const doublereal *x, const integer *n, const integer *kode, const integer *m, const doublereal *tol,
+    doublereal en[], integer *nz, integer *ierr);
 
 /* --- Gamma Functions and Related Functions --- */
 
@@ -317,6 +330,8 @@ complex cgamma_(complex *x);
  * Gamma(x) under and overflow limits.
  *
  * Fortran Name: GAMLIM(XMIN,XMAX), DGAMLM(XMIN,XMAX)
+ * @param[out] xmin  Minimum valid argument
+ * @param[out] xmax  Maximum valid argument
  */
 void gamlim_(real *xmin, real *xmax);
 void dgamlm_(doublereal *xmin, doublereal *xmax);
@@ -352,10 +367,13 @@ complex clngam_(complex *z);
  * Log abs gamma with sign.
  *
  * Formula: g = ln |gamma(x)|, s = sign gamma(x)
- * Fortran Name: ALGAMS(X,G,S), DLGAMS(X,G,S)
+ * Fortran Name: ALGAMS(X, G,S), DLGAMS(X, G,S)
+ * @param[in]  x  Argument
+ * @param[out] g  Log absolute gamma
+ * @param[out] s  Sign of gamma
  */
-void algams_(real *x, real *g, real *s);
-void dlgams_(doublereal *x, doublereal *g, doublereal *s);
+void algams_(const real *x, real *g, real *s);
+void dlgams_(const doublereal *x, doublereal *g, doublereal *s);
 
 /**
  * Incomplete gamma.
@@ -599,54 +617,83 @@ doublereal dbsk1e_(doublereal *x);
  *
  * Formula: I sub v+k-1 (x), k = 1,2,...N. Optional scaling by e**(-x).
  * Fortran Name: BESI(X,ALPHA,KODE,N, Y(*),NZ), DBESI(X,ALPHA,KODE,N, Y(*),NZ)
+ * @param[in]  x      Argument
+ * @param[in]  alpha  Order
+ * @param[in]  kode   Selection parameter (1=unscaled, 2=scaled)
+ * @param[in]  n      Number of values
+ * @param[out] y      Result array
+ * @param[out] nz     Number of underflows
  */
-void besi_(real *x, real *alpha, integer *kode, integer *n, real y[], integer *nz);
-void dbesi_(doublereal *x, doublereal *alpha, integer *kode, integer *n, doublereal y[], integer *nz);
+void besi_(const real *x, const real *alpha, const integer *kode, const integer *n, real y[], integer *nz);
+void dbesi_(const doublereal *x, const doublereal *alpha, const integer *kode, const integer *n, doublereal y[], integer *nz);
 
 /**
  * Sequence of Bessel functions of the first kind.
  *
  * Formula: J sub v+k-1 (x), k = 1,2,...N
  * Fortran Name: BESJ(X,ALPHA,N, Y(*),NZ), DBESJ(X,ALPHA,N, Y(*),NZ)
+ * @param[in]  x      Argument
+ * @param[in]  alpha  Order
+ * @param[in]  n      Number of values
+ * @param[out] y      Result array
+ * @param[out] nz     Number of underflows
  */
-void besj_(real *x, real *alpha, integer *n, real y[], integer *nz);
-void dbesj_(doublereal *x, doublereal *alpha, integer *n, doublereal y[], integer *nz);
+void besj_(const real *x, const real *alpha, const integer *n, real y[], integer *nz);
+void dbesj_(const doublereal *x, const doublereal *alpha, const integer *n, doublereal y[], integer *nz);
 
 /**
  * Sequence of Bessel functions of the second kind.
  *
  * Formula: Y sub v+k-1 (x), k = 1,2,...N
  * Fortran Name: BESY(X,FNU,N, Y(*)), DBESY(X,FNU,N, Y(*))
+ * @param[in]  x    Argument
+ * @param[in]  fnu  Order
+ * @param[in]  n    Number of values
+ * @param[out] y    Result array
  */
-void besy_(real *x, real *fnu, integer *n, real y[]);
-void dbesy_(doublereal *x, doublereal *fnu, integer *n, doublereal y[]);
+void besy_(const real *x, const real *fnu, const integer *n, real y[]);
+void dbesy_(const doublereal *x, const doublereal *fnu, const integer *n, doublereal y[]);
 
 /**
  * Sequence of modified Bessel functions of the third kind.
  *
  * Formula: K sub v+k-1 (x), k = 1,2,...N. Optional scaling by e**(x).
  * Fortran Name: BESK(X,FNU,KODE,N, Y(*),NZ), DBESK(X,FNU,KODE,N, Y(*),NZ)
+ * @param[in]  x     Argument
+ * @param[in]  fnu   Order
+ * @param[in]  kode  Selection parameter (1=unscaled, 2=scaled)
+ * @param[in]  n     Number of values
+ * @param[out] y     Result array
+ * @param[out] nz    Number of underflows
  */
-void besk_(real *x, real *fnu, integer *kode, integer *n, real y[], integer *nz);
-void dbesk_(doublereal *x, doublereal *fnu, integer *kode, integer *n, doublereal y[], integer *nz);
+void besk_(const real *x, const real *fnu, const integer *kode, const integer *n, real y[], integer *nz);
+void dbesk_(const doublereal *x, const doublereal *fnu, const integer *kode, const integer *n, doublereal y[], integer *nz);
 
 /**
  * Sequence of modified Bessel functions of the third kind.
  *
  * Formula: K sub v+i (x), I = 0, 1, ..., N-1 for N > 0 or I = 0, -1, ..., N+1 for N < 0.
  * Fortran Name: BESKS(XNU,X,N, BK(*)), DBESKS(XNU,X,N, BK(*))
+ * @param[in]  xnu  Order
+ * @param[in]  x    Argument
+ * @param[in]  n    Number of values
+ * @param[out] bk   Result array
  */
-void besks_(real *xnu, real *x, integer *n, real bk[]);
-void dbesks_(doublereal *xnu, doublereal *x, integer *n, doublereal bk[]);
+void besks_(const real *xnu, const real *x, const integer *n, real bk[]);
+void dbesks_(const doublereal *xnu, const doublereal *x, const integer *n, doublereal bk[]);
 
 /**
  * Sequence of modified Bessel functions of the third kind, scaled.
  *
  * Formula: e**x * K sub v+i (x), I = 0, 1, ..., N-1 for N > 0 or I = 0, -1, ..., N+1 for N < 0.
  * Fortran Name: BESKES(XNU,X,N, BK(*)), DBSKES(XNU,X,N, BK(*))
+ * @param[in]  xnu  Order
+ * @param[in]  x    Argument
+ * @param[in]  n    Number of values
+ * @param[out] bk   Result array
  */
-void beskes_(real *xnu, real *x, integer *n, real bk[]);
-void dbskes_(doublereal *xnu, doublereal *x, integer *n, doublereal bk[]);
+void beskes_(const real *xnu, const real *x, const integer *n, real bk[]);
+void dbskes_(const doublereal *xnu, const doublereal *x, const integer *n, doublereal bk[]);
 
 /* --- Bessel Functions of Fractional Order --- */
 
