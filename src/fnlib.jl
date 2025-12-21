@@ -124,7 +124,11 @@ using Compat
 using SLATEC_jll
 const libslatec = SLATEC_jll.libslatec
 
+## Exponential Integrals and Related Functions
+@compat public ei, e1, exint, ali
+# Confluent Hypergeometric Functions
 @compat public chu
+# Miscellaneous Functions
 @compat public spenc
 
 
