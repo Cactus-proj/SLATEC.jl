@@ -48,8 +48,11 @@ Pages = ["toc.md"]
 Depth = 3
 ```
 
+
 ## A. Arithmetic, error analysis
+
 ### A3. Real
+
 A3D.  Extended range
 
           XADD-S    To provide single-precision floating-point arithmetic
@@ -294,7 +297,7 @@ C8C.  Dawson's integral
           XNRMP-S   Compute normalized Legendre polynomials.
           DXNRMP-D
 
-C10.  Bessel functions
+### C10.  Bessel functions
 C10A.  J, Y, H-(1), H-(2)
 C10A1.  Real argument, integer order
 
@@ -425,12 +428,12 @@ C10F.  Integrals of Bessel functions
           BSKIN-S   Compute repeated integrals of the K-zero Bessel function.
           DBSKIN-D
 
-C11.  Confluent hypergeometric functions
+### C11.  Confluent hypergeometric functions
 
 - [`chu(x)`](@ref FNLIB.chu): `CHU-S, DCHU-D`,
     Compute the logarithmic confluent hypergeometric function.
 
-C14.  Elliptic integrals
+### C14.  Elliptic integrals
 
           RC-S      Calculate an approximation to
           DRC-D      RC(X,Y) = Integral from zero to infinity of
@@ -459,7 +462,7 @@ C14.  Elliptic integrals
                                           -1/2     -1/2     -1/2     -1
                                 (3/2)(t+X)    (t+Y)    (t+Z)    (t+P)  dt.
 
-C19.  Other special functions
+### C19.  Other special functions
 
           RC3JJ-S   Evaluate the 3j symbol f(L1) = (  L1   L2 L3)
           DRC3JJ-D                                 (-M2-M3 M2 M3)
@@ -476,8 +479,11 @@ C19.  Other special functions
                     for all allowed values of L1, the other parameters
                     being held fixed.
 
+
 ## D. Linear Algebra
+
 ### D1. Elementary vector and matrix operations
+
 D1A.  Elementary vector operations
 D1A2.  Minimum and maximum components
 
@@ -734,8 +740,9 @@ D1B10.  Elementary rotation (Givens transformation)
           SROTMG-S  Construct a modified Givens transformation.
           DROTMG-D
 
-### D2. Solution of systems of linear equations (including inversion, LU and
-     related decompositions)
+### D2. Solution of systems of linear equations
+> (including inversion, LU and related decompositions)
+
 D2A.  Real nonsymmetric matrices
 D2A1.  General
 
@@ -1461,6 +1468,7 @@ D2E.  Associated operations
                     computes  [(LDU)*(LDU)']  B = X.
 
 ### D3. Determinants
+
 D3A.  Real nonsymmetric matrices
 D3A1.  General
 
@@ -1910,6 +1918,7 @@ D4C4.  Back transform eigenvectors
           CSVDC-C
 
 ### D7. Update matrix decompositions
+
 D7B.  Cholesky
 
           SCHDD-S   Downdate an augmented Cholesky decomposition or the
@@ -1966,6 +1975,7 @@ D7B.  Cholesky
                     Householder transformations.  Emphasis is put on detecting
                     possible rank deficiency.
 
+
 ## E. Interpolation
 
           BSPDOC-A  Documentation for BSPLINE, a package of subprograms for
@@ -2014,8 +2024,8 @@ E1B.  Polynomials
           DPLINT-D  data points.
 
 ### E3. Service routines
-(e.g., grid generation, evaluation of fitted functions)
-     (search also class N5)
+> (e.g., grid generation, evaluation of fitted functions)
+> (search also class N5)
 
           BFQAD-S   Compute the integral of a product of a function and a
           DBFQAD-D  derivative of a B-spline.
@@ -2095,8 +2105,11 @@ E1B.  Polynomials
           PPVAL-S   Calculate the value of the IDERIV-th derivative of the
           DPPVAL-D  B-spline from the PP-representation.
 
+
 ## F. Solution of nonlinear equations
+
 ### F1. Single equation
+
 F1A.  Smooth
 F1A1.  Polynomial
 F1A1A.  Real coefficients
@@ -2143,8 +2156,10 @@ F2A.  Smooth
 
 
 ## G. Optimization
-(search also classes K, L8)
+> (search also classes K, L8)
+
 ### G2. Constrained
+
 G2A.  Linear programming
 G2A2.  Sparse matrix of constraints
 
@@ -2196,7 +2211,9 @@ G4C.  Check user-supplied derivatives
           DCKDER-D  variables, evaluated at a point X, for consistency
                     with the functions themselves.
 
+
 ## H. Differentiation, integration
+
 ### H1. Numerical differentiation
 
           CHFDV-S   Evaluate a cubic polynomial given in Hermite form and its
@@ -2458,10 +2475,14 @@ H2A4A2.  Nonautomatic
                     I = Integral of transformed integrand over (A,B),
                     J = Integral of ABS(Transformed Integrand) over (A,B).
 
+
 ## I. Differential and integral equations
+
 ### I1. Ordinary differential equations
+
 I1A.  Initial value problems
 I1A1.  General, nonstiff or mildly stiff
+
 I1A1A.  One-step methods
 (e.g., Runge-Kutta)
 
@@ -2534,6 +2555,7 @@ I1B1.  Linear
                     and a variable-step integration scheme.
 
 ### I2. Partial differential equations
+
 I2B.  Elliptic boundary value problems
 I2B1.  Linear
 I2B1A.  Second order
@@ -2620,8 +2642,11 @@ I2B4B.  Solution of discretized elliptic equations
                     that results from a staggered grid finite difference
                     approximation to 2-D elliptic PDE's.
 
+
 ## J. Integral transforms
-### J1. Fast Fourier transforms (search class L10 for time series analysis)
+
+### J1. Fast Fourier transforms
+(search class L10 for time series analysis)
 
           FFTDOC-A  Documentation for FFTPACK, a collection of Fast Fourier
                     Transform routines.
@@ -2696,16 +2721,19 @@ J1A3.  Trigonometric (sine, cosine)
           QC25C-S   To compute I = Integral of F*W over (A,B) with
           DQC25C-D  error estimate, where W(X) = 1/(X-C)
 
+
 ## K. Approximation
-(search also class L8)
+> (search also class L8)
 
           BSPDOC-A  Documentation for BSPLINE, a package of subprograms for
                     working with piecewise polynomial functions
                     in B-representation.
 
 ### K1. Least squares (L-2) approximation
+
 K1A.  Linear least squares
 (search also classes D5, D6, D9)
+
 K1A1.  Unconstrained
 K1A1A.  Univariate data (curve fitting)
 K1A1A1.  Polynomial splines (piecewise polynomials)
@@ -2788,8 +2816,8 @@ K1B1A2.  User provides first derivatives
                     of the Levenberg-Marquardt algorithm.
 
 ### K6. Service routines
-(e.g., mesh generation, evaluation of fitted functions)
-     (search also class N5)
+> (e.g., mesh generation, evaluation of fitted functions)
+> (search also class N5)
 
           BFQAD-S   Compute the integral of a product of a function and a
           DBFQAD-D  derivative of a B-spline.
@@ -2833,9 +2861,12 @@ K1B1A2.  User provides first derivatives
           DP1VLU-D  polynomial fit of degree L, along with the first NDER of
                     its derivatives, at a specified point.
 
+
 ## L. Statistics, probability
+
 ### L5. Function evaluation
-(search also class C)
+> (search also class C)
+
 L5A.  Univariate
 L5A1.  Cumulative distribution functions, probability density functions
 L5A1E.  Error function, exponential, extreme value
@@ -2866,9 +2897,12 @@ L7A3.  Analysis of covariance
           DCV-D     by the constrained B-spline fitting subprogram FC.
 
 ### L8. Regression
-(search also classes G, K)
+
+> (search also classes G, K)
+
 L8A.  Linear least squares (L-2)
 (search also classes D5, D6, D9)
+
 L8A3.  Piecewise polynomial (i.e. multiphase or spline)
 
           EFC-S     Fit a piecewise polynomial curve to discrete data.
@@ -2881,8 +2915,11 @@ L8A3.  Piecewise polynomial (i.e. multiphase or spline)
                     Equality and inequality constraints can be imposed on the
                     fitted curve.
 
+
 ## N. Data handling
-(search also class L2)
+
+> (search also class L2)
+
 ### N1. Input, output
 
           SBHIN-S   Read a Sparse Linear System in the Boeing/Harwell Format.
@@ -2904,7 +2941,9 @@ L8A3.  Piecewise polynomial (i.e. multiphase or spline)
 
 ### N6. Sorting
 N6A.  Internal
-N6A1.  Passive (i.e. construct pointer array, rank)
+N6A1.  Passive
+(i.e. construct pointer array, rank)
+
 N6A1A.  Integer
 
           IPSORT-I  Return the permutation vector generated by sorting a given
@@ -2967,7 +3006,9 @@ N6A2C.  Character
           IPPERM-I
           HPPERM-H
 
+
 ## R. Service routines
+
 ### R1. Machine-dependent constants
 
           I1MACH-I  Return integer machine dependent constants.
@@ -2976,6 +3017,7 @@ N6A2C.  Character
           D1MACH-D
 
 ### R2. Error checking
+
 (e.g., check monotonicity)
 
           GAMLIM-S  Compute the minimum and maximum bounds for the argument in
@@ -3016,6 +3058,7 @@ R3C.  Other utility programs
 
           XGETUN-A  Return the (first) output file to which error messages
                     are being sent.
+
 
 ## Z. Other
 
