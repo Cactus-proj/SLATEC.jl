@@ -122,32 +122,20 @@ Evaluate Chebyshev series.
 
 Formula: `summation for i = 1 to n of cs(i)*(2*x)**(i-1)`
 
-Fortran Name: `CSEVL(X`, `CS`, `N)`, `DCSEVL(X`, `CS`, `N)`
 - `x`:   Input value
 - `cs`:  Coefficients in the Chebyshev series.
 - `n`:   Number of coefficients in `cs`.
 
 Reutrn
 - Value of the Chebyshev series at `x`.
+
+Fortran Name: `CSEVL(X`, `CS`, `N)`, `DCSEVL(X`, `CS`, `N)`
 """
 function csevl(x::Float32, cs::Vector{Float32})
     ccall((:csevl_, libslatec), Cfloat, (Ref{Float32}, Ptr{Cfloat}, Ref{Cint}),
         x, cs, Ref(Cint(length(cs))))
 end
 
-"""
-Evaluate Chebyshev series.
-
-Formula: `summation for i = 1 to n of cs(i)*(2*x)**(i-1)`
-
-Fortran Name: `CSEVL(X`, `CS`, `N)`, `DCSEVL(X`, `CS`, `N)`
-- `x`:   Input value
-- `cs`:  Coefficients in the Chebyshev series.
-- `n`:   Number of coefficients in `cs`.
-
-Reutrn
-- Value of the Chebyshev series at `x`.
-"""
 function dcsevl(x::Float64, cs::Vector{Float64})
     ccall((:dcsevl_, libslatec), Cdouble, (Ref{Float64}, Ptr{Cdouble}, Ref{Cint}),
         x, cs, Ref(Cint(length(cs))))
@@ -722,12 +710,13 @@ Log abs gamma with sign.
 
 Formula: `g = ln |gamma(x)|, s = sign gamma(x)`
 
-Fortran Name: `ALGAMS(X`, `G`, `S)`, `DLGAMS(X`, `G`, `S)`
 - `x`:   Argument
 
 Return:
 - `g`:   Log absolute gamma
 - `s`:   Sign of gamma, `+1.0` or `-1.0`
+
+Fortran Name: `ALGAMS(X`, `G`, `S)`, `DLGAMS(X`, `G`, `S)`
 """
 function algams(x::Float32)
     loggam, sgn = Ref{Float32}(NaN32), Ref{Float32}(NaN32)
