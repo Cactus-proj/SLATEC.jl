@@ -1,5 +1,35 @@
 # SPDX-License-Identifier: MIT
 # Reading from: docs/capi/fnlib.h
+"""
+    SLATEC.FNLIB
+
+A collection of routines for
+evaluating elementary and special functions.
+
+Most of the these routines were written by Wayne Fullerton while at LANL.
+Some were written by Don Amos of SNLA.
+There are approximately 63 single precision, 63 double precision and
+25 complex user callable elementary and special function routines.
+
+Function categories:
+
+- Intrinsic Functions and Fundamental Functions
+- Elementary Functions
+- Trigonometric and Hyperbolic Functions
+- Exponential Integrals and Related Functions
+- Gamma Functions and Related Functions
+- Error Functions and Fresnel Integrals
+- Bessel Functions
+- Bessel Functions of Fractional Order
+- Confluent Hypergeometric Functions
+- Miscellaneous Functions
+
+# References
+
+- [netlib/fn](https://www.netlib.org/fn/)
+- [netlib/vfnlib](https://www.netlib.org/vfnlib/index.html)
+- [netlib/slatec/fundoc.f](https://www.netlib.org/slatec/src/fundoc.f)
+"""
 module FNLIB
 
 using SLATEC_jll
