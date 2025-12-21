@@ -564,6 +564,10 @@ end
 #= --- Gamma Functions and Related Functions --- =#
 
 """
+    fac(n::Int32) :: Float32
+    fac(n::Int32, ::Type{Float32}) :: Float32
+    fac(n::Int32, ::Type{Float64}) :: Float64
+
 Factorial.
 
 Formula: `n!`
@@ -574,11 +578,25 @@ function fac(n::Int32)
     ccall((:fac_, libslatec), Cfloat, (Ref{Int32},), n)
 end
 
+"""
+    dfac(n::Int32):: Float64
+    fac(n::Int32, ::Type{Float64})
+
+Factorial.
+
+Formula: `n!`
+
+Fortran Name: `DFAC(N)`
+"""
 function dfac(n::Int32)
     ccall((:dfac_, libslatec), Cdouble, (Ref{Int32},), n)
 end
 
 """
+    binom(n::Int32, m::Int32) :: Float32
+    binom(n::Int32, m::Int32, ::Type{Float32}) :: Float32
+    binom(n::Int32, m::Int32, ::Type{Float64}) :: Float64
+
 Binomial.
 
 Formula: `n!/(m!*(n-m)!)`
@@ -589,6 +607,16 @@ function binom(n::Int32, m::Int32)
     ccall((:binom_, libslatec), Cfloat, (Ref{Int32}, Ref{Int32}), n, m)
 end
 
+"""
+    dbinom(n::Int32, m::Int32) :: Float64
+    binom(n::Int32, m::Int32, ::Type{Float64}) :: Float64
+
+Binomial.
+
+Formula: `n!/(m!*(n-m)!)`
+
+Fortran Name: `DBINOM(N`, `M)`
+"""
 function dbinom(n::Int32, m::Int32)
     ccall((:dbinom_, libslatec), Cdouble, (Ref{Int32}, Ref{Int32}), n, m)
 end
