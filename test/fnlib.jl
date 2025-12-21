@@ -122,6 +122,21 @@ const FN = SLATEC.FNLIB
         @test FN.ali(exp(T(1.0))) ≈ T(1.895117816) rtol=1e-5
     end
 
+    @testset "exint" begin
+        x = T(1.0)
+        n = Int32(1)
+        kode = Int32(1)
+        m = Int32(1)
+        tol = T(1e-5)
+        
+        en, nz, ierr = FN.exint(x, n, kode, m, tol)
+        @test nz == 0
+        @test ierr == 0
+        @test length(en) == 1
+        # E_1(1.0) is approx 0.219383934
+        @test en[1] ≈ T(0.219383934) rtol=1e-5
+    end
+
     @testset "fac" begin
         @test FN.fac(Int32(5), T) ≈ T(120.0)
         @test FN.fac(Int32(0), T) ≈ T(1.0)

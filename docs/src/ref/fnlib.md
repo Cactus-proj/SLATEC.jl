@@ -63,6 +63,7 @@ SLATEC.FNLIB.r9atn1
 SLATEC.FNLIB.ei
 SLATEC.FNLIB.e1
 SLATEC.FNLIB.ali
+SLATEC.FNLIB.exint
 ```
 
 ## Gamma Functions and Related Functions

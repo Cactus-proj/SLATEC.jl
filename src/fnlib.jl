@@ -50,7 +50,7 @@ There are approximately 63 single precision, 63 double precision and
 ## Exponential Integrals and Related Functions
 
 - Exponential integral:
-    [`ei`](@ref FNLIB.ei), [`e1`](@ref FNLIB.e1)
+    [`ei`](@ref FNLIB.ei), [`e1`](@ref FNLIB.e1); [`exint`](@ref FNLIB.exint)
 - Logarithmic integral:
     [`ali`](@ref FNLIB.ali)
 
@@ -653,6 +653,47 @@ end
 
 function dli(x::Float64)
     ccall((:dli_, libslatec), Cdouble, (Ref{Float64},), x)
+end
+
+"""
+    exint(x::Float32, n::Int32, kode::Int32, m::Int32, tol::Float32)
+    exint(x::Float64, n::Int32, kode::Int32, m::Int32, tol::Float64)
+
+Compute an `m` member sequence of Exponential integral ``E_{n+k}(x)``.
+
+Formula: the integral from `1` to infinity of ``(e^{-x*t}/t^{n+k}) dt``
+
+- `x`:     `x > 0 for n=1` and `x >= 0 for n >=2`
+- `n`:     Order, `n >= 1`
+- `kode`:  Selection parameter (1=normal, 2=scaled)
+- `m`:     Number of terms to compute, `m >= 1`
+- `tol`:   Relative accuracy wanted, `ETOL=R1MACH(4) < tol < 0.1`
+
+Return `(en, nz, ierr)`
+- `en`:    Result array
+- `nz`:    Underflow indicator
+- `ierr`:  Error flag
+
+Fortran Name: `EXINT(X,N,KODE,M,TOL, EN,NZ,IERR)`, `DEXINT(X,N,KODE,M,TOL, EN,NZ,IERR)`
+"""
+function exint(x::Float32, n::Int32, kode::Int32, m::Int32, tol::Float32)
+    en = Vector{Float32}(undef, m)
+    nz = Ref{Int32}(0)
+    ierr = Ref{Int32}(0)
+    ccall((:exint_, libslatec),
+        Cvoid, (Ref{Float32}, Ref{Int32}, Ref{Int32}, Ref{Int32}, Ref{Float32}, Ptr{Float32}, Ref{Int32}, Ref{Int32}),
+        x, n, kode, m, tol, en, nz, ierr)
+    return en, nz[], ierr[]
+end
+
+function dexint(x::Float64, n::Int32, kode::Int32, m::Int32, tol::Float64)
+    en = Vector{Float64}(undef, m)
+    nz = Ref{Int32}(0)
+    ierr = Ref{Int32}(0)
+    ccall((:dexint_, libslatec),
+        Cvoid, (Ref{Float64}, Ref{Int32}, Ref{Int32}, Ref{Int32}, Ref{Float64}, Ptr{Float64}, Ref{Int32}, Ref{Int32}),
+        x, n, kode, m, tol, en, nz, ierr)
+    return en, nz[], ierr[]
 end
 
 #= --- Gamma Functions and Related Functions --- =#
@@ -1652,6 +1693,8 @@ r9atn1(x::Float64) = d9atn1(x)
 ei(x::Float64) = dei(x)
 e1(x::Float64) = de1(x)
 ali(x::Float64) = dli(x)
+exint(x::Float64, n::Int32, kode::Int32, m::Int32, tol::Float64) = dexint(x, n, kode, m, tol)
+
 # Gamma Functions and Related Functions
 fac(n::Int32, ::Type{Float64}) = dfac(n)
 fac(n::Int32, ::Type{Float32}) = fac(n)
