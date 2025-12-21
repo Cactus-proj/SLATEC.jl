@@ -435,6 +435,24 @@ doublereal dpsi_(doublereal *x);
 complex cpsi_(complex *x);
 
 /**
+ * @brief Compute derivatives of the Psi function.
+ *
+ * @param[in] x     `x > 0.0`
+ * @param[in] n     First member of the sequence, `0 <= n <= 100`
+ * @param[in] kode  Selection parameter
+ * @param[in] m     Number of members of the sequence, `m >= 1`
+ * @param[out] ans[]    Array of length at least `m` to store the results
+ * @param[out] nz       Underflow flag
+ * @param[out] ierr     Error flag, (0,1,2,3)
+ *
+ * Fortran Name: `PSIFN(X,N,KODE,M, ANS,NZ,IERR)`, `DPSIFN(X,N,KODE,M, ANS,NZ,IERR)`
+ */
+void psifn_(const real *x, const integer *n, const integer *kode, const integer *m,
+    real ans[], integer *nz, integer *ierr);
+void dpsifn_(const doublereal *x, const integer *n, const integer *kode, const integer *m,
+    doublereal ans[], integer *nz, integer *ierr);
+
+/**
  * Pochhammer's generalized symbol.
  *
  * Formula: (a) sub x = gamma(a+x) / gamma(a)

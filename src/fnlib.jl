@@ -66,7 +66,8 @@ There are approximately 63 single precision, 63 double precision and
 - Incomplete gamma: 
     [`gami`](@ref FNLIB.gami), [`gamic`](@ref FNLIB.gamic), [`gamit`](@ref FNLIB.gamit)
 - Digamma and Poch:
-    [`psi`](@ref FNLIB.psi), [`poch`](@ref FNLIB.poch), [`poch1`](@ref FNLIB.poch1)
+    [`psi`](@ref FNLIB.psi), `psifn`,
+    [`poch`](@ref FNLIB.poch), [`poch1`](@ref FNLIB.poch1)
 - Beta:
     [`beta`](@ref FNLIB.beta), [`albeta`](@ref FNLIB.albeta),
     [`betai`](@ref FNLIB.betai)
