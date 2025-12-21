@@ -4,6 +4,10 @@ SLSLATEC Common Mathematical Library,
 a comprehensive software library containing over
 1400 general purpose mathematical and statistical routines.
 
+# Submodules
+
+- [`FNLIB`](@ref): Special functions
+
 # References
 
 - [netlib/slatec](https://www.netlib.org/slatec/)
