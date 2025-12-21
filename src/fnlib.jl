@@ -574,13 +574,6 @@ function fac(n::Int32)
     ccall((:fac_, libslatec), Cfloat, (Ref{Int32},), n)
 end
 
-"""
-Factorial.
-
-Formula: `n!`
-
-Fortran Name: `FAC(N)`, `DFAC(N)`
-"""
 function dfac(n::Int32)
     ccall((:dfac_, libslatec), Cdouble, (Ref{Int32},), n)
 end
@@ -596,18 +589,15 @@ function binom(n::Int32, m::Int32)
     ccall((:binom_, libslatec), Cfloat, (Ref{Int32}, Ref{Int32}), n, m)
 end
 
-"""
-Binomial.
-
-Formula: `n!/(m!*(n-m)!)`
-
-Fortran Name: `BINOM(N`, `M)`, `DBINOM(N`, `M)`
-"""
 function dbinom(n::Int32, m::Int32)
     ccall((:dbinom_, libslatec), Cdouble, (Ref{Int32}, Ref{Int32}), n, m)
 end
 
 """
+    gamma(x::Float32)
+    gamma(x::Float64)
+    gamma(x::ComplexF32)
+
 Gamma.
 
 Formula: `gamma(x)`
@@ -618,24 +608,10 @@ function gamma(x::Float32)
     ccall((:gamma_, libslatec), Cfloat, (Ref{Float32},), x)
 end
 
-"""
-Gamma.
-
-Formula: `gamma(x)`
-
-Fortran Name: `GAMMA(X)`, `DGAMMA(X)`, `CGAMMA(X)`
-"""
 function dgamma(x::Float64)
     ccall((:dgamma_, libslatec), Cdouble, (Ref{Float64},), x)
 end
 
-"""
-Gamma.
-
-Formula: `gamma(x)`
-
-Fortran Name: `GAMMA(X)`, `DGAMMA(X)`, `CGAMMA(X)`
-"""
 function cgamma(x::ComplexF32)
     ccall((:cgamma_, libslatec), ComplexF32, (Ref{ComplexF32},), x)
 end
@@ -655,15 +631,6 @@ function gamlim()
     xmin[], xmax[]
 end
 
-"""
-Gamma(x) under and overflow limits.
-
-Fortran Name: `GAMLIM(XMIN`, `XMAX)`, `DGAMLM(XMIN`, `XMAX)`
-
-Return:
-- `xmin`:   Minimum legal value of X in gamma(X)
-- `xmax`:   Maximum legal value of X in gamma(X)
-"""
 function dgamlm()
     xmin, xmax = Ref{Float64}(NaN), Ref{Float64}(NaN)
     ccall((:dgamlm_, libslatec), Cvoid, (Ref{Float64}, Ref{Float64}), xmin, xmax)
@@ -671,6 +638,10 @@ function dgamlm()
 end
 
 """
+    gamr(x::Float32)
+    gamr(x::Float64)
+    gamr(x::ComplexF32)
+
 Reciprocal gamma.
 
 Formula: `1 / gamma(x)`
@@ -681,29 +652,19 @@ function gamr(x::Float32)
     ccall((:gamr_, libslatec), Cfloat, (Ref{Float32},), x)
 end
 
-"""
-Reciprocal gamma.
-
-Formula: `1 / gamma(x)`
-
-Fortran Name: `GAMR(X)`, `DGAMR(X)`, `CGAMR(X)`
-"""
 function dgamr(x::Float64)
     ccall((:dgamr_, libslatec), Cdouble, (Ref{Float64},), x)
 end
 
-"""
-Reciprocal gamma.
-
-Formula: `1 / gamma(x)`
-
-Fortran Name: `GAMR(X)`, `DGAMR(X)`, `CGAMR(X)`
-"""
 function cgamr(x::ComplexF32)
     ccall((:cgamr_, libslatec), ComplexF32, (Ref{ComplexF32},), x)
 end
 
 """
+    alngam(x::Float32)
+    alngam(x::Float64)
+    alngam(z::ComplexF32)
+
 Log abs gamma.
 
 Formula: `ln |gamma(x)|`
@@ -714,29 +675,18 @@ function alngam(x::Float32)
     ccall((:alngam_, libslatec), Cfloat, (Ref{Float32},), x)
 end
 
-"""
-Log abs gamma.
-
-Formula: `ln |gamma(x)|`
-
-Fortran Name: `ALNGAM(X)`, `DLNGAM(X)`
-"""
 function dlngam(x::Float64)
     ccall((:dlngam_, libslatec), Cdouble, (Ref{Float64},), x)
 end
 
-"""
-Log gamma.
-
-Formula: `ln gamma(z)`
-
-Fortran Name: `CLNGAM(Z)`
-"""
 function clngam(z::ComplexF32)
     ccall((:clngam_, libslatec), ComplexF32, (Ref{ComplexF32},), z)
 end
 
 """
+    algams(x::Float32)
+    algams(x::Float64)
+
 Log abs gamma with sign.
 
 Formula: `g = ln |gamma(x)|, s = sign gamma(x)`
@@ -755,18 +705,6 @@ function algams(x::Float32)
     loggam[], sgn[]
 end
 
-"""
-Log abs gamma with sign.
-
-Formula: `g = ln |gamma(x)|, s = sign gamma(x)`
-
-Fortran Name: `ALGAMS(X`, `G`, `S)`, `DLGAMS(X`, `G`, `S)`
-- `x`:   Argument
-
-Return:
-- `g`:   Log absolute gamma
-- `s`:   Sign of gamma, `+1.0` or `-1.0`
-"""
 function dlgams(x::Float64)
     loggam, sgn = Ref{Float64}(NaN), Ref{Float64}(NaN)
     ccall((:dlgams_, libslatec), Cvoid, (Ref{Float64}, Ref{Float64}, Ref{Float64}),
@@ -775,6 +713,9 @@ function dlgams(x::Float64)
 end
 
 """
+    gami(a::Float32, x::Float32)
+    gami(a::Float64, x::Float64)
+
 Incomplete gamma.
 
 Formula: `gamma(a,x) = integral from 0 to x of (t**(a-1) * e**-t)dt`
@@ -785,18 +726,14 @@ function gami(a::Float32, x::Float32)
     ccall((:gami_, libslatec), Cfloat, (Ref{Float32}, Ref{Float32}), a, x)
 end
 
-"""
-Incomplete gamma.
-
-Formula: `gamma(a,x) = integral from 0 to x of (t**(a-1) * e**-t)dt`
-
-Fortran Name: `GAMI(A`, `X)`, `DGAMI(A`, `X)`
-"""
 function dgami(a::Float64, x::Float64)
     ccall((:dgami_, libslatec), Cdouble, (Ref{Float64}, Ref{Float64}), a, x)
 end
 
 """
+    gamic(a::Float32, x::Float32)
+    gamic(a::Float64, x::Float64)
+
 Complementary incomplete gamma.
 
 Formula: `gamma(a,x) = integral from x to infinity of (t**(a-1) * e**-t)dt`
@@ -807,18 +744,14 @@ function gamic(a::Float32, x::Float32)
     ccall((:gamic_, libslatec), Cfloat, (Ref{Float32}, Ref{Float32}), a, x)
 end
 
-"""
-Complementary incomplete gamma.
-
-Formula: `gamma(a,x) = integral from x to infinity of (t**(a-1) * e**-t)dt`
-
-Fortran Name: `GAMIC(A`, `X)`, `DGAMIC(A`, `X)`
-"""
 function dgamic(a::Float64, x::Float64)
     ccall((:dgamic_, libslatec), Cdouble, (Ref{Float64}, Ref{Float64}), a, x)
 end
 
 """
+    gamit(a::Float32, x::Float32)
+    gamit(a::Float64, x::Float64)
+
 Tricomi's incomplete gamma.
 
 Formula: `gamma*(a,x) = x**-a * incomplete gamma(a,x) / gamma(a)`
@@ -829,18 +762,15 @@ function gamit(a::Float32, x::Float32)
     ccall((:gamit_, libslatec), Cfloat, (Ref{Float32}, Ref{Float32}), a, x)
 end
 
-"""
-Tricomi's incomplete gamma.
-
-Formula: `gamma*(a,x) = x**-a * incomplete gamma(a,x) / gamma(a)`
-
-Fortran Name: `GAMIT(A`, `X)`, `DGAMIT(A`, `X)`
-"""
 function dgamit(a::Float64, x::Float64)
     ccall((:dgamit_, libslatec), Cdouble, (Ref{Float64}, Ref{Float64}), a, x)
 end
 
 """
+    psi(x::Float32)
+    psi(x::Float64)
+    psi(x::ComplexF32)
+
 Psi (Digamma).
 
 Formula: `psi(x) = gamma'(x) / gamma(x)`
@@ -851,29 +781,18 @@ function psi(x::Float32)
     ccall((:psi_, libslatec), Cfloat, (Ref{Float32},), x)
 end
 
-"""
-Psi (Digamma).
-
-Formula: `psi(x) = gamma'(x) / gamma(x)`
-
-Fortran Name: `PSI(X)`, `DPSI(X)`, `CPSI(X)`
-"""
 function dpsi(x::Float64)
     ccall((:dpsi_, libslatec), Cdouble, (Ref{Float64},), x)
 end
 
-"""
-Psi (Digamma).
-
-Formula: `psi(x) = gamma'(x) / gamma(x)`
-
-Fortran Name: `PSI(X)`, `DPSI(X)`, `CPSI(X)`
-"""
 function cpsi(x::ComplexF32)
     ccall((:cpsi_, libslatec), ComplexF32, (Ref{ComplexF32},), x)
 end
 
 """
+    poch(a::Float32, x::Float32)
+    poch(a::Float64, x::Float64)
+
 Pochhammer's generalized symbol.
 
 Formula: `(a) sub x = gamma(a+x) / gamma(a)`
@@ -884,18 +803,14 @@ function poch(a::Float32, x::Float32)
     ccall((:poch_, libslatec), Cfloat, (Ref{Float32}, Ref{Float32}), a, x)
 end
 
-"""
-Pochhammer's generalized symbol.
-
-Formula: `(a) sub x = gamma(a+x) / gamma(a)`
-
-Fortran Name: `POCH(A`, `X)`, `DPOCH(A`, `X)`
-"""
 function dpoch(a::Float64, x::Float64)
     ccall((:dpoch_, libslatec), Cdouble, (Ref{Float64}, Ref{Float64}), a, x)
 end
 
 """
+    poch1(a::Float32, x::Float32)
+    poch1(a::Float64, x::Float64)
+
 Pochhammer's symbol from first order.
 
 Formula: `((a) sub x -1) / x`
@@ -906,51 +821,39 @@ function poch1(a::Float32, x::Float32)
     ccall((:poch1_, libslatec), Cfloat, (Ref{Float32}, Ref{Float32}), a, x)
 end
 
-"""
-Pochhammer's symbol from first order.
-
-Formula: `((a) sub x -1) / x`
-
-Fortran Name: `POCH1(A`, `X)`, `DPOCH1(A`, `X)`
-"""
 function dpoch1(a::Float64, x::Float64)
     ccall((:dpoch1_, libslatec), Cdouble, (Ref{Float64}, Ref{Float64}), a, x)
 end
 
 """
+    beta(a::Float32, b::Float32)
+    beta(a::Float64, b::Float64)
+    beta(a::ComplexF32, b::ComplexF32)
+
 Beta.
 
 Formula: `b(a,b) = (gamma(a) * gamma(b)) / gamma(a+b)`
 = integral from 0 to 1 of (t**(a-1) * (1-t)**(b-1))dt
+
 Fortran Name: `BETA(A`, `B)`, `DBETA(A`, `B)`, `CBETA(A`, `B)`
 """
 function beta(a::Float32, b::Float32)
     ccall((:beta_, libslatec), Cfloat, (Ref{Float32}, Ref{Float32}), a, b)
 end
 
-"""
-Beta.
-
-Formula: `b(a,b) = (gamma(a) * gamma(b)) / gamma(a+b)`
-= integral from 0 to 1 of (t**(a-1) * (1-t)**(b-1))dt
-Fortran Name: `BETA(A`, `B)`, `DBETA(A`, `B)`, `CBETA(A`, `B)`
-"""
 function dbeta(a::Float64, b::Float64)
     ccall((:dbeta_, libslatec), Cdouble, (Ref{Float64}, Ref{Float64}), a, b)
 end
 
-"""
-Beta.
-
-Formula: `b(a,b) = (gamma(a) * gamma(b)) / gamma(a+b)`
-= integral from 0 to 1 of (t**(a-1) * (1-t)**(b-1))dt
-Fortran Name: `BETA(A`, `B)`, `DBETA(A`, `B)`, `CBETA(A`, `B)`
-"""
 function cbeta(a::ComplexF32, b::ComplexF32)
     ccall((:cbeta_, libslatec), ComplexF32, (Ref{ComplexF32}, Ref{ComplexF32}), a, b)
 end
 
 """
+    albeta(a::Float32, b::Float32)
+    albeta(a::Float64, b::Float64)
+    albeta(a::ComplexF32, b::ComplexF32)
+
 Log beta.
 
 Formula: `ln b(a,b)`
@@ -961,29 +864,18 @@ function albeta(a::Float32, b::Float32)
     ccall((:albeta_, libslatec), Cfloat, (Ref{Float32}, Ref{Float32}), a, b)
 end
 
-"""
-Log beta.
-
-Formula: `ln b(a,b)`
-
-Fortran Name: `ALBETA(A`, `B)`, `DLBETA(A`, `B)`, `CLBETA(A`, `B)`
-"""
 function dlbeta(a::Float64, b::Float64)
     ccall((:dlbeta_, libslatec), Cdouble, (Ref{Float64}, Ref{Float64}), a, b)
 end
 
-"""
-Log beta.
-
-Formula: `ln b(a,b)`
-
-Fortran Name: `ALBETA(A`, `B)`, `DLBETA(A`, `B)`, `CLBETA(A`, `B)`
-"""
 function clbeta(a::ComplexF32, b::ComplexF32)
     ccall((:clbeta_, libslatec), ComplexF32, (Ref{ComplexF32}, Ref{ComplexF32}), a, b)
 end
 
 """
+    betai(x::Float32, a::Float32, b::Float32)
+    betai(x::Float64, a::Float64, b::Float64)
+
 Incomplete beta.
 
 Formula: `i sub x (a,b) = b sub x (a,b) / b(a,b)`
@@ -994,18 +886,15 @@ function betai(x::Float32, a::Float32, b::Float32)
     ccall((:betai_, libslatec), Cfloat, (Ref{Float32}, Ref{Float32}, Ref{Float32}), x, a, b)
 end
 
-"""
-Incomplete beta.
-
-Formula: `i sub x (a,b) = b sub x (a,b) / b(a,b)`
-= 1 / b(a,b) * integral from 0 to x of (t**(a-1) * (1-t)**(b-1))dt
-Fortran Name: `BETAI(X`, `A`, `B)`, `DBETAI(X`, `A`, `B)`
-"""
 function dbetai(x::Float64, a::Float64, b::Float64)
     ccall((:dbetai_, libslatec), Cdouble, (Ref{Float64}, Ref{Float64}, Ref{Float64}), x, a, b)
 end
 
 """
+    r9lgmc(x::Float32)
+    r9lgmc(x::Float64)
+    r9lgmc(x::ComplexF32)
+
 Log gamma correction term.
 
 Formula: `ln gamma(x) - (ln(2 * pi))/2 - (x - 1/2) * ln(x) + x`
@@ -1016,24 +905,10 @@ function r9lgmc(x::Float32)
     ccall((:r9lgmc_, libslatec), Cfloat, (Ref{Float32},), x)
 end
 
-"""
-Log gamma correction term.
-
-Formula: `ln gamma(x) - (ln(2 * pi))/2 - (x - 1/2) * ln(x) + x`
-
-Fortran Name: `R9LGMC(X)`, `D9LGMC(X)`, `C9LGMC(X)`
-"""
 function d9lgmc(x::Float64)
     ccall((:d9lgmc_, libslatec), Cdouble, (Ref{Float64},), x)
 end
 
-"""
-Log gamma correction term.
-
-Formula: `ln gamma(x) - (ln(2 * pi))/2 - (x - 1/2) * ln(x) + x`
-
-Fortran Name: `R9LGMC(X)`, `D9LGMC(X)`, `C9LGMC(X)`
-"""
 function c9lgmc(x::ComplexF32)
     ccall((:c9lgmc_, libslatec), ComplexF32, (Ref{ComplexF32},), x)
 end
@@ -1041,6 +916,9 @@ end
 #= --- Error Functions and Fresnel Integrals --- =#
 
 """
+    erf(x::Float32)
+    erf(x::Float64)
+
 Error function.
 
 Formula: `erf x = (2 / square root of pi) * the integral from 0 to x of e**(-t**2)dt`
@@ -1051,18 +929,14 @@ function erf(x::Float32)
     ccall((:erf_, libslatec), Cfloat, (Ref{Float32},), x)
 end
 
-"""
-Error function.
-
-Formula: `erf x = (2 / square root of pi) * the integral from 0 to x of e**(-t**2)dt`
-
-Fortran Name: `ERF(X)`, `DERF(X)`
-"""
 function derf(x::Float64)
     ccall((:derf_, libslatec), Cdouble, (Ref{Float64},), x)
 end
 
 """
+    erfc(x::Float32)
+    erfc(x::Float64)
+
 Complementary error function.
 
 Formula: `erfc x = (2 / square root of pi) * the integral from x to infinity of e**(-t**2)dt`
@@ -1073,18 +947,14 @@ function erfc(x::Float32)
     ccall((:erfc_, libslatec), Cfloat, (Ref{Float32},), x)
 end
 
-"""
-Complementary error function.
-
-Formula: `erfc x = (2 / square root of pi) * the integral from x to infinity of e**(-t**2)dt`
-
-Fortran Name: `ERFC(X)`, `DERFC(X)`
-"""
 function derfc(x::Float64)
     ccall((:derfc_, libslatec), Cdouble, (Ref{Float64},), x)
 end
 
 """
+    daws(x::Float32)
+    daws(x::Float64)
+
 Dawson's function.
 
 Formula: `F(x) = e**(-x**2) * the integral from 0 to x of e**(t**2)dt`
@@ -1095,13 +965,6 @@ function daws(x::Float32)
     ccall((:daws_, libslatec), Cfloat, (Ref{Float32},), x)
 end
 
-"""
-Dawson's function.
-
-Formula: `F(x) = e**(-x**2) * the integral from 0 to x of e**(t**2)dt`
-
-Fortran Name: `DAWS(X)`, `DDAWS(X)`
-"""
 function ddaws(x::Float64)
     ccall((:ddaws_, libslatec), Cdouble, (Ref{Float64},), x)
 end
@@ -1109,6 +972,9 @@ end
 #= --- Bessel Functions --- =#
 
 """
+    besj0(x::Float32)
+    besj0(x::Float64)
+
 Bessel function of the first kind, order zero.
 
 Formula: `J sub 0 (x)`
@@ -1119,18 +985,14 @@ function besj0(x::Float32)
     ccall((:besj0_, libslatec), Cfloat, (Ref{Float32},), x)
 end
 
-"""
-Bessel function of the first kind, order zero.
-
-Formula: `J sub 0 (x)`
-
-Fortran Name: `BESJ0(X)`, `DBESJ0(X)`
-"""
 function dbesj0(x::Float64)
     ccall((:dbesj0_, libslatec), Cdouble, (Ref{Float64},), x)
 end
 
 """
+    besj1(x::Float32)
+    besj1(x::Float64)
+
 Bessel function of the first kind, order one.
 
 Formula: `J sub 1 (x)`
@@ -1141,18 +1003,14 @@ function besj1(x::Float32)
     ccall((:besj1_, libslatec), Cfloat, (Ref{Float32},), x)
 end
 
-"""
-Bessel function of the first kind, order one.
-
-Formula: `J sub 1 (x)`
-
-Fortran Name: `BESJ1(X)`, `DBESJ1(X)`
-"""
 function dbesj1(x::Float64)
     ccall((:dbesj1_, libslatec), Cdouble, (Ref{Float64},), x)
 end
 
 """
+    besy0(x::Float32)
+    besy0(x::Float64)
+
 Bessel function of the second kind, order zero.
 
 Formula: `Y sub 0 (x)`
@@ -1163,18 +1021,14 @@ function besy0(x::Float32)
     ccall((:besy0_, libslatec), Cfloat, (Ref{Float32},), x)
 end
 
-"""
-Bessel function of the second kind, order zero.
-
-Formula: `Y sub 0 (x)`
-
-Fortran Name: `BESY0(X)`, `DBESY0(X)`
-"""
 function dbesy0(x::Float64)
     ccall((:dbesy0_, libslatec), Cdouble, (Ref{Float64},), x)
 end
 
 """
+    besy1(x::Float32)
+    besy1(x::Float64)
+
 Bessel function of the second kind, order one.
 
 Formula: `Y sub 1 (x)`
@@ -1185,18 +1039,14 @@ function besy1(x::Float32)
     ccall((:besy1_, libslatec), Cfloat, (Ref{Float32},), x)
 end
 
-"""
-Bessel function of the second kind, order one.
-
-Formula: `Y sub 1 (x)`
-
-Fortran Name: `BESY1(X)`, `DBESY1(X)`
-"""
 function dbesy1(x::Float64)
     ccall((:dbesy1_, libslatec), Cdouble, (Ref{Float64},), x)
 end
 
 """
+    besi0(x::Float32)
+    besi0(x::Float64)
+
 Modified Bessel function of the first kind, order zero.
 
 Formula: `I sub 0 (x)`
@@ -1207,18 +1057,14 @@ function besi0(x::Float32)
     ccall((:besi0_, libslatec), Cfloat, (Ref{Float32},), x)
 end
 
-"""
-Modified Bessel function of the first kind, order zero.
-
-Formula: `I sub 0 (x)`
-
-Fortran Name: `BESI0(X)`, `DBESI0(X)`
-"""
 function dbesi0(x::Float64)
     ccall((:dbesi0_, libslatec), Cdouble, (Ref{Float64},), x)
 end
 
 """
+    besi1(x::Float32)
+    besi1(x::Float64)
+
 Modified Bessel function of the first kind, order one.
 
 Formula: `I sub 1 (x)`
@@ -1229,18 +1075,14 @@ function besi1(x::Float32)
     ccall((:besi1_, libslatec), Cfloat, (Ref{Float32},), x)
 end
 
-"""
-Modified Bessel function of the first kind, order one.
-
-Formula: `I sub 1 (x)`
-
-Fortran Name: `BESI1(X)`, `DBESI1(X)`
-"""
 function dbesi1(x::Float64)
     ccall((:dbesi1_, libslatec), Cdouble, (Ref{Float64},), x)
 end
 
 """
+    besk0(x::Float32)
+    besk0(x::Float64)
+
 Modified Bessel function of the third kind, order zero.
 
 Formula: `K sub 0 (x)`
@@ -1251,18 +1093,14 @@ function besk0(x::Float32)
     ccall((:besk0_, libslatec), Cfloat, (Ref{Float32},), x)
 end
 
-"""
-Modified Bessel function of the third kind, order zero.
-
-Formula: `K sub 0 (x)`
-
-Fortran Name: `BESK0(X)`, `DBESK0(X)`
-"""
 function dbesk0(x::Float64)
     ccall((:dbesk0_, libslatec), Cdouble, (Ref{Float64},), x)
 end
 
 """
+    besk1(x::Float32)
+    besk1(x::Float64)
+
 Modified Bessel function of the third kind, order one.
 
 Formula: `K sub 1 (x)`
@@ -1273,18 +1111,14 @@ function besk1(x::Float32)
     ccall((:besk1_, libslatec), Cfloat, (Ref{Float32},), x)
 end
 
-"""
-Modified Bessel function of the third kind, order one.
-
-Formula: `K sub 1 (x)`
-
-Fortran Name: `BESK1(X)`, `DBESK1(X)`
-"""
 function dbesk1(x::Float64)
     ccall((:dbesk1_, libslatec), Cdouble, (Ref{Float64},), x)
 end
 
 """
+    besi0e(x::Float32)
+    besi0e(x::Float64)
+
 Modified Bessel function of the first kind, order zero, scaled.
 
 Formula: `e**-|x| * I sub 0(x)`
@@ -1295,18 +1129,14 @@ function besi0e(x::Float32)
     ccall((:besi0e_, libslatec), Cfloat, (Ref{Float32},), x)
 end
 
-"""
-Modified Bessel function of the first kind, order zero, scaled.
-
-Formula: `e**-|x| * I sub 0(x)`
-
-Fortran Name: `BESI0E(X)`, `DBSI0E(X)`
-"""
 function dbsi0e(x::Float64)
     ccall((:dbsi0e_, libslatec), Cdouble, (Ref{Float64},), x)
 end
 
 """
+    besi1e(x::Float32)
+    besi1e(x::Float64)
+
 Modified Bessel function of the first kind, order one, scaled.
 
 Formula: `e**-|x| * I sub 1(x)`
@@ -1317,18 +1147,14 @@ function besi1e(x::Float32)
     ccall((:besi1e_, libslatec), Cfloat, (Ref{Float32},), x)
 end
 
-"""
-Modified Bessel function of the first kind, order one, scaled.
-
-Formula: `e**-|x| * I sub 1(x)`
-
-Fortran Name: `BESI1E(X)`, `DBSI1E(X)`
-"""
 function dbsi1e(x::Float64)
     ccall((:dbsi1e_, libslatec), Cdouble, (Ref{Float64},), x)
 end
 
 """
+    besk0e(x::Float32)
+    besk0e(x::Float64)
+
 Modified Bessel function of the third kind, order zero, scaled.
 
 Formula: `e**x * K sub 0 (x)`
@@ -1339,18 +1165,14 @@ function besk0e(x::Float32)
     ccall((:besk0e_, libslatec), Cfloat, (Ref{Float32},), x)
 end
 
-"""
-Modified Bessel function of the third kind, order zero, scaled.
-
-Formula: `e**x * K sub 0 (x)`
-
-Fortran Name: `BESK0E(X)`, `DBSK0E(X)`
-"""
 function dbsk0e(x::Float64)
     ccall((:dbsk0e_, libslatec), Cdouble, (Ref{Float64},), x)
 end
 
 """
+    besk1e(x::Float32)
+    besk1e(x::Float64)
+
 Modified Bessel function of the third kind, order one, scaled.
 
 Formula: `e**x * K sub 1 (x)`
@@ -1361,13 +1183,6 @@ function besk1e(x::Float32)
     ccall((:besk1e_, libslatec), Cfloat, (Ref{Float32},), x)
 end
 
-"""
-Modified Bessel function of the third kind, order one, scaled.
-
-Formula: `e**x * K sub 1 (x)`
-
-Fortran Name: `BESK1E(X)`, `DBSK1E(X)`
-"""
 function dbsk1e(x::Float64)
     ccall((:dbsk1e_, libslatec), Cdouble, (Ref{Float64},), x)
 end
@@ -1383,6 +1198,9 @@ end
 =#
 
 """
+    besi(x::Float32, alpha::Float32, kode::Int32, n::Int32)
+    besi(x::Float64, alpha::Float64, kode::Int32, n::Int32)
+
 Sequence of modified Bessel functions of the first kind.
 
 Formula: ``I_{a+k-1}(x), k = 1,2,...,N``.  Optional scaling by `exp(-x)`.
@@ -1413,6 +1231,9 @@ function dbesi(x::Float64, alpha::Float64, kode::Int32, n::Int32)
 end
 
 """
+    besj(x::Float32, alpha::Float32, n::Int32)
+    besj(x::Float64, alpha::Float64, n::Int32)
+
 Sequence of Bessel functions of the first kind.
 
 Formula: ``J_{a+k-1}(x), k = 1,2,...,N``
@@ -1442,6 +1263,9 @@ function dbesj(x::Float64, alpha::Float64, n::Int32)
 end
 
 """
+    besy(x::Float32, fnu::Float32, n::Int32)
+    besy(x::Float64, fnu::Float64, n::Int32)
+
 Sequence of Bessel functions of the second kind.
 
 Formula: ``Y_{a+k-1}(x), k = 1,2,...,N``
@@ -1468,6 +1292,9 @@ function dbesy(x::Float64, fnu::Float64, n::Int32)
 end
 
 """
+    besk(x::Float32, fnu::Float32, kode::Int32, n::Int32)
+    besk(x::Float64, fnu::Float64, kode::Int32, n::Int32)
+
 Sequence of modified Bessel functions of the third kind.
 
 Formula: ``K_{a+k-1}(x), k = 1,2,...,N``. Optional scaling by `exp(x)`.
@@ -1498,6 +1325,9 @@ function dbesk(x::Float64, fnu::Float64, kode::Int32, n::Int32)
 end
 
 """
+    besks(xnu::Float32, x::Float32, n::Int32)
+    besks(xnu::Float64, x::Float64, n::Int32)
+
 Sequence of modified Bessel functions of the third kind.
 
 Formula:
@@ -1526,6 +1356,9 @@ function dbesks(xnu::Float64, x::Float64, n::Int32)
 end
 
 """
+    beskes(xnu::Float32, x::Float32, n::Int32)
+    beskes(xnu::Float64, x::Float64, n::Int32)
+
 Sequence of modified Bessel functions of the third kind, scaled.
 
 Formula:
@@ -1556,6 +1389,9 @@ end
 #= --- Bessel Functions of Fractional Order --- =#
 
 """
+    ai(x::Float32)
+    ai(x::Float64)
+
 Airy function Ai.
 
 Formula: `Ai(x)`
@@ -1566,18 +1402,14 @@ function ai(x::Float32)
     ccall((:ai_, libslatec), Cfloat, (Ref{Float32},), x)
 end
 
-"""
-Airy function Ai.
-
-Formula: `Ai(x)`
-
-Fortran Name: `AI(X)`, `DAI(X)`
-"""
 function dai(x::Float64)
     ccall((:dai_, libslatec), Cdouble, (Ref{Float64},), x)
 end
 
 """
+    bi(x::Float32)
+    bi(x::Float64)
+
 Airy function Bi.
 
 Formula: `Bi(x)`
@@ -1588,18 +1420,14 @@ function bi(x::Float32)
     ccall((:bi_, libslatec), Cfloat, (Ref{Float32},), x)
 end
 
-"""
-Airy function Bi.
-
-Formula: `Bi(x)`
-
-Fortran Name: `BI(X)`, `DBI(X)`
-"""
 function dbi(x::Float64)
     ccall((:dbi_, libslatec), Cdouble, (Ref{Float64},), x)
 end
 
 """
+    aie(x::Float32)
+    aie(x::Float64)
+
 Exponentially scaled Airy function Ai.
 
 Formula: `Ai(x), x <= 0; exp(2/3 * x**(3/2)) * Ai(x), x >= 0`
@@ -1610,18 +1438,14 @@ function aie(x::Float32)
     ccall((:aie_, libslatec), Cfloat, (Ref{Float32},), x)
 end
 
-"""
-Exponentially scaled Airy function Ai.
-
-Formula: `Ai(x), x <= 0; exp(2/3 * x**(3/2)) * Ai(x), x >= 0`
-
-Fortran Name: `AIE(X)`, `DAIE(X)`
-"""
 function daie(x::Float64)
     ccall((:daie_, libslatec), Cdouble, (Ref{Float64},), x)
 end
 
 """
+    bie(x::Float32)
+    bie(x::Float64)
+
 Exponentially scaled Airy function Bi.
 
 Formula: `Bi(x), x <= 0; exp(-2/3 * x**(3/2)) * Bi(x), x >= 0`
@@ -1632,13 +1456,6 @@ function bie(x::Float32)
     ccall((:bie_, libslatec), Cfloat, (Ref{Float32},), x)
 end
 
-"""
-Exponentially scaled Airy function Bi.
-
-Formula: `Bi(x), x <= 0; exp(-2/3 * x**(3/2)) * Bi(x), x >= 0`
-
-Fortran Name: `BIE(X)`, `DBIE(X)`
-"""
 function dbie(x::Float64)
     ccall((:dbie_, libslatec), Cdouble, (Ref{Float64},), x)
 end
@@ -1646,6 +1463,9 @@ end
 #= --- Confluent Hypergeometric Functions --- =#
 
 """
+    chu(a::Float32, b::Float32, x::Float32)
+    chu(a::Float64, b::Float64, x::Float64)
+
 Confluent hypergeometric function.
 
 Formula: `U(a,b,x)`
@@ -1658,15 +1478,6 @@ function chu(a::Float32, b::Float32, x::Float32)
     ccall((:chu_, libslatec), Cfloat, (Ref{Float32}, Ref{Float32}, Ref{Float32}), a, b, x)
 end
 
-"""
-Confluent hypergeometric function.
-
-This routine is not valid when `1+A-B` is close to zero if X is small.
-
-Formula: `U(a,b,x)`
-
-Fortran Name: `CHU(A`, `B`, `X)`, `DCHU(A`, `B`, `X)`
-"""
 function dchu(a::Float64, b::Float64, x::Float64)
     ccall((:dchu_, libslatec), Cdouble, (Ref{Float64}, Ref{Float64}, Ref{Float64}), a, b, x)
 end
@@ -1674,6 +1485,9 @@ end
 #= --- Miscellaneous Functions --- =#
 
 """
+    spenc(x::Float32)
+    spenc(x::Float64)
+
 Spence dilogarithm.
 
 Formula: `s(x) = - the integral from 0 to x of ((ln |1-y|) / y)dy`
@@ -1684,13 +1498,6 @@ function spenc(x::Float32)
     ccall((:spenc_, libslatec), Cfloat, (Ref{Float32},), x)
 end
 
-"""
-Spence dilogarithm.
-
-Formula: `s(x) = - the integral from 0 to x of ((ln |1-y|) / y)dy`
-
-Fortran Name: `SPENC(X)`, `DSPENC(X)`
-"""
 function dspenc(x::Float64)
     ccall((:dspenc_, libslatec), Cdouble, (Ref{Float64},), x)
 end
