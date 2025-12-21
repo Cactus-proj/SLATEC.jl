@@ -120,8 +120,12 @@ There are approximately 63 single precision, 63 double precision and
 """
 module FNLIB
 
+using Compat
 using SLATEC_jll
 const libslatec = SLATEC_jll.libslatec
+
+@compat public chu
+@compat public spenc
 
 
 #= --- Intrinsic Functions and Fundamental Functions --- =#
