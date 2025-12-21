@@ -42,9 +42,9 @@ Unpack a floating point number X so that `X = Y * 2^N`,
 where `Y` is between 0.5 and 1.0.
 
 Fortran Name: `R9UPAK(X`, `Y`, `N)`, `D9UPAK(X`, `Y`, `N)`
-@param[in]  x  Input floating point number
-@param[out] y  Mantissa
-@param[out] n  Exponent
+- `x`:   Input floating point number
+- `y`:   Mantissa
+- `n`:   Exponent
 """
 function r9upak(x::Float32)
     y, n = Ref{Float32}(NaN32), Ref{Int32}(0)
@@ -58,9 +58,9 @@ Unpack a floating point number X so that `X = Y * 2^N`,
 where `Y` is between 0.5 and 1.0.
 
 Fortran Name: `R9UPAK(X`, `Y`, `N)`, `D9UPAK(X`, `Y`, `N)`
-@param[in]  x  Input floating point number
-@param[out] y  Mantissa
-@param[out] n  Exponent
+- `x`:   Input floating point number
+- `y`:   Mantissa
+- `n`:   Exponent
 """
 function d9upak(x::Float64)
     y, n = Ref{Float64}(NaN), Ref{Int32}(0)
@@ -73,9 +73,11 @@ end
 Pack a base 2 exponent into a floating point number.
 
 Fortran Name: `R9PAK(Y`, `N)`, `D9PAK(Y`, `N)`
-@param[in]  y  Mantissa
-@param[in]  n  Exponent
-@return        Packed floating point number
+- `y`:   Mantissa
+- `n`:   Exponent
+
+Reutrn
+- Packed floating point number
 """
 function r9pak(y::Float32, n::Int32)
     ccall((:r9pak_, libslatec), Cfloat, (Ref{Float32}, Ref{Int32}), y, n)
@@ -85,9 +87,11 @@ end
 Pack a base 2 exponent into a floating point number.
 
 Fortran Name: `R9PAK(Y`, `N)`, `D9PAK(Y`, `N)`
-@param[in]  y  Mantissa
-@param[in]  n  Exponent
-@return        Packed floating point number
+- `y`:   Mantissa
+- `n`:   Exponent
+
+Reutrn
+- Packed floating point number
 """
 function d9pak(y::Float64, n::Int32)
     ccall((:d9pak_, libslatec), Cdouble, (Ref{Float64}, Ref{Int32}), y, n)
@@ -98,10 +102,12 @@ Determine the number of terms needed in an orthogonal
 polynomial series so that it meets a specified accuracy.
 
 Fortran Name: `INITS(OS`, `NOS`, `ETA)`, `INITDS(OS`, `NOS`, `ETA)`
-@param[in]  os   Coefficients in an orthogonal series.
-@param[in]  nos  Number of coefficients in `os`.
-@param[in]  eta  Requested accuracy of the series.
-@return          Number of terms needed to meet the accuracy.
+- `os`:    Coefficients in an orthogonal series.
+- `nos`:   Number of coefficients in `os`.
+- `eta`:   Requested accuracy of the series.
+
+Reutrn
+- Number of terms needed to meet the accuracy.
 """
 function inits(os::Vector{Float32}, eta::Float32)
     ccall((:inits_, libslatec), Cint, (Ptr{Cfloat}, Ref{Cint}, Ref{Cfloat}),
@@ -113,10 +119,12 @@ Determine the number of terms needed in an orthogonal
 polynomial series so that it meets a specified accuracy.
 
 Fortran Name: `INITS(OS`, `NOS`, `ETA)`, `INITDS(OS`, `NOS`, `ETA)`
-@param[in]  os   Coefficients in an orthogonal series.
-@param[in]  nos  Number of coefficients in `os`.
-@param[in]  eta  Requested accuracy of the series.
-@return          Number of terms needed to meet the accuracy.
+- `os`:    Coefficients in an orthogonal series.
+- `nos`:   Number of coefficients in `os`.
+- `eta`:   Requested accuracy of the series.
+
+Reutrn
+- Number of terms needed to meet the accuracy.
 """
 function initds(os::Vector{Float64}, eta::Float64)
     ccall((:initds_, libslatec), Cint, (Ptr{Cdouble}, Ref{Cint}, Ref{Cdouble}),
@@ -129,10 +137,12 @@ Evaluate Chebyshev series.
 Formula: `summation for i = 1 to n of cs(i)*(2*x)**(i-1)`
 
 Fortran Name: `CSEVL(X`, `CS`, `N)`, `DCSEVL(X`, `CS`, `N)`
-@param[in]  x  Input value
-@param[in]  cs Coefficients in the Chebyshev series.
-@param[in]  n  Number of coefficients in `cs`.
-@return        Value of the Chebyshev series at `x`.
+- `x`:   Input value
+- `cs`:  Coefficients in the Chebyshev series.
+- `n`:   Number of coefficients in `cs`.
+
+Reutrn
+- Value of the Chebyshev series at `x`.
 """
 function csevl(x::Float32, cs::Vector{Float32})
     ccall((:csevl_, libslatec), Cfloat, (Ref{Float32}, Ptr{Cfloat}, Ref{Cint}),
@@ -145,10 +155,12 @@ Evaluate Chebyshev series.
 Formula: `summation for i = 1 to n of cs(i)*(2*x)**(i-1)`
 
 Fortran Name: `CSEVL(X`, `CS`, `N)`, `DCSEVL(X`, `CS`, `N)`
-@param[in]  x  Input value
-@param[in]  cs Coefficients in the Chebyshev series.
-@param[in]  n  Number of coefficients in `cs`.
-@return        Value of the Chebyshev series at `x`.
+- `x`:   Input value
+- `cs`:  Coefficients in the Chebyshev series.
+- `n`:   Number of coefficients in `cs`.
+
+Reutrn
+- Value of the Chebyshev series at `x`.
 """
 function dcsevl(x::Float64, cs::Vector{Float64})
     ccall((:dcsevl_, libslatec), Cdouble, (Ref{Float64}, Ptr{Cdouble}, Ref{Cint}),
@@ -744,8 +756,10 @@ end
 Gamma(x) under and overflow limits.
 
 Fortran Name: `GAMLIM(XMIN`, `XMAX)`, `DGAMLM(XMIN`, `XMAX)`
-@param[out] xmin  Minimum legal value of X in gamma(X)
-@param[out] xmax  Maximum legal value of X in gamma(X)
+
+Return:
+- `xmin`:   Minimum legal value of X in gamma(X)
+- `xmax`:   Maximum legal value of X in gamma(X)
 """
 function gamlim()
     xmin, xmax = Ref{Float32}(NaN32), Ref{Float32}(NaN32)
@@ -757,8 +771,10 @@ end
 Gamma(x) under and overflow limits.
 
 Fortran Name: `GAMLIM(XMIN`, `XMAX)`, `DGAMLM(XMIN`, `XMAX)`
-@param[out] xmin  Minimum legal value of X in gamma(X)
-@param[out] xmax  Maximum legal value of X in gamma(X)
+
+Return:
+- `xmin`:   Minimum legal value of X in gamma(X)
+- `xmax`:   Maximum legal value of X in gamma(X)
 """
 function dgamlm()
     xmin, xmax = Ref{Float64}(NaN), Ref{Float64}(NaN)
@@ -838,9 +854,11 @@ Log abs gamma with sign.
 Formula: `g = ln |gamma(x)|, s = sign gamma(x)`
 
 Fortran Name: `ALGAMS(X`, `G`, `S)`, `DLGAMS(X`, `G`, `S)`
-@param[in]  x  Argument
-@param[out] g  Log absolute gamma
-@param[out] s  Sign of gamma, `+1.0` or `-1.0`
+- `x`:   Argument
+
+Return:
+- `g`:   Log absolute gamma
+- `s`:   Sign of gamma, `+1.0` or `-1.0`
 """
 function algams(x::Float32)
     loggam, sgn = Ref{Float32}(NaN32), Ref{Float32}(NaN32)
@@ -855,9 +873,11 @@ Log abs gamma with sign.
 Formula: `g = ln |gamma(x)|, s = sign gamma(x)`
 
 Fortran Name: `ALGAMS(X`, `G`, `S)`, `DLGAMS(X`, `G`, `S)`
-@param[in]  x  Argument
-@param[out] g  Log absolute gamma
-@param[out] s  Sign of gamma, `+1.0` or `-1.0`
+- `x`:   Argument
+
+Return:
+- `g`:   Log absolute gamma
+- `s`:   Sign of gamma, `+1.0` or `-1.0`
 """
 function dlgams(x::Float64)
     loggam, sgn = Ref{Float64}(NaN), Ref{Float64}(NaN)
