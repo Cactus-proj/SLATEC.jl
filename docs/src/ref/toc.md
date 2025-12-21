@@ -1,5 +1,9 @@
 # SLATEC TOC
 
+```@meta
+CurrentModule = SLATEC
+```
+
 > SLATEC Common Mathematical Library, Table of Contents
 
 This table of contents of the SLATEC Common Mathematical Library (CML)
@@ -187,20 +191,17 @@ C4C.  Hyperbolic, inverse hyperbolic
 
 ### C5. Exponential and logarithmic integrals
 
-          ALI-S     Compute the logarithmic integral.
-          DLI-D
-
-          E1-S      Compute the exponential integral E1(X).
-          DE1-D
-
-          EI-S      Compute the exponential integral Ei(X).
-          DEI-D
-
-          EXINT-S   Compute an M member sequence of exponential integrals
-          DEXINT-D  E(N+K,X), K=0,1,...,M-1 for N .GE. 1 and X .GE. 0.
-
-          SPENC-S   Compute a form of Spence's integral due to K. Mitchell.
-          DSPENC-D
+- [`ali(x)`](@ref FNLIB.ali): `ALI-S, DLI-D`,
+    Compute the logarithmic integral.
+- [`e1(x)`](@ref FNLIB.e1): `E1-S, DE1-D`,
+    Compute the exponential integral `E1(X)`.
+- [`ei(x)`](@ref FNLIB.ei): `EI-S, DEI-D`,
+    Compute the exponential integral `Ei(X)`.
+- [`exint(x,n,kode,m,tol)`](@ref FNLIB.exint): `EXINT-S, DEXINT-D`,
+    Compute an M member sequence of exponential integrals.
+   `E(N+K,X)`, `K=0,1,...,M-1 for N .GE. 1` and `X .GE. 0`.
+- [`spenc(x)`](@ref FNLIB.spenc): `SPENC-S, DSPENC-D`,
+    Compute a form of Spence's integral due to K. Mitchell.
 
 ### C7. Gamma
 C7A.  Gamma, log gamma, reciprocal gamma

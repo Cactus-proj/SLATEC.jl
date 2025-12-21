@@ -645,7 +645,7 @@ end
     ali(x::Float32)
     ali(x::Float64)
 
-Logarithmic integral li(x).
+Logarithmic integral `li(x)`.
 
 Formula: `the integral from 0 to x of (1 / ln t) dt`
 
@@ -663,7 +663,8 @@ end
     exint(x::Float32, n::Int32, kode::Int32, m::Int32, tol::Float32)
     exint(x::Float64, n::Int32, kode::Int32, m::Int32, tol::Float64)
 
-Compute an `m` member sequence of Exponential integral ``E_{n+k}(x)``.
+Compute an `m` member sequence of Exponential integral:
+``E_{n+k}(x), k = 0,1,...,(m-1)`` for `n >= 1` and `x >= 0`.
 
 Formula: the integral from `1` to infinity of ``(e^{-x*t}/t^{n+k}) dt``
 
@@ -1659,7 +1660,8 @@ end
     spenc(x::Float32)
     spenc(x::Float64)
 
-Spence dilogarithm.
+Compute a form of Spence's integral due to K. Mitchell.
+Also known as the dilogarithm, ``Li_2(x)``.
 
 Formula: `s(x) = - the integral from 0 to x of ((ln |1-y|) / y)dy`
 
