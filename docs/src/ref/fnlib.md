@@ -1,5 +1,11 @@
 # FNLib
 
+```@docs
+SLATEC.FNLIB
+```
+
+## TOC
+
 ```@contents
 Pages = ["fnlib.md"]
 Depth = 3

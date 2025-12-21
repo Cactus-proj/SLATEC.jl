@@ -1,16 +1,11 @@
 # API
 
-- [FNLib](fnlib.md): Special functions
+```@docs
+SLATEC
+```
 
 ## Index
 
 ```@index
 Pages = ["index.md"]
-```
-
-## SubModules
-
-```@docs
-SLATEC
-SLATEC.FNLIB
 ```
