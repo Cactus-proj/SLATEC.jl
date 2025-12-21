@@ -144,6 +144,8 @@ end
 #= --- Elementary Functions --- =#
 
 """
+    carg(z::ComplexF32)
+
 Argument = theta in radians.
 
 Formula: `z = |z| * e**(i * theta)`
@@ -199,6 +201,8 @@ function cexprl(x::ComplexF32)
 end
 
 """
+    clog10(z::ComplexF32)
+
 Common logarithm.
 
 Formula: `log to the base 10 of z`
@@ -330,6 +334,8 @@ function dcosdg(x::Float64)
 end
 
 """
+    casin(z::ComplexF32)
+
 Arc sine.
 
 Formula: `arcsin (z)`
@@ -341,6 +347,8 @@ function casin(z::ComplexF32)
 end
 
 """
+    cacos(z::ComplexF32)
+
 Arc cosine.
 
 Formula: `arccos (z)`
@@ -352,6 +360,8 @@ function cacos(z::ComplexF32)
 end
 
 """
+    catan(z::ComplexF32)
+
 Arc tangent.
 
 Formula: `arctan (z)`
@@ -363,6 +373,8 @@ function catan(z::ComplexF32)
 end
 
 """
+    catan2(z1::ComplexF32, z2::ComplexF32)
+
 Quadrant correct arc tangent.
 
 Formula: `arctan (z1/z2)`
@@ -374,6 +386,8 @@ function catan2(z1::ComplexF32, z2::ComplexF32)
 end
 
 """
+    csinh(z::ComplexF32)
+
 Hyperbolic sine.
 
 Formula: `sinh z`
@@ -385,6 +399,8 @@ function csinh(z::ComplexF32)
 end
 
 """
+    ccosh(z::ComplexF32)
+
 Hyperbolic cosine.
 
 Formula: `cosh z`
@@ -396,6 +412,8 @@ function ccosh(z::ComplexF32)
 end
 
 """
+    ctanh(z::ComplexF32)
+
 Hyperbolic tangent.
 
 Formula: `tanh z`
