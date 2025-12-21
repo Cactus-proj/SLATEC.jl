@@ -84,11 +84,14 @@ A6B.  Base conversion
           R9UPAK-S  Unpack a floating point number X so that X = Y*2**N.
           D9UPAK-D
 
-## C. Elementary and special functions
-(search also class L5)
 
-          FUNDOC-A  Documentation for FNLIB, a collection of routines for
-                    evaluating elementary and special functions.
+## C. Elementary and special functions
+
+> (search also class L5)
+
+- [`FNLIB`](@ref): `FUNDOC-A`,
+    Documentation for FNLIB, a collection of routines for
+    evaluating elementary and special functions.
 
 ### C1. Integer-valued functions
 
@@ -3015,6 +3018,10 @@ R3C.  Other utility programs
                     are being sent.
 
 ## Z. Other
+
+- [`FNLIB`](@ref): `FUNDOC-A`,
+    Documentation for FNLIB, a collection of routines for
+    evaluating elementary and special functions.
 
           AAAAAA-A  SLATEC Common Mathematical Library disclaimer and version.
 
