@@ -62,7 +62,7 @@ There are approximately 63 single precision, 63 double precision and
     [`gamma`](@ref FNLIB.gamma), [`gamlim`](@ref FNLIB.gamlim), [`gamr`](@ref FNLIB.gamr)
 - Log gamma:
     [`alngam`](@ref FNLIB.alngam), [`algams`](@ref FNLIB.algams);
-    [`r9lgmc`](@ref FNLIB.r9lgmc)
+    [`r9lgmc`](@ref FNLIB.r9lgmc); `c0lgmc`
 - Incomplete gamma: 
     [`gami`](@ref FNLIB.gami), [`gamic`](@ref FNLIB.gamic), [`gamit`](@ref FNLIB.gamit)
 - Digamma and Poch:

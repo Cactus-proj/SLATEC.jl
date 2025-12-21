@@ -389,6 +389,15 @@ void algams_(const real *x, real *g, real *s);
 void dlgams_(const doublereal *x, doublereal *g, doublereal *s);
 
 /**
+ * @brief Evaluate `(Z+0.5)*LOG((Z+1.)/Z) - 1.0` with relative accuracy.
+ * @param z ComplexF32
+ * @return ComplexF32
+ *
+ * Fortran Name: `C0LGMC(Z)`
+ */
+complex c0lgmc_(const complex *z);
+
+/**
  * Incomplete gamma.
  *
  * Formula: gamma(a,x) = integral from 0 to x of (t**(a-1) * e**-t)dt
