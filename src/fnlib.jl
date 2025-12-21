@@ -645,13 +645,16 @@ function cgamma(x::ComplexF32)
 end
 
 """
-Gamma(x) under and overflow limits.
+    gamlim(::Type{Float32}) :: Tuple{Float32, Float32}
+    gamlim(::Type{Float64}) :: Tuple{Float64, Float64}
 
-Fortran Name: `GAMLIM(XMIN`, `XMAX)`, `DGAMLM(XMIN`, `XMAX)`
+Gamma(x) under and overflow limits.
 
 Return:
 - `xmin`:   Minimum legal value of X in gamma(X)
 - `xmax`:   Maximum legal value of X in gamma(X)
+
+Fortran Name: `GAMLIM(XMIN`, `XMAX)`, `DGAMLM(XMIN`, `XMAX)`
 """
 function gamlim()
     xmin, xmax = Ref{Float32}(NaN32), Ref{Float32}(NaN32)
