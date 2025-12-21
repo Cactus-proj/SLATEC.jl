@@ -35,16 +35,23 @@ module FNLIB
 using SLATEC_jll
 const libslatec = SLATEC_jll.libslatec
 
+
 #= --- Intrinsic Functions and Fundamental Functions --- =#
 
 """
+    r9upak(x::Float32)
+    r9upak(x::Float64)
+
 Unpack a floating point number X so that `X = Y * 2^N`,
 where `Y` is between 0.5 and 1.0.
 
-Fortran Name: `R9UPAK(X`, `Y`, `N)`, `D9UPAK(X`, `Y`, `N)`
 - `x`:   Input floating point number
+
+Return:
 - `y`:   Mantissa
 - `n`:   Exponent
+
+Fortran Name: `R9UPAK(X`, `Y`, `N)`, `D9UPAK(X`, `Y`, `N)`
 """
 function r9upak(x::Float32)
     y, n = Ref{Float32}(NaN32), Ref{Int32}(0)
@@ -53,15 +60,6 @@ function r9upak(x::Float32)
     y[], n[]
 end
 
-"""
-Unpack a floating point number X so that `X = Y * 2^N`,
-where `Y` is between 0.5 and 1.0.
-
-Fortran Name: `R9UPAK(X`, `Y`, `N)`, `D9UPAK(X`, `Y`, `N)`
-- `x`:   Input floating point number
-- `y`:   Mantissa
-- `n`:   Exponent
-"""
 function d9upak(x::Float64)
     y, n = Ref{Float64}(NaN), Ref{Int32}(0)
     ccall((:d9upak_, libslatec), Cvoid, (Ref{Float64}, Ref{Float64}, Ref{Int32}),
@@ -70,68 +68,56 @@ function d9upak(x::Float64)
 end
 
 """
+    r9pak(y::Float32, n::Int32)
+    r9pak(y::Float64, n::Int32)
+
 Pack a base 2 exponent into a floating point number.
 
-Fortran Name: `R9PAK(Y`, `N)`, `D9PAK(Y`, `N)`
 - `y`:   Mantissa
 - `n`:   Exponent
 
 Reutrn
 - Packed floating point number
+
+Fortran Name: `R9PAK(Y`, `N)`, `D9PAK(Y`, `N)`
 """
 function r9pak(y::Float32, n::Int32)
     ccall((:r9pak_, libslatec), Cfloat, (Ref{Float32}, Ref{Int32}), y, n)
 end
 
-"""
-Pack a base 2 exponent into a floating point number.
-
-Fortran Name: `R9PAK(Y`, `N)`, `D9PAK(Y`, `N)`
-- `y`:   Mantissa
-- `n`:   Exponent
-
-Reutrn
-- Packed floating point number
-"""
 function d9pak(y::Float64, n::Int32)
     ccall((:d9pak_, libslatec), Cdouble, (Ref{Float64}, Ref{Int32}), y, n)
 end
 
 """
+    inits(os::Vector{Float32}, eta::Float32)
+    inits(os::Vector{Float64}, eta::Float64)
+
 Determine the number of terms needed in an orthogonal
 polynomial series so that it meets a specified accuracy.
 
-Fortran Name: `INITS(OS`, `NOS`, `ETA)`, `INITDS(OS`, `NOS`, `ETA)`
 - `os`:    Coefficients in an orthogonal series.
-- `nos`:   Number of coefficients in `os`.
 - `eta`:   Requested accuracy of the series.
 
 Reutrn
 - Number of terms needed to meet the accuracy.
+
+Fortran Name: `INITS(OS`, `NOS`, `ETA)`, `INITDS(OS`, `NOS`, `ETA)`
 """
 function inits(os::Vector{Float32}, eta::Float32)
     ccall((:inits_, libslatec), Cint, (Ptr{Cfloat}, Ref{Cint}, Ref{Cfloat}),
         os, Ref(Cint(length(os))), Ref(eta))
 end
 
-"""
-Determine the number of terms needed in an orthogonal
-polynomial series so that it meets a specified accuracy.
-
-Fortran Name: `INITS(OS`, `NOS`, `ETA)`, `INITDS(OS`, `NOS`, `ETA)`
-- `os`:    Coefficients in an orthogonal series.
-- `nos`:   Number of coefficients in `os`.
-- `eta`:   Requested accuracy of the series.
-
-Reutrn
-- Number of terms needed to meet the accuracy.
-"""
 function initds(os::Vector{Float64}, eta::Float64)
     ccall((:initds_, libslatec), Cint, (Ptr{Cdouble}, Ref{Cint}, Ref{Cdouble}),
         os, Ref(Cint(length(os))), Ref(eta))
 end
 
 """
+    csevl(x::Float32, cs::Vector{Float32})
+    csevl(x::Float64, cs::Vector{Float64})
+
 Evaluate Chebyshev series.
 
 Formula: `summation for i = 1 to n of cs(i)*(2*x)**(i-1)`
@@ -181,6 +167,10 @@ function carg(z::ComplexF32)
 end
 
 """
+    cbrt(x::Float32)
+    cbrt(x::Float64)
+    cbrt(x::ComplexF32)
+
 Cube root.
 
 Fortran Name: `CBRT(X)`, `DCBRT(X)`, `CCBRT(X)`
@@ -189,25 +179,19 @@ function cbrt(x::Float32)
     ccall((:cbrt_, libslatec), Cfloat, (Ref{Float32},), x)
 end
 
-"""
-Cube root.
-
-Fortran Name: `CBRT(X)`, `DCBRT(X)`, `CCBRT(X)`
-"""
 function dcbrt(x::Float64)
     ccall((:dcbrt_, libslatec), Cdouble, (Ref{Float64},), x)
 end
 
-"""
-Cube root.
-
-Fortran Name: `CBRT(X)`, `DCBRT(X)`, `CCBRT(X)`
-"""
 function ccbrt(x::ComplexF32)
     ccall((:ccbrt_, libslatec), ComplexF32, (Ref{ComplexF32},), x)
 end
 
 """
+    exprel(x::Float32)
+    exprel(x::Float64)
+    exprel(x::ComplexF32)
+
 Relative error exponential from first order.
 
 Formula: `((e**x) -1) / x`
@@ -218,24 +202,10 @@ function exprel(x::Float32)
     ccall((:exprel_, libslatec), Cfloat, (Ref{Float32},), x)
 end
 
-"""
-Relative error exponential from first order.
-
-Formula: `((e**x) -1) / x`
-
-Fortran Name: `EXPREL(X)`, `DEXPRL(X)`, `CEXPRL(X)`
-"""
 function dexprl(x::Float64)
     ccall((:dexprl_, libslatec), Cdouble, (Ref{Float64},), x)
 end
 
-"""
-Relative error exponential from first order.
-
-Formula: `((e**x) -1) / x`
-
-Fortran Name: `EXPREL(X)`, `DEXPRL(X)`, `CEXPRL(X)`
-"""
 function cexprl(x::ComplexF32)
     ccall((:cexprl_, libslatec), ComplexF32, (Ref{ComplexF32},), x)
 end
@@ -252,6 +222,10 @@ function clog10(z::ComplexF32)
 end
 
 """
+    alnrel(x::Float32)
+    alnrel(x::Float64)
+    alnrel(x::ComplexF32)
+
 Relative error logarithm.
 
 Formula: `ln(1 + x)`
@@ -262,29 +236,19 @@ function alnrel(x::Float32)
     ccall((:alnrel_, libslatec), Cfloat, (Ref{Float32},), x)
 end
 
-"""
-Relative error logarithm.
-
-Formula: `ln(1 + x)`
-
-Fortran Name: `ALNREL(X)`, `DLNREL(X)`, `CLNREL(X)`
-"""
 function dlnrel(x::Float64)
     ccall((:dlnrel_, libslatec), Cdouble, (Ref{Float64},), x)
 end
 
-"""
-Relative error logarithm.
-
-Formula: `ln(1 + x)`
-
-Fortran Name: `ALNREL(X)`, `DLNREL(X)`, `CLNREL(X)`
-"""
 function clnrel(x::ComplexF32)
     ccall((:clnrel_, libslatec), ComplexF32, (Ref{ComplexF32},), x)
 end
 
 """
+    r9ln2r(x::Float32)
+    r9ln2r(x::Float64)
+    r9ln2r(x::ComplexF32)
+
 Relative error logarithm from second order.
 
 Formula: `(ln(1 + x) - x + x**2/2) / x**3`
@@ -295,24 +259,10 @@ function r9ln2r(x::Float32)
     ccall((:r9ln2r_, libslatec), Cfloat, (Ref{Float32},), x)
 end
 
-"""
-Relative error logarithm from second order.
-
-Formula: `(ln(1 + x) - x + x**2/2) / x**3`
-
-Fortran Name: `R9LN2R(X)`, `D9LN2R(X)`, `C9LN2R(X)`
-"""
 function d9ln2r(x::Float64)
     ccall((:d9ln2r_, libslatec), Cdouble, (Ref{Float64},), x)
 end
 
-"""
-Relative error logarithm from second order.
-
-Formula: `(ln(1 + x) - x + x**2/2) / x**3`
-
-Fortran Name: `R9LN2R(X)`, `D9LN2R(X)`, `C9LN2R(X)`
-"""
 function c9ln2r(x::ComplexF32)
     ccall((:c9ln2r_, libslatec), ComplexF32, (Ref{ComplexF32},), x)
 end
@@ -320,6 +270,8 @@ end
 #= --- Trigonometric and Hyperbolic Functions --- =#
 
 """
+    ctan(z::ComplexF32)
+
 Tangent.
 
 Formula: `tan z`
@@ -331,6 +283,10 @@ function ctan(z::ComplexF32)
 end
 
 """
+    cot(x::Float32)
+    cot(x::Float64)
+    cot(x::ComplexF32)
+
 Cotangent.
 
 Formula: `cot x`
@@ -341,29 +297,18 @@ function cot(x::Float32)
     ccall((:cot_, libslatec), Cfloat, (Ref{Float32},), x)
 end
 
-"""
-Cotangent.
-
-Formula: `cot x`
-
-Fortran Name: `COT(X)`, `DCOT(X)`, `CCOT(X)`
-"""
 function dcot(x::Float64)
     ccall((:dcot_, libslatec), Cdouble, (Ref{Float64},), x)
 end
 
-"""
-Cotangent.
-
-Formula: `cot x`
-
-Fortran Name: `COT(X)`, `DCOT(X)`, `CCOT(X)`
-"""
 function ccot(x::ComplexF32)
     ccall((:ccot_, libslatec), ComplexF32, (Ref{ComplexF32},), x)
 end
 
 """
+    sindg(x::Float32)
+    sindg(x::Float64)
+
 Sine x in degrees.
 
 Formula: `sin((2*pi*x)/360)`
@@ -374,18 +319,14 @@ function sindg(x::Float32)
     ccall((:sindg_, libslatec), Cfloat, (Ref{Float32},), x)
 end
 
-"""
-Sine x in degrees.
-
-Formula: `sin((2*pi*x)/360)`
-
-Fortran Name: `SINDG(X)`, `DSINDG(X)`
-"""
 function dsindg(x::Float64)
     ccall((:dsindg_, libslatec), Cdouble, (Ref{Float64},), x)
 end
 
 """
+    cosdg(x::Float32)
+    cosdg(x::Float64)
+
 Cosine x in degrees.
 
 Formula: `cos((2*pi*x)/360)`
@@ -396,13 +337,6 @@ function cosdg(x::Float32)
     ccall((:cosdg_, libslatec), Cfloat, (Ref{Float32},), x)
 end
 
-"""
-Cosine x in degrees.
-
-Formula: `cos((2*pi*x)/360)`
-
-Fortran Name: `COSDG(X)`, `DCOSDG(X)`
-"""
 function dcosdg(x::Float64)
     ccall((:dcosdg_, libslatec), Cdouble, (Ref{Float64},), x)
 end
@@ -485,6 +419,10 @@ function ctanh(z::ComplexF32)
 end
 
 """
+    asinh(x::Float32)
+    asinh(x::Float64)
+    asinh(x::ComplexF32)
+
 Arc hyperbolic sine.
 
 Formula: `arcsinh (x)`
@@ -495,29 +433,19 @@ function asinh(x::Float32)
     ccall((:asinh_, libslatec), Cfloat, (Ref{Float32},), x)
 end
 
-"""
-Arc hyperbolic sine.
-
-Formula: `arcsinh (x)`
-
-Fortran Name: `ASINH(X)`, `DASINH(X)`, `CASINH(X)`
-"""
 function dasinh(x::Float64)
     ccall((:dasinh_, libslatec), Cdouble, (Ref{Float64},), x)
 end
 
-"""
-Arc hyperbolic sine.
-
-Formula: `arcsinh (x)`
-
-Fortran Name: `ASINH(X)`, `DASINH(X)`, `CASINH(X)`
-"""
 function casinh(x::ComplexF32)
     ccall((:casinh_, libslatec), ComplexF32, (Ref{ComplexF32},), x)
 end
 
 """
+    acosh(x::Float32)
+    acosh(x::Float64)
+    acosh(x::ComplexF32)
+
 Arc hyperbolic cosine.
 
 Formula: `arccosh (x)`
@@ -528,29 +456,19 @@ function acosh(x::Float32)
     ccall((:acosh_, libslatec), Cfloat, (Ref{Float32},), x)
 end
 
-"""
-Arc hyperbolic cosine.
-
-Formula: `arccosh (x)`
-
-Fortran Name: `ACOSH(X)`, `DACOSH(X)`, `CACOSH(X)`
-"""
 function dacosh(x::Float64)
     ccall((:dacosh_, libslatec), Cdouble, (Ref{Float64},), x)
 end
 
-"""
-Arc hyperbolic cosine.
-
-Formula: `arccosh (x)`
-
-Fortran Name: `ACOSH(X)`, `DACOSH(X)`, `CACOSH(X)`
-"""
 function cacosh(x::ComplexF32)
     ccall((:cacosh_, libslatec), ComplexF32, (Ref{ComplexF32},), x)
 end
 
 """
+    atanh(x::Float32)
+    atanh(x::Float64)
+    atanh(x::ComplexF32)
+
 Arc hyperbolic tangent.
 
 Formula: `arctanh (x)`
@@ -561,29 +479,18 @@ function atanh(x::Float32)
     ccall((:atanh_, libslatec), Cfloat, (Ref{Float32},), x)
 end
 
-"""
-Arc hyperbolic tangent.
-
-Formula: `arctanh (x)`
-
-Fortran Name: `ATANH(X)`, `DATANH(X)`, `CATANH(X)`
-"""
 function datanh(x::Float64)
     ccall((:datanh_, libslatec), Cdouble, (Ref{Float64},), x)
 end
 
-"""
-Arc hyperbolic tangent.
-
-Formula: `arctanh (x)`
-
-Fortran Name: `ATANH(X)`, `DATANH(X)`, `CATANH(X)`
-"""
 function catanh(x::ComplexF32)
     ccall((:catanh_, libslatec), ComplexF32, (Ref{ComplexF32},), x)
 end
 
 """
+    r9atn1(x::Float32)
+    r9atn1(x::Float64)
+
 Relative error arc tangent from first order.
 
 Formula: `(arctan (x) - x) / x**3`
@@ -594,13 +501,6 @@ function r9atn1(x::Float32)
     ccall((:r9atn1_, libslatec), Cfloat, (Ref{Float32},), x)
 end
 
-"""
-Relative error arc tangent from first order.
-
-Formula: `(arctan (x) - x) / x**3`
-
-Fortran Name: `R9ATN1(X)`, `D9ATN1(X)`
-"""
 function d9atn1(x::Float64)
     ccall((:d9atn1_, libslatec), Cdouble, (Ref{Float64},), x)
 end
@@ -608,6 +508,9 @@ end
 #= --- Exponential Integrals and Related Functions --- =#
 
 """
+    ei(x::Float32)
+    ei(x::Float64)
+
 Exponential integral Ei(x).
 
 Formula: `(minus) the integral from -x to infinity of (e**-t / t)dt`
@@ -618,18 +521,14 @@ function ei(x::Float32)
     ccall((:ei_, libslatec), Cfloat, (Ref{Float32},), x)
 end
 
-"""
-Exponential integral Ei(x).
-
-Formula: `(minus) the integral from -x to infinity of (e**-t / t)dt`
-
-Fortran Name: `EI(X)`, `DEI(X)`
-"""
 function dei(x::Float64)
     ccall((:dei_, libslatec), Cdouble, (Ref{Float64},), x)
 end
 
 """
+    e1(x::Float32)
+    e1(x::Float64)
+
 Exponential integral E1(x).
 
 Formula: `the integral from x to infinity of (e**-t / t) dt`
@@ -640,18 +539,14 @@ function e1(x::Float32)
     ccall((:e1_, libslatec), Cfloat, (Ref{Float32},), x)
 end
 
-"""
-Exponential integral E1(x).
-
-Formula: `the integral from x to infinity of (e**-t / t) dt`
-
-Fortran Name: `E1(X)`, `DE1(X)`
-"""
 function de1(x::Float64)
     ccall((:de1_, libslatec), Cdouble, (Ref{Float64},), x)
 end
 
 """
+    ali(x::Float32)
+    ali(x::Float64)
+
 Logarithmic integral li(x).
 
 Formula: `the integral from 0 to x of (1 / ln t) dt`
@@ -662,13 +557,6 @@ function ali(x::Float32)
     ccall((:ali_, libslatec), Cfloat, (Ref{Float32},), x)
 end
 
-"""
-Logarithmic integral li(x).
-
-Formula: `the integral from 0 to x of (1 / ln t) dt`
-
-Fortran Name: `ALI(X)`, `DLI(X)`
-"""
 function dli(x::Float64)
     ccall((:dli_, libslatec), Cdouble, (Ref{Float64},), x)
 end
