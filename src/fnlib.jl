@@ -16,71 +16,100 @@ There are approximately 63 single precision, 63 double precision and
 
 ## Intrinsic Functions and Fundamental Functions
 
-[`r9upak`](@ref FNLIB.r9upak), [`r9pak`](@ref FNLIB.r9pak),  
-[`inits`](@ref FNLIB.inits), [`csevl`](@ref FNLIB.csevl)
+- Unpack/Pack floating point:
+    [`r9upak`](@ref FNLIB.r9upak), [`r9pak`](@ref FNLIB.r9pak)
+- Initialize/Evaluate orthogonal polynomial:
+    [`inits`](@ref FNLIB.inits), [`csevl`](@ref FNLIB.csevl)
 
 ## Elementary Functions
 
-[`carg`](@ref FNLIB.carg),  
-[`cbrt`](@ref FNLIB.cbrt), [`exprel`](@ref FNLIB.exprel),  
-[`clog10`](@ref FNLIB.clog10),  
-[`alnrel`](@ref FNLIB.alnrel), [`r9ln2r`](@ref FNLIB.r9ln2r)
+- Elementary Functions:
+    [`carg`](@ref FNLIB.carg), 
+    [`cbrt`](@ref FNLIB.cbrt),
+    [`clog10`](@ref FNLIB.clog10)
+- Relative error exponential:
+    [`exprel`](@ref FNLIB.exprel)
+- Relative error logarithm:
+    [`alnrel`](@ref FNLIB.alnrel), [`r9ln2r`](@ref FNLIB.r9ln2r)
 
 ## Trigonometric and Hyperbolic Functions
 
-[`ctan`](@ref FNLIB.ctan),  
-[`cot`](@ref FNLIB.cot), [`sindg`](@ref FNLIB.sindg), [`cosdg`](@ref FNLIB.cosdg),  
-[`casin`](@ref FNLIB.casin), [`cacos`](@ref FNLIB.cacos), [`catan`](@ref FNLIB.catan),
-[`catan2`](@ref FNLIB.catan2),  
-[`csinh`](@ref FNLIB.csinh), [`ccosh`](@ref FNLIB.ccosh), [`ctanh`](@ref FNLIB.ctanh),  
-[`asinh`](@ref FNLIB.asinh), [`acosh`](@ref FNLIB.acosh), [`atanh`](@ref FNLIB.atanh),  
-[`r9atn1`](@ref FNLIB.r9atn1)
+- Tangent, cotangent:
+    [`ctan`](@ref FNLIB.ctan); [`cot`](@ref FNLIB.cot)
+- Trig in degrees:
+    [`sindg`](@ref FNLIB.sindg), [`cosdg`](@ref FNLIB.cosdg)
+- Arc Trig:
+    [`casin`](@ref FNLIB.casin), [`cacos`](@ref FNLIB.cacos), [`catan`](@ref FNLIB.catan),
+    [`catan2`](@ref FNLIB.catan2)
+- Hyperbolic:
+    [`csinh`](@ref FNLIB.csinh), [`ccosh`](@ref FNLIB.ccosh), [`ctanh`](@ref FNLIB.ctanh)
+- Arc hyperbolic
+    [`asinh`](@ref FNLIB.asinh), [`acosh`](@ref FNLIB.acosh), [`atanh`](@ref FNLIB.atanh);
+    [`r9atn1`](@ref FNLIB.r9atn1)
 
 ## Exponential Integrals and Related Functions
 
-[`ei`](@ref FNLIB.ei), [`e1`](@ref FNLIB.e1), [`ali`](@ref FNLIB.ali)
+- Exponential integral:
+    [`ei`](@ref FNLIB.ei), [`e1`](@ref FNLIB.e1)
+- Logarithmic integral:
+    [`ali`](@ref FNLIB.ali)
 
 ## Gamma Functions and Related Functions
 
-[`fac`](@ref FNLIB.fac), [`binom`](@ref FNLIB.binom),  
-[`gamma`](@ref FNLIB.gamma), [`gamlim`](@ref FNLIB.gamlim), [`gamr`](@ref FNLIB.gamr),
-[`alngam`](@ref FNLIB.alngam), [`algams`](@ref FNLIB.algams),  
-[`gami`](@ref FNLIB.gami), [`gamic`](@ref FNLIB.gamic), [`gamit`](@ref FNLIB.gamit),  
-[`psi`](@ref FNLIB.psi), [`poch`](@ref FNLIB.poch), [`poch1`](@ref FNLIB.poch1),  
-[`beta`](@ref FNLIB.beta), [`albeta`](@ref FNLIB.albeta), [`betai`](@ref FNLIB.betai),  
-[`r9lgmc`](@ref FNLIB.r9lgmc)
+- Factorial and Binomial:
+    [`fac`](@ref FNLIB.fac), [`binom`](@ref FNLIB.binom)
+- Gamma:
+    [`gamma`](@ref FNLIB.gamma), [`gamlim`](@ref FNLIB.gamlim), [`gamr`](@ref FNLIB.gamr)
+- Log gamma:
+    [`alngam`](@ref FNLIB.alngam), [`algams`](@ref FNLIB.algams);
+    [`r9lgmc`](@ref FNLIB.r9lgmc)
+- Incomplete gamma: 
+    [`gami`](@ref FNLIB.gami), [`gamic`](@ref FNLIB.gamic), [`gamit`](@ref FNLIB.gamit)
+- Digamma and Poch:
+    [`psi`](@ref FNLIB.psi), [`poch`](@ref FNLIB.poch), [`poch1`](@ref FNLIB.poch1)
+- Beta:
+    [`beta`](@ref FNLIB.beta), [`albeta`](@ref FNLIB.albeta),
+    [`betai`](@ref FNLIB.betai)
 
 ## Error Functions and Fresnel Integrals
 
-[`erf`](@ref FNLIB.erf), [`erfc`](@ref FNLIB.erfc), [`daws`](@ref FNLIB.daws)
+- Error function:
+    [`erf`](@ref FNLIB.erf), [`erfc`](@ref FNLIB.erfc)
+- Dawson's function:
+    [`daws`](@ref FNLIB.daws)
 
 ## Bessel Functions
 
-[`besj0`](@ref FNLIB.besj0), [`besj1`](@ref FNLIB.besj1),
-[`besy0`](@ref FNLIB.besy0), [`besy1`](@ref FNLIB.besy1),  
-[`besi0`](@ref FNLIB.besi0), [`besi1`](@ref FNLIB.besi1),
-[`besk0`](@ref FNLIB.besk0), [`besk1`](@ref FNLIB.besk1),  
-[`besi0e`](@ref FNLIB.besi0e), [`besi1e`](@ref FNLIB.besi1e),
-[`besk0e`](@ref FNLIB.besk0e), [`besk1e`](@ref FNLIB.besk1e)
-
-### Sequences of Bessel functions
-
-[`besj`](@ref FNLIB.besj), [`besy`](@ref FNLIB.besy),
-[`besi`](@ref FNLIB.besi), [`besk`](@ref FNLIB.besk),  
-[`besks`](@ref FNLIB.besks), [`beskes`](@ref FNLIB.beskes)
+- Bessel functions:
+    [`besj0`](@ref FNLIB.besj0), [`besj1`](@ref FNLIB.besj1),
+    [`besy0`](@ref FNLIB.besy0), [`besy1`](@ref FNLIB.besy1)
+- Modified (hyperbolic) Bessel functions:
+    [`besi0`](@ref FNLIB.besi0), [`besi1`](@ref FNLIB.besi1),
+    [`besk0`](@ref FNLIB.besk0), [`besk1`](@ref FNLIB.besk1)
+- Modified (hyperbolic) Bessel functions, scaled by an exponential:
+    [`besi0e`](@ref FNLIB.besi0e), [`besi1e`](@ref FNLIB.besi1e),
+    [`besk0e`](@ref FNLIB.besk0e), [`besk1e`](@ref FNLIB.besk1e)
+- Sequences of Bessel functions:
+    [`besj`](@ref FNLIB.besj), [`besy`](@ref FNLIB.besy),
+    [`besi`](@ref FNLIB.besi), [`besk`](@ref FNLIB.besk);
+    [`besks`](@ref FNLIB.besks), [`beskes`](@ref FNLIB.beskes)
 
 ## Bessel Functions of Fractional Order
 
-[`ai`](@ref FNLIB.ai), [`bi`](@ref FNLIB.bi),
-[`aie`](@ref FNLIB.aie), [`bie`](@ref FNLIB.bie)
+- Airy functions:
+    [`ai`](@ref FNLIB.ai), [`bi`](@ref FNLIB.bi)
+- Exponentially scaled Airy functions:
+    [`aie`](@ref FNLIB.aie), [`bie`](@ref FNLIB.bie)
 
 ## Confluent Hypergeometric Functions
 
-[`chu`](@ref FNLIB.chu)
+- Confluent Hypergeometric:
+    [`chu`](@ref FNLIB.chu)
 
 ## Miscellaneous Functions
 
-[`spenc`](@ref FNLIB.spenc)
+- Spence dilogarithm:
+    [`spenc`](@ref FNLIB.spenc)
 
 
 # References
