@@ -1464,6 +1464,187 @@ function dbsk1e(x::Float64)
     ccall((:dbsk1e_, libslatec), Cdouble, (Ref{Float64},), x)
 end
 
+#= Sequences of Bessel functions
+
+- besi, dbesi
+- besj, dbesj
+- besk, dbesk
+- besy, dbesy
+- besks, dbesks
+- beskes, dbeskes
+=#
+
+"""
+Sequence of modified Bessel functions of the first kind.
+
+Formula: ``I_{a+k-1}(x), k = 1,2,...,N``.  Optional scaling by `exp(-x)`.
+
+- `x`:       `x >= 0`
+- `alpha`:   Order of first member of the sequence, `alpha >= 0`
+- `kode`:    Selection parameter (1=unscaled, 2=scaled)
+- `n`:       Number of members in the sequence, `n >= 1`
+
+Return `(y, nz)`
+- `y`:       Result array
+- `nz`:      Number of underflows
+
+Fortran Name: `BESI(X,ALPHA,KODE,N, Y(*),NZ)`, `DBESI(X,ALPHA,KODE,N, Y(*),NZ)`
+"""
+function besi(x::Float32, alpha::Float32, kode::Int32, n::Int32)
+    y = Vector{Float32}(undef, n)
+    nz = Ref{Int32}(0)
+    ccall((:besi_, libslatec), Cvoid, (Ref{Float32}, Ref{Float32}, Ref{Int32}, Ref{Int32}, Ptr{Float32}, Ref{Int32}), x, alpha, kode, n, y, nz)
+    return y, nz[]
+end
+
+function dbesi(x::Float64, alpha::Float64, kode::Int32, n::Int32)
+    y = Vector{Float64}(undef, n)
+    nz = Ref{Int32}(0)
+    ccall((:dbesi_, libslatec), Cvoid, (Ref{Float64}, Ref{Float64}, Ref{Int32}, Ref{Int32}, Ptr{Float64}, Ref{Int32}), x, alpha, kode, n, y, nz)
+    return y, nz[]
+end
+
+"""
+Sequence of Bessel functions of the first kind.
+
+Formula: ``J_{a+k-1}(x), k = 1,2,...,N``
+
+- `x`:       `x >= 0`
+- `alpha`:   Order of first member of the sequence, `alpha >= 0`
+- `n`:       Number of members in the sequence, `n >= 1`
+
+Return `(y, nz)`
+- `y`:       Result array
+- `nz`:      Number of underflows
+
+Fortran Name: `BESJ(X,ALPHA,N, Y(*),NZ)`, `DBESJ(X,ALPHA,N, Y(*),NZ)`
+"""
+function besj(x::Float32, alpha::Float32, n::Int32)
+    y = Vector{Float32}(undef, n)
+    nz = Ref{Int32}(0)
+    ccall((:besj_, libslatec), Cvoid, (Ref{Float32}, Ref{Float32}, Ref{Int32}, Ptr{Float32}, Ref{Int32}), x, alpha, n, y, nz)
+    return y, nz[]
+end
+
+function dbesj(x::Float64, alpha::Float64, n::Int32)
+    y = Vector{Float64}(undef, n)
+    nz = Ref{Int32}(0)
+    ccall((:dbesj_, libslatec), Cvoid, (Ref{Float64}, Ref{Float64}, Ref{Int32}, Ptr{Float64}, Ref{Int32}), x, alpha, n, y, nz)
+    return y, nz[]
+end
+
+"""
+Sequence of Bessel functions of the second kind.
+
+Formula: ``Y_{a+k-1}(x), k = 1,2,...,N``
+
+- `x`:      `x >= 0`
+- `fnu`:   Order of first member of the sequence, `fnu >= 0`
+- `n`:     Number of members in the sequence, `n >= 1`
+
+Return
+- `y`:     Result array
+
+Fortran Name: `BESY(X,FNU,N, Y(*))`, `DBESY(X,FNU,N, Y(*))`
+"""
+function besy(x::Float32, fnu::Float32, n::Int32)
+    y = Vector{Float32}(undef, n)
+    ccall((:besy_, libslatec), Cvoid, (Ref{Float32}, Ref{Float32}, Ref{Int32}, Ptr{Float32}), x, fnu, n, y)
+    return y
+end
+
+function dbesy(x::Float64, fnu::Float64, n::Int32)
+    y = Vector{Float64}(undef, n)
+    ccall((:dbesy_, libslatec), Cvoid, (Ref{Float64}, Ref{Float64}, Ref{Int32}, Ptr{Float64}), x, fnu, n, y)
+    return y
+end
+
+"""
+Sequence of modified Bessel functions of the third kind.
+
+Formula: ``K_{a+k-1}(x), k = 1,2,...,N``. Optional scaling by `exp(x)`.
+
+- `x`:      `x >= 0`
+- `fnu`:    Order of first member of the sequence, `fnu >= 0`
+- `kode`:   Selection parameter (1=unscaled, 2=scaled)
+- `n`:      Number of members in the sequence, `n >= 1`
+
+Return `(y, nz)`
+- `y`:      Result array
+- `nz`:     Number of underflows
+
+Fortran Name: `BESK(X,FNU,KODE,N, Y(*),NZ)`, `DBESK(X,FNU,KODE,N, Y(*),NZ)`
+"""
+function besk(x::Float32, fnu::Float32, kode::Int32, n::Int32)
+    y = Vector{Float32}(undef, n)
+    nz = Ref{Int32}(0)
+    ccall((:besk_, libslatec), Cvoid, (Ref{Float32}, Ref{Float32}, Ref{Int32}, Ref{Int32}, Ptr{Float32}, Ref{Int32}), x, fnu, kode, n, y, nz)
+    return y, nz[]
+end
+
+function dbesk(x::Float64, fnu::Float64, kode::Int32, n::Int32)
+    y = Vector{Float64}(undef, n)
+    nz = Ref{Int32}(0)
+    ccall((:dbesk_, libslatec), Cvoid, (Ref{Float64}, Ref{Float64}, Ref{Int32}, Ref{Int32}, Ptr{Float64}, Ref{Int32}), x, fnu, kode, n, y, nz)
+    return y, nz[]
+end
+
+"""
+Sequence of modified Bessel functions of the third kind.
+
+Formula:
+``K_{a+i}(x), i = 0, 1, ..., N-1`` for `N > 0`
+or `i = 0, -1, ..., N+1` for `N < 0`.
+
+- `xnu`:   Order of first member of the sequence, `xnu >= 0`
+- `x`:     Argument, `x >= 0`
+- `n`:     Number of members in the sequence, `n >= 1`
+
+Return
+- `bk`:    Result array
+
+Fortran Name: `BESKS(XNU,X,N, BK(*))`, `DBESKS(XNU,X,N, BK(*))`
+"""
+function besks(xnu::Float32, x::Float32, n::Int32)
+    bk = Vector{Float32}(undef, abs(n))
+    ccall((:besks_, libslatec), Cvoid, (Ref{Float32}, Ref{Float32}, Ref{Int32}, Ptr{Float32}), xnu, x, n, bk)
+    return bk
+end
+
+function dbesks(xnu::Float64, x::Float64, n::Int32)
+    bk = Vector{Float64}(undef, abs(n))
+    ccall((:dbesks_, libslatec), Cvoid, (Ref{Float64}, Ref{Float64}, Ref{Int32}, Ptr{Float64}), xnu, x, n, bk)
+    return bk
+end
+
+"""
+Sequence of modified Bessel functions of the third kind, scaled.
+
+Formula:
+``e^x * K_{a+i}(x), i = 0, 1, ..., N-1`` for `N > 0`
+or `i = 0, -1, ..., N+1` for `N < 0`.
+
+- `xnu`:   Order of first member of the sequence, `xnu >= 0`
+- `x`:     Argument, `x >= 0`
+- `n`:     Number of members in the sequence, `n >= 1`
+
+Return
+- `bk`:    Result array
+
+Fortran Name: `BESKES(XNU,X,N, BK(*))`, `DBSKES(XNU,X,N, BK(*))`
+"""
+function beskes(xnu::Float32, x::Float32, n::Int32)
+    bk = Vector{Float32}(undef, abs(n))
+    ccall((:beskes_, libslatec), Cvoid, (Ref{Float32}, Ref{Float32}, Ref{Int32}, Ptr{Float32}), xnu, x, n, bk)
+    return bk
+end
+
+function dbskes(xnu::Float64, x::Float64, n::Int32)
+    bk = Vector{Float64}(undef, abs(n))
+    ccall((:dbskes_, libslatec), Cvoid, (Ref{Float64}, Ref{Float64}, Ref{Int32}, Ptr{Float64}), xnu, x, n, bk)
+    return bk
+end
+
 #= --- Bessel Functions of Fractional Order --- =#
 
 """
@@ -1672,7 +1853,12 @@ besi1e(x::Float64) = dbsi1e(x)
 besk0e(x::Float64) = dbsk0e(x)
 besk1e(x::Float64) = dbsk1e(x)
 #   Sequences of Bessel functions.
-
+besi(x::Float64, alpha::Float64, kode::Int32, n::Int32) = dbesi(x, alpha, kode, n)
+besj(x::Float64, alpha::Float64, n::Int32) = dbesj(x, alpha, n)
+besy(x::Float64, fnu::Float64, n::Int32) = dbesy(x, fnu, n)
+besk(x::Float64, fnu::Float64, kode::Int32, n::Int32) = dbesk(x, fnu, kode, n)
+besks(xnu::Float64, x::Float64, n::Int32) = dbesks(xnu, x, n)
+beskes(xnu::Float64, x::Float64, n::Int32) = dbskes(xnu, x, n)
 # Bessel Functions of Fractional Order
 ai(x::Float64) = dai(x)
 bi(x::Float64) = dbi(x)

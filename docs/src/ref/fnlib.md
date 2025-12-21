@@ -112,13 +112,13 @@ SLATEC.FNLIB.besk1e
 ### Sequences of Bessel functions
 
 ```@docs
-# SLATEC.FNLIB.besj
-# SLATEC.FNLIB.besy
-# SLATEC.FNLIB.besi
-# SLATEC.FNLIB.besk
+SLATEC.FNLIB.besj
+SLATEC.FNLIB.besy
+SLATEC.FNLIB.besi
+SLATEC.FNLIB.besk
 
-# SLATEC.FNLIB.besks
-# SLATEC.FNLIB.beskes
+SLATEC.FNLIB.besks
+SLATEC.FNLIB.beskes
 ```
 
 ## Bessel Functions of Fractional Order

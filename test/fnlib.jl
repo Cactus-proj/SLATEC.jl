@@ -304,6 +304,54 @@ const FN = SLATEC.FNLIB
         # s(1) = pi^2 / 6 approx 1.644934
         @test FN.spenc(T(1.0)) ≈ T(1.644934) rtol=1e-5
     end
+
+    @testset "Bessel Sequences" begin
+        x = T(1.0)
+        alpha = T(0.0)
+        n = Int32(2)
+        kode = Int32(1)
+
+        # besi
+        y, nz = FN.besi(x, alpha, kode, n)
+        @test nz == 0
+        @test length(y) == 2
+        @test y[1] ≈ FN.besi0(x)
+        @test y[2] ≈ FN.besi1(x)
+
+        # besj
+        y, nz = FN.besj(x, alpha, n)
+        @test nz == 0
+        @test length(y) == 2
+        @test y[1] ≈ FN.besj0(x)
+        @test y[2] ≈ FN.besj1(x)
+
+        # besy
+        y = FN.besy(x, alpha, n)
+        @test length(y) == 2
+        @test y[1] ≈ FN.besy0(x)
+        @test y[2] ≈ FN.besy1(x)
+
+        # besk
+        y, nz = FN.besk(x, alpha, kode, n)
+        @test nz == 0
+        @test length(y) == 2
+        @test y[1] ≈ FN.besk0(x)
+        @test y[2] ≈ FN.besk1(x)
+
+        # besks
+        # besks computes K_{xnu+i}(x)
+        bk = FN.besks(alpha, x, n)
+        @test length(bk) == 2
+        @test bk[1] ≈ FN.besk0(x)
+        @test bk[2] ≈ FN.besk1(x)
+
+        # beskes
+        # beskes computes exp(x) * K_{xnu+i}(x)
+        bk = FN.beskes(alpha, x, n)
+        @test length(bk) == 2
+        @test bk[1] ≈ FN.besk0e(x)
+        @test bk[2] ≈ FN.besk1e(x)
+    end
 end
 
 @testset "Type $T" for T in (ComplexF32, )
