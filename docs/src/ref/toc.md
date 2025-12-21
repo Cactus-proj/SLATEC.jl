@@ -424,8 +424,8 @@ C10F.  Integrals of Bessel functions
 
 C11.  Confluent hypergeometric functions
 
-          CHU-S     Compute the logarithmic confluent hypergeometric function.
-          DCHU-D
+- [`chu(x)`](@ref FNLIB.chu): `CHU-S, DCHU-D`,
+    Compute the logarithmic confluent hypergeometric function.
 
 C14.  Elliptic integrals
 

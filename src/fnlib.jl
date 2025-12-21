@@ -1642,11 +1642,14 @@ end
     chu(a::Float32, b::Float32, x::Float32)
     chu(a::Float64, b::Float64, x::Float64)
 
-Confluent hypergeometric function.
+Compute the logarithmic confluent hypergeometric function, `U(a,b,x)`
 
-Formula: `U(a,b,x)`
+!!! warning "Crash warning"
+    If input argument do not meet the requirements,
+    the routine will crash julia process!!!
 
-This routine is not valid when `1+A-B` is close to zero if X is small.
+    - `x` must be positive,  `x > 0`
+    - This routine is not valid when `1+A-B` is close to zero if X is small.
 
 Fortran Name: `CHU(A`, `B`, `X)`, `DCHU(A`, `B`, `X)`
 """
