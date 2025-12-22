@@ -1,5 +1,7 @@
 # SLATEC
 
+Julia wrapper for [SLATEC](https://www.netlib.org/slatec/) Common Mathematical Library.
+
 [![Stable](https://img.shields.io/badge/docs-stable-blue.svg)](https://inkydragon.github.io/SLATEC.jl/stable/)
 [![Dev](https://img.shields.io/badge/docs-dev-blue.svg)](https://inkydragon.github.io/SLATEC.jl/dev/)
 [![Build Status](https://github.com/inkydragon/SLATEC.jl/actions/workflows/CI.yml/badge.svg?branch=main)](https://github.com/inkydragon/SLATEC.jl/actions/workflows/CI.yml?query=branch%3Amain)
