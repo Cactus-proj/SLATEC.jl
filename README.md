@@ -5,7 +5,7 @@
 [![Build Status](https://github.com/inkydragon/SLATEC.jl/actions/workflows/CI.yml/badge.svg?branch=main)](https://github.com/inkydragon/SLATEC.jl/actions/workflows/CI.yml?query=branch%3Amain)
 [![Coverage](https://codecov.io/gh/inkydragon/SLATEC.jl/branch/main/graph/badge.svg)](https://codecov.io/gh/inkydragon/SLATEC.jl)
 
-> SLSLATEC Common Mathematical Library,
+> SLATEC Common Mathematical Library,
 > a comprehensive software library containing over
 > 1400 general purpose mathematical and statistical routines.
 

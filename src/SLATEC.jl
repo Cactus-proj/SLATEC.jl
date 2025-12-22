@@ -1,6 +1,6 @@
 # SPDX-License-Identifier: MIT
 """
-SLSLATEC Common Mathematical Library,
+SLATEC Common Mathematical Library,
 a comprehensive software library containing over
 1400 general purpose mathematical and statistical routines.
 
