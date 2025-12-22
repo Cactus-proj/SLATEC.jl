@@ -7,6 +7,7 @@ using Test
     if VERSION >= v"1.11"
         @testset "Docstrings" begin
             @test isempty(Docs.undocumented_names(SLATEC))
+            @test isempty(Docs.undocumented_names(SLATEC.FNLIB))
         end
     end
 end

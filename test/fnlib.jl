@@ -505,7 +505,3 @@ end
         @test exp(lhs) ≈ exp(rhs) rtol=1e-4
     end
 end
-
-@testset "Docstrings" begin
-    @test isempty(Docs.undocumented_names(SLATEC.FNLIB))
-end
