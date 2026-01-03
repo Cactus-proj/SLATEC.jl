@@ -11,6 +11,7 @@ Julia wrapper for [SLATEC](https://www.netlib.org/slatec/) Common Mathematical L
 > a comprehensive software library containing over
 > 1400 general purpose mathematical and statistical routines.
 
+
 ## Overview
 
 SLATEC includes all or some of the following packages:
@@ -23,6 +24,8 @@ SLATEC includes all or some of the following packages:
   - Use https://github.com/DrTimothyAldenDavis/SuiteSparse
 - `EISPACK`, the computation of eigenvalues and eigenvectors.  
     [EISPACK has been superseded for the most part by `LAPACK`](https://www.netlib.org/eispack/index.html)
+- `FCNPAK`, associated Legendre (or Ferrers) functions and normalized legendre polynomials
+    [FCNPAK](https://math.nist.gov/~DLozier/projects/FCNPAK/index.html)
 - `FFTPACK`, fast Fourier transforms
   - Use [FFTW](https://www.fftw.org/)
   - https://github.com/fortran-lang/fftpack
@@ -41,7 +44,9 @@ SLATEC includes all or some of the following packages:
   - https://github.com/jacobwilliams/quadpack
 - `XERROR`, error handling
 
-NOTE: Focus on `fnlib` for now.
+> [!NOTE]
+>
+> Focus on `fnlib` for now.
 
 
 ## License
@@ -50,12 +55,16 @@ NOTE: Focus on `fnlib` for now.
 // SPDX-License-Identifier: MIT
 ```
 
-- `SLATEC` is in the `public domain`, since it was developed at U.S. government research laboratories.
-- This Julia wrapper (`SLATEC.jl`) is licensed under MIT License. See [`LICENSE`](LICENSE) file details.
+- `SLATEC` is in the `public domain`,
+  since it was developed at U.S. government research laboratories.
+- This Julia wrapper (`SLATEC.jl`) is licensed under MIT License.
+  See [`LICENSE`](LICENSE) file details.
 
 ## References
 
 - [netlib/slatec](https://www.netlib.org/slatec/)
+  - [sabjohnso/slatec: SLATEC Common Mathematical Library](https://github.com/sabjohnso/slatec)
+    SLATEC_jll builds are based on this repository.
 - [GAMS: Package SLATEC](https://gams.nist.gov/cgi-bin/serve.cgi/Package/SLATEC)
   - [GAMS: Modules in Package SLATEC](https://gams.nist.gov/cgi-bin/serve.cgi/PackageModules/SLATEC)
 - Vandevender, W. H., & Haskell, K. H. (1982). The SLATEC mathematical subroutine library.
