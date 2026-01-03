@@ -11,6 +11,13 @@ CurrentModule = SLATEC
     evaluating elementary and special functions.
 
 
+## Page TOC
+
+```@contents
+Pages = ["gams-c.md"]
+Depth = 3
+```
+
 ## C1. Integer-valued functions
 
 > (e.g., floor, ceiling, factorial, binomial coefficient)
@@ -27,15 +34,19 @@ CurrentModule = SLATEC
           POCH1-S   Calculate a generalization of Pochhammer's symbol starting
           DPOCH1-D  from first order.
 
+
 ## C2. Powers, roots, reciprocals
 
           CBRT-S    Compute the cube root.
           DCBRT-D
           CCBRT-C
 
+
 ## C3. Polynomials
-C3A.  Orthogonal
-C3A2.  Chebyshev, Legendre
+
+### C3A.  Orthogonal
+
+#### C3A2.  Chebyshev, Legendre
 
           CSEVL-S   Evaluate a Chebyshev series.
           DCSEVL-D
@@ -54,8 +65,10 @@ C3A2.  Chebyshev, Legendre
           XNRMP-S   Compute normalized Legendre polynomials.
           DXNRMP-D
 
+
 ## C4. Elementary transcendental functions
-C4A.  Trigonometric, inverse trigonometric
+
+### C4A.  Trigonometric, inverse trigonometric
 
           CACOS-C   Compute the complex arc cosine.
 
@@ -77,7 +90,7 @@ C4A.  Trigonometric, inverse trigonometric
           SINDG-S   Compute the sine of an argument in degrees.
           DSINDG-D
 
-C4B.  Exponential, logarithmic
+### C4B.  Exponential, logarithmic
 
           ALNREL-S  Evaluate ln(1+X) accurate in the sense of relative error.
           DLNREL-D
@@ -90,7 +103,7 @@ C4B.  Exponential, logarithmic
           DEXPRL-D
           CEXPRL-C
 
-C4C.  Hyperbolic, inverse hyperbolic
+### C4C.  Hyperbolic, inverse hyperbolic
 
           ACOSH-S   Compute the arc hyperbolic cosine.
           DACOSH-D
@@ -110,6 +123,7 @@ C4C.  Hyperbolic, inverse hyperbolic
 
           CTANH-C   Compute the complex hyperbolic tangent.
 
+
 ## C5. Exponential and logarithmic integrals
 
 - [`ali(x)`](@ref FNLIB.ali): `ALI-S, DLI-D`,
@@ -124,8 +138,10 @@ C4C.  Hyperbolic, inverse hyperbolic
 - [`spenc(x)`](@ref FNLIB.spenc): `SPENC-S, DSPENC-D`,
     Compute a form of Spence's integral due to K. Mitchell.
 
+
 ## C7. Gamma
-C7A.  Gamma, log gamma, reciprocal gamma
+
+### C7A.  Gamma, log gamma, reciprocal gamma
 
           ALGAMS-S  Compute the logarithm of the absolute value of the Gamma
           DLGAMS-D  function.
@@ -154,7 +170,7 @@ C7A.  Gamma, log gamma, reciprocal gamma
           POCH1-S   Calculate a generalization of Pochhammer's symbol starting
           DPOCH1-D  from first order.
 
-C7B.  Beta, log beta
+### C7B.  Beta, log beta
 
           ALBETA-S  Compute the natural logarithm of the complete Beta
           DLBETA-D  function.
@@ -164,7 +180,7 @@ C7B.  Beta, log beta
           DBETA-D
           CBETA-C
 
-C7C.  Psi function
+### C7C.  Psi function
 
           PSI-S     Compute the Psi (or Digamma) function.
           DPSI-D
@@ -173,7 +189,7 @@ C7C.  Psi function
           PSIFN-S   Compute derivatives of the Psi function.
           DPSIFN-D
 
-C7E.  Incomplete gamma
+### C7E.  Incomplete gamma
 
           GAMI-S    Evaluate the incomplete Gamma function.
           DGAMI-D
@@ -184,14 +200,15 @@ C7E.  Incomplete gamma
           GAMIT-S   Calculate Tricomi's form of the incomplete Gamma function.
           DGAMIT-D
 
-C7F.  Incomplete beta
+### C7F.  Incomplete beta
 
           BETAI-S   Calculate the incomplete Beta function.
           DBETAI-D
 
+
 ## C8. Error functions
-C8A.  Error functions, their inverses, integrals, including the normal
-      distribution function
+
+### C8A.  Error functions, their inverses, integrals, including the normal distribution function
 
           ERF-S     Compute the error function.
           DERF-D
@@ -199,10 +216,11 @@ C8A.  Error functions, their inverses, integrals, including the normal
           ERFC-S    Compute the complementary error function.
           DERFC-D
 
-C8C.  Dawson's integral
+### C8C.  Dawson's integral
 
           DAWS-S    Compute Dawson's function.
           DDAWS-D
+
 
 ## C9. Legendre functions
 
@@ -212,9 +230,12 @@ C8C.  Dawson's integral
           XNRMP-S   Compute normalized Legendre polynomials.
           DXNRMP-D
 
+
 ## C10.  Bessel functions
-C10A.  J, Y, H-(1), H-(2)
-C10A1.  Real argument, integer order
+
+### C10A.  J, Y, H-(1), H-(2)
+
+#### C10A1.  Real argument, integer order
 
           BESJ0-S   Compute the Bessel function of the first kind of order
           DBESJ0-D  zero.
@@ -228,7 +249,7 @@ C10A1.  Real argument, integer order
           BESY1-S   Compute the Bessel function of the second kind of order
           DBESY1-D  one.
 
-C10A3.  Real argument, real order
+#### C10A3.  Real argument, real order
 
           BESJ-S    Compute an N member sequence of J Bessel functions
           DBESJ-D   J/SUB(ALPHA+K-1)/(X), K=1,...,N for non-negative ALPHA
@@ -239,7 +260,7 @@ C10A3.  Real argument, real order
                     functions Y/SUB(FNU+I-1)/(X), I=1,...,N for real, positive
                     X and non-negative orders FNU.
 
-C10A4.  Complex argument, real order
+#### C10A4.  Complex argument, real order
 
           CBESH-C   Compute a sequence of the Hankel functions H(m,a,z)
           ZBESH-C   for superscript m=1 or 2, real nonnegative orders a=b,
@@ -256,8 +277,9 @@ C10A4.  Complex argument, real order
                     b+2,... where b>0.  A scaling option is available to
                     help avoid overflow.
 
-C10B.  I, K
-C10B1.  Real argument, integer order
+### C10B.  I, K
+
+#### C10B1.  Real argument, integer order
 
           BESI0-S   Compute the hyperbolic Bessel function of the first kind
           DBESI0-D  of order zero.
@@ -283,7 +305,7 @@ C10B1.  Real argument, integer order
           BESK1E-S  Compute the exponentially scaled modified (hyperbolic)
           DBSK1E-D  Bessel function of the third kind of order one.
 
-C10B3.  Real argument, real order
+#### C10B3.  Real argument, real order
 
           BESI-S    Compute an N member sequence of I Bessel functions
           DBESI-D   I/SUB(ALPHA+K-1)/(X), K=1,...,N or scaled Bessel functions
@@ -302,7 +324,7 @@ C10B3.  Real argument, real order
           BESKS-S   Compute a sequence of modified Bessel functions of the
           DBESKS-D  third kind of fractional order.
 
-C10B4.  Complex argument, real order
+#### C10B4.  Complex argument, real order
 
           CBESI-C   Compute a sequence of the Bessel functions I(a,z) for
           ZBESI-C   complex argument z and real nonnegative orders a=b,b+1,
@@ -314,7 +336,7 @@ C10B4.  Complex argument, real order
                     b+2,... where b>0.  A scaling option is available to
                     help avoid overflow.
 
-C10D.  Airy and Scorer functions
+### C10D.  Airy and Scorer functions
 
           AI-S      Evaluate the Airy function.
           DAI-D
@@ -338,15 +360,17 @@ C10D.  Airy and Scorer functions
           ZBIRY-C   for complex argument z.  A scaling option is available
                     to help avoid overflow.
 
-C10F.  Integrals of Bessel functions
+### C10F.  Integrals of Bessel functions
 
           BSKIN-S   Compute repeated integrals of the K-zero Bessel function.
           DBSKIN-D
+
 
 ## C11.  Confluent hypergeometric functions
 
 - [`chu(x)`](@ref FNLIB.chu): `CHU-S, DCHU-D`,
     Compute the logarithmic confluent hypergeometric function.
+
 
 ## C14.  Elliptic integrals
 
@@ -376,6 +400,7 @@ C10F.  Integrals of Bessel functions
                      RJ(X,Y,Z,P) = Integral from zero to infinity of
                                           -1/2     -1/2     -1/2     -1
                                 (3/2)(t+X)    (t+Y)    (t+Z)    (t+P)  dt.
+
 
 ## C19.  Other special functions
 
