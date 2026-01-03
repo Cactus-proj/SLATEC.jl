@@ -8,7 +8,9 @@ pages = [
     "Reference" => Any[
         "ref/index.md"
         "ref/fnlib.md"
-        "ref/toc.md"
+    ],
+    "SLATEC TOC" => Any[
+        "slatec/index.md"
     ]
 ]
 

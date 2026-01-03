@@ -1,4 +1,4 @@
-# SLATEC TOC
+# TOC
 
 ```@meta
 CurrentModule = SLATEC
