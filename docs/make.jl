@@ -12,6 +12,7 @@ pages = [
     "SLATEC TOC" => Any[
         "slatec/index.md"
         "slatec/gams-c.md"
+        "slatec/gams-d.md"
     ]
 ]
 
