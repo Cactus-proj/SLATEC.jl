@@ -1,0 +1,1198 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>D. Linear Algebra · SLATEC.jl</title><meta name="title" content="D. Linear Algebra · SLATEC.jl"/><meta property="og:title" content="D. Linear Algebra · SLATEC.jl"/><meta property="twitter:title" content="D. Linear Algebra · SLATEC.jl"/><meta name="description" content="Documentation for SLATEC.jl."/><meta property="og:description" content="Documentation for SLATEC.jl."/><meta property="twitter:description" content="Documentation for SLATEC.jl."/><meta property="og:url" content="https://cyhan.dev/SLATEC.jl/slatec/gams-d/"/><meta property="twitter:url" content="https://cyhan.dev/SLATEC.jl/slatec/gams-d/"/><link rel="canonical" href="https://cyhan.dev/SLATEC.jl/slatec/gams-d/"/><script data-outdated-warner src="../../assets/warner.js"></script><link href="https://cdnjs.cloudflare.com/ajax/libs/lato-font/3.0.0/css/lato-font.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/juliamono/0.050/juliamono.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/fontawesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/solid.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/brands.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.8/katex.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL="../.."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" data-main="../../assets/documenter.js"></script><script src="../../search_index.js"></script><script src="../../siteinfo.js"></script><script src="../../../versions.js"></script><link class="docs-theme-link" rel="stylesheet" type="text/css" href="../../assets/themes/catppuccin-mocha.css" data-theme-name="catppuccin-mocha"/><link class="docs-theme-link" rel="stylesheet" type="text/css" href="../../assets/themes/catppuccin-macchiato.css" data-theme-name="catppuccin-macchiato"/><link class="docs-theme-link" rel="stylesheet" type="text/css" href="../../assets/themes/catppuccin-frappe.css" data-theme-name="catppuccin-frappe"/><link class="docs-theme-link" rel="stylesheet" type="text/css" href="../../assets/themes/catppuccin-latte.css" data-theme-name="catppuccin-latte"/><link class="docs-theme-link" rel="stylesheet" type="text/css" href="../../assets/themes/documenter-dark.css" data-theme-name="documenter-dark" data-theme-primary-dark/><link class="docs-theme-link" rel="stylesheet" type="text/css" href="../../assets/themes/documenter-light.css" data-theme-name="documenter-light" data-theme-primary/><script src="../../assets/themeswap.js"></script></head><body><div id="documenter"><nav class="docs-sidebar"><div class="docs-package-name"><span class="docs-autofit"><a href="../../">SLATEC.jl</a></span></div><button class="docs-search-query input is-rounded is-small is-clickable my-2 mx-auto py-1 px-2" id="documenter-search-query">Search docs (Ctrl + /)</button><ul class="docs-menu"><li><a class="tocitem" href="../../">Home</a></li><li><span class="tocitem">Reference</span><ul><li><a class="tocitem" href="../../ref/">API</a></li><li><a class="tocitem" href="../../ref/fnlib/">FNLib</a></li></ul></li><li><span class="tocitem">SLATEC TOC</span><ul><li><a class="tocitem" href="../">TOC All</a></li><li><a class="tocitem" href="../gams-c/">C. Elementary and special functions</a></li><li class="is-active"><a class="tocitem" href>D. Linear Algebra</a><ul class="internal"><li><a class="tocitem" href="#D1.-Elementary-vector-and-matrix-operations"><span>D1. Elementary vector and matrix operations</span></a></li><li><a class="tocitem" href="#D2.-Solution-of-systems-of-linear-equations"><span>D2. Solution of systems of linear equations</span></a></li><li><a class="tocitem" href="#D3.-Determinants"><span>D3. Determinants</span></a></li><li><a class="tocitem" href="#D4.-Eigenvalues,-eigenvectors"><span>D4. Eigenvalues, eigenvectors</span></a></li><li><a class="tocitem" href="#D5.-QR-decomposition,-Gram-Schmidt-orthogonalization"><span>D5. QR decomposition, Gram-Schmidt orthogonalization</span></a></li><li><a class="tocitem" href="#D6.-Singular-value-decomposition"><span>D6. Singular value decomposition</span></a></li><li><a class="tocitem" href="#D7.-Update-matrix-decompositions"><span>D7. Update matrix decompositions</span></a></li><li><a class="tocitem" href="#D9.-Overdetermined-or-underdetermined-systems-of-equations,-singular-systems,-pseudo-inverses"><span>D9. Overdetermined or underdetermined systems of equations, singular systems, pseudo-inverses</span></a></li></ul></li></ul></li></ul><div class="docs-version-selector field has-addons"><div class="control"><span class="docs-label button is-static is-size-7">Version</span></div><div class="docs-selector control is-expanded"><div class="select is-fullwidth is-size-7"><select id="documenter-version-selector"></select></div></div></div></nav><div class="docs-main"><header class="docs-navbar"><a class="docs-sidebar-button docs-navbar-link fa-solid fa-bars is-hidden-desktop" id="documenter-sidebar-button" href="#"></a><nav class="breadcrumb"><ul class="is-hidden-mobile"><li><a class="is-disabled">SLATEC TOC</a></li><li class="is-active"><a href>D. Linear Algebra</a></li></ul><ul class="is-hidden-tablet"><li class="is-active"><a href>D. Linear Algebra</a></li></ul></nav><div class="docs-right"><a class="docs-navbar-link" href="https://github.com/inkydragon/SLATEC.jl" title="View the repository on GitHub"><span class="docs-icon fa-brands"></span><span class="docs-label is-hidden-touch">GitHub</span></a><a class="docs-navbar-link" href="https://github.com/inkydragon/SLATEC.jl/blob/main/docs/src/slatec/gams-d.md" title="Edit source on GitHub"><span class="docs-icon fa-solid"></span></a><a class="docs-settings-button docs-navbar-link fa-solid fa-gear" id="documenter-settings-button" href="#" title="Settings"></a><a class="docs-article-toggle-button fa-solid fa-chevron-up" id="documenter-article-toggle-button" href="javascript:;" title="Collapse all docstrings"></a></div></header><article class="content" id="documenter-page"><h1 id="D.-Linear-Algebra"><a class="docs-heading-anchor" href="#D.-Linear-Algebra">D. Linear Algebra</a><a id="D.-Linear-Algebra-1"></a><a class="docs-heading-anchor-permalink" href="#D.-Linear-Algebra" title="Permalink"></a></h1><h2 id="D1.-Elementary-vector-and-matrix-operations"><a class="docs-heading-anchor" href="#D1.-Elementary-vector-and-matrix-operations">D1. Elementary vector and matrix operations</a><a id="D1.-Elementary-vector-and-matrix-operations-1"></a><a class="docs-heading-anchor-permalink" href="#D1.-Elementary-vector-and-matrix-operations" title="Permalink"></a></h2><p>D1A.  Elementary vector operations D1A2.  Minimum and maximum components</p><pre><code class="nohighlight hljs">      ISAMAX-S  Find the smallest index of that component of a vector
+      IDAMAX-D  having the maximum magnitude.
+      ICAMAX-C</code></pre><p>D1A3.  Norm D1A3A.  L-1 (sum of magnitudes)</p><pre><code class="nohighlight hljs">      SASUM-S   Compute the sum of the magnitudes of the elements of a
+      DASUM-D   vector.
+      SCASUM-C</code></pre><p>D1A3B.  L-2 (Euclidean norm)</p><pre><code class="nohighlight hljs">      SNRM2-S   Compute the Euclidean length (L2 norm) of a vector.
+      DNRM2-D
+      SCNRM2-C</code></pre><p>D1A4.  Dot product (inner product)</p><pre><code class="nohighlight hljs">      CDOTC-C   Dot product of two complex vectors using the complex
+                conjugate of the first vector.
+
+      DQDOTA-D  Compute the inner product of two vectors with extended
+                precision accumulation and result.
+
+      DQDOTI-D  Compute the inner product of two vectors with extended
+                precision accumulation and result.
+
+      DSDOT-D   Compute the inner product of two vectors with extended
+      DCDOT-C   precision accumulation and result.
+
+      SDOT-S    Compute the inner product of two vectors.
+      DDOT-D
+      CDOTU-C
+
+      SDSDOT-S  Compute the inner product of two vectors with extended
+      CDCDOT-C  precision accumulation.</code></pre><p>D1A5.  Copy or exchange (swap)</p><pre><code class="nohighlight hljs">      ICOPY-S   Copy a vector.
+      DCOPY-D
+      CCOPY-C
+      ICOPY-I
+
+      SCOPY-S   Copy a vector.
+      DCOPY-D
+      CCOPY-C
+      ICOPY-I
+
+      SCOPYM-S  Copy the negative of a vector to a vector.
+      DCOPYM-D
+
+      SSWAP-S   Interchange two vectors.
+      DSWAP-D
+      CSWAP-C
+      ISWAP-I</code></pre><p>D1A6.  Multiplication by scalar</p><pre><code class="nohighlight hljs">      CSSCAL-C  Scale a complex vector.
+
+      SSCAL-S   Multiply a vector by a constant.
+      DSCAL-D
+      CSCAL-C</code></pre><p>D1A7.  Triad (a*x+y for vectors x,y and scalar a)</p><pre><code class="nohighlight hljs">      SAXPY-S   Compute a constant times a vector plus a vector.
+      DAXPY-D
+      CAXPY-C</code></pre><p>D1A8.  Elementary rotation (Givens transformation)</p><pre><code class="nohighlight hljs">      SROT-S    Apply a plane Givens rotation.
+      DROT-D
+      CSROT-C
+
+      SROTM-S   Apply a modified Givens transformation.
+      DROTM-D</code></pre><p>D1B.  Elementary matrix operations D1B4.  Multiplication by vector</p><pre><code class="nohighlight hljs">      CHPR-C    Perform the hermitian rank 1 operation.
+
+      DGER-D    Perform the rank 1 operation.
+
+      DSPR-D    Perform the symmetric rank 1 operation.
+
+      DSYR-D    Perform the symmetric rank 1 operation.
+
+      SGBMV-S   Multiply a real vector by a real general band matrix.
+      DGBMV-D
+      CGBMV-C
+
+      SGEMV-S   Multiply a real vector by a real general matrix.
+      DGEMV-D
+      CGEMV-C
+
+      SGER-S    Perform rank 1 update of a real general matrix.
+
+      CGERC-C   Perform conjugated rank 1 update of a complex general
+      SGERC-S   matrix.
+      DGERC-D
+
+      CGERU-C   Perform unconjugated rank 1 update of a complex general
+      SGERU-S   matrix.
+      DGERU-D
+
+      CHBMV-C   Multiply a complex vector by a complex Hermitian band
+      SHBMV-S   matrix.
+      DHBMV-D
+
+      CHEMV-C   Multiply a complex vector by a complex Hermitian matrix.
+      SHEMV-S
+      DHEMV-D
+
+      CHER-C    Perform Hermitian rank 1 update of a complex Hermitian
+      SHER-S    matrix.
+      DHER-D
+
+      CHER2-C   Perform Hermitian rank 2 update of a complex Hermitian
+      SHER2-S   matrix.
+      DHER2-D
+
+      CHPMV-C   Perform the matrix-vector operation.
+      SHPMV-S
+      DHPMV-D
+
+      CHPR2-C   Perform the hermitian rank 2 operation.
+      SHPR2-S
+      DHPR2-D
+
+      SSBMV-S   Multiply a real vector by a real symmetric band matrix.
+      DSBMV-D
+      CSBMV-C
+
+      SSDI-S    Diagonal Matrix Vector Multiply.
+      DSDI-D    Routine to calculate the product  X = DIAG*B, where DIAG
+                is a diagonal matrix.
+
+      SSMTV-S   SLAP Column Format Sparse Matrix Transpose Vector Product.
+      DSMTV-D   Routine to calculate the sparse matrix vector product:
+                Y = A&#39;*X, where &#39; denotes transpose.
+
+      SSMV-S    SLAP Column Format Sparse Matrix Vector Product.
+      DSMV-D    Routine to calculate the sparse matrix vector product:
+                Y = A*X.
+
+      SSPMV-S   Perform the matrix-vector operation.
+      DSPMV-D
+      CSPMV-C
+
+      SSPR-S    Performs the symmetric rank 1 operation.
+
+      SSPR2-S   Perform the symmetric rank 2 operation.
+      DSPR2-D
+      CSPR2-C
+
+      SSYMV-S   Multiply a real vector by a real symmetric matrix.
+      DSYMV-D
+      CSYMV-C
+
+      SSYR-S    Perform symmetric rank 1 update of a real symmetric matrix.
+
+      SSYR2-S   Perform symmetric rank 2 update of a real symmetric matrix.
+      DSYR2-D
+      CSYR2-C
+
+      STBMV-S   Multiply a real vector by a real triangular band matrix.
+      DTBMV-D
+      CTBMV-C
+
+      STBSV-S   Solve a real triangular banded system of linear equations.
+      DTBSV-D
+      CTBSV-C
+
+      STPMV-S   Perform one of the matrix-vector operations.
+      DTPMV-D
+      CTPMV-C
+
+      STPSV-S   Solve one of the systems of equations.
+      DTPSV-D
+      CTPSV-C
+
+      STRMV-S   Multiply a real vector by a real triangular matrix.
+      DTRMV-D
+      CTRMV-C
+
+      STRSV-S   Solve a real triangular system of linear equations.
+      DTRSV-D
+      CTRSV-C</code></pre><p>D1B6.  Multiplication</p><pre><code class="nohighlight hljs">      SGEMM-S   Multiply a real general matrix by a real general matrix.
+      DGEMM-D
+      CGEMM-C
+
+      CHEMM-C   Multiply a complex general matrix by a complex Hermitian
+      SHEMM-S   matrix.
+      DHEMM-D
+
+      CHER2K-C  Perform Hermitian rank 2k update of a complex.
+      SHER2-S
+      DHER2-D
+      CHER2-C
+
+      CHERK-C   Perform Hermitian rank k update of a complex Hermitian
+      SHERK-S   matrix.
+      DHERK-D
+
+      SSYMM-S   Multiply a real general matrix by a real symmetric matrix.
+      DSYMM-D
+      CSYMM-C
+
+      DSYR2K-D  Perform one of the symmetric rank 2k operations.
+      SSYR2-S
+      DSYR2-D
+      CSYR2-C
+
+      SSYRK-S   Perform symmetric rank k update of a real symmetric matrix.
+      DSYRK-D
+      CSYRK-C
+
+      STRMM-S   Multiply a real general matrix by a real triangular matrix.
+      DTRMM-D
+      CTRMM-C
+
+      STRSM-S   Solve a real triangular system of equations with multiple
+      DTRSM-D   right-hand sides.
+      CTRSM-C</code></pre><p>D1B9.  Storage mode conversion</p><pre><code class="nohighlight hljs">      SS2Y-S    SLAP Triad to SLAP Column Format Converter.
+      DS2Y-D    Routine to convert from the SLAP Triad to SLAP Column
+                format.</code></pre><p>D1B10.  Elementary rotation (Givens transformation)</p><pre><code class="nohighlight hljs">      CSROT-C   Apply a plane Givens rotation.
+      SROT-S
+      DROT-D
+
+      SROTG-S   Construct a plane Givens rotation.
+      DROTG-D
+      CROTG-C
+
+      SROTMG-S  Construct a modified Givens transformation.
+      DROTMG-D</code></pre><h2 id="D2.-Solution-of-systems-of-linear-equations"><a class="docs-heading-anchor" href="#D2.-Solution-of-systems-of-linear-equations">D2. Solution of systems of linear equations</a><a id="D2.-Solution-of-systems-of-linear-equations-1"></a><a class="docs-heading-anchor-permalink" href="#D2.-Solution-of-systems-of-linear-equations" title="Permalink"></a></h2><blockquote><p>(including inversion, LU and related decompositions)</p></blockquote><p>D2A.  Real nonsymmetric matrices D2A1.  General</p><pre><code class="nohighlight hljs">      SGECO-S   Factor a matrix using Gaussian elimination and estimate
+      DGECO-D   the condition number of the matrix.
+      CGECO-C
+
+      SGEDI-S   Compute the determinant and inverse of a matrix using the
+      DGEDI-D   factors computed by SGECO or SGEFA.
+      CGEDI-C
+
+      SGEFA-S   Factor a matrix using Gaussian elimination.
+      DGEFA-D
+      CGEFA-C
+
+      SGEFS-S   Solve a general system of linear equations.
+      DGEFS-D
+      CGEFS-C
+
+      SGEIR-S   Solve a general system of linear equations.  Iterative
+      CGEIR-C   refinement is used to obtain an error estimate.
+
+      SGESL-S   Solve the real system A*X=B or TRANS(A)*X=B using the
+      DGESL-D   factors of SGECO or SGEFA.
+      CGESL-C
+
+      SQRSL-S   Apply the output of SQRDC to compute coordinate transfor-
+      DQRSL-D   mations, projections, and least squares solutions.
+      CQRSL-C</code></pre><p>D2A2.  Banded</p><pre><code class="nohighlight hljs">      SGBCO-S   Factor a band matrix by Gaussian elimination and
+      DGBCO-D   estimate the condition number of the matrix.
+      CGBCO-C
+
+      SGBFA-S   Factor a band matrix using Gaussian elimination.
+      DGBFA-D
+      CGBFA-C
+
+      SGBSL-S   Solve the real band system A*X=B or TRANS(A)*X=B using
+      DGBSL-D   the factors computed by SGBCO or SGBFA.
+      CGBSL-C
+
+      SNBCO-S   Factor a band matrix using Gaussian elimination and
+      DNBCO-D   estimate the condition number.
+      CNBCO-C
+
+      SNBFA-S   Factor a real band matrix by elimination.
+      DNBFA-D
+      CNBFA-C
+
+      SNBFS-S   Solve a general nonsymmetric banded system of linear
+      DNBFS-D   equations.
+      CNBFS-C
+
+      SNBIR-S   Solve a general nonsymmetric banded system of linear
+      CNBIR-C   equations.  Iterative refinement is used to obtain an error
+                estimate.
+
+      SNBSL-S   Solve a real band system using the factors computed by
+      DNBSL-D   SNBCO or SNBFA.
+      CNBSL-C</code></pre><p>D2A2A.  Tridiagonal</p><pre><code class="nohighlight hljs">      SGTSL-S   Solve a tridiagonal linear system.
+      DGTSL-D
+      CGTSL-C</code></pre><p>D2A3.  Triangular</p><pre><code class="nohighlight hljs">      SSLI-S    SLAP MSOLVE for Lower Triangle Matrix.
+      DSLI-D    This routine acts as an interface between the SLAP generic
+                MSOLVE calling convention and the routine that actually
+                          -1
+                computes L  B = X.
+
+      SSLI2-S   SLAP Lower Triangle Matrix Backsolve.
+      DSLI2-D   Routine to solve a system of the form  Lx = b , where L
+                is a lower triangular matrix.
+
+      STRCO-S   Estimate the condition number of a triangular matrix.
+      DTRCO-D
+      CTRCO-C
+
+      STRDI-S   Compute the determinant and inverse of a triangular matrix.
+      DTRDI-D
+      CTRDI-C
+
+      STRSL-S   Solve a system of the form  T*X=B or TRANS(T)*X=B, where
+      DTRSL-D   T is a triangular matrix.
+      CTRSL-C</code></pre><p>D2A4.  Sparse</p><pre><code class="nohighlight hljs">      SBCG-S    Preconditioned BiConjugate Gradient Sparse Ax = b Solver.
+      DBCG-D    Routine to solve a Non-Symmetric linear system  Ax = b
+                using the Preconditioned BiConjugate Gradient method.
+
+      SCGN-S    Preconditioned CG Sparse Ax=b Solver for Normal Equations.
+      DCGN-D    Routine to solve a general linear system  Ax = b  using the
+                Preconditioned Conjugate Gradient method applied to the
+                normal equations  AA&#39;y = b, x=A&#39;y.
+
+      SCGS-S    Preconditioned BiConjugate Gradient Squared Ax=b Solver.
+      DCGS-D    Routine to solve a Non-Symmetric linear system  Ax = b
+                using the Preconditioned BiConjugate Gradient Squared
+                method.
+
+      SGMRES-S  Preconditioned GMRES Iterative Sparse Ax=b Solver.
+      DGMRES-D  This routine uses the generalized minimum residual
+                (GMRES) method with preconditioning to solve
+                non-symmetric linear systems of the form: Ax = b.
+
+      SIR-S     Preconditioned Iterative Refinement Sparse Ax = b Solver.
+      DIR-D     Routine to solve a general linear system  Ax = b  using
+                iterative refinement with a matrix splitting.
+
+      SLPDOC-S  Sparse Linear Algebra Package Version 2.0.2 Documentation.
+      DLPDOC-D  Routines to solve large sparse symmetric and nonsymmetric
+                positive definite linear systems, Ax = b, using precondi-
+                tioned iterative methods.
+
+      SOMN-S    Preconditioned Orthomin Sparse Iterative Ax=b Solver.
+      DOMN-D    Routine to solve a general linear system  Ax = b  using
+                the Preconditioned Orthomin method.
+
+      SSDBCG-S  Diagonally Scaled BiConjugate Gradient Sparse Ax=b Solver.
+      DSDBCG-D  Routine to solve a linear system  Ax = b  using the
+                BiConjugate Gradient method with diagonal scaling.
+
+      SSDCGN-S  Diagonally Scaled CG Sparse Ax=b Solver for Normal Eqn&#39;s.
+      DSDCGN-D  Routine to solve a general linear system  Ax = b  using
+                diagonal scaling with the Conjugate Gradient method
+                applied to the the normal equations, viz.,  AA&#39;y = b,
+                where  x = A&#39;y.
+
+      SSDCGS-S  Diagonally Scaled CGS Sparse Ax=b Solver.
+      DSDCGS-D  Routine to solve a linear system  Ax = b  using the
+                BiConjugate Gradient Squared method with diagonal scaling.
+
+      SSDGMR-S  Diagonally Scaled GMRES Iterative Sparse Ax=b Solver.
+      DSDGMR-D  This routine uses the generalized minimum residual
+                (GMRES) method with diagonal scaling to solve possibly
+                non-symmetric linear systems of the form: Ax = b.
+
+      SSDOMN-S  Diagonally Scaled Orthomin Sparse Iterative Ax=b Solver.
+      DSDOMN-D  Routine to solve a general linear system  Ax = b  using
+                the Orthomin method with diagonal scaling.
+
+      SSGS-S    Gauss-Seidel Method Iterative Sparse Ax = b Solver.
+      DSGS-D    Routine to solve a general linear system  Ax = b  using
+                Gauss-Seidel iteration.
+
+      SSILUR-S  Incomplete LU Iterative Refinement Sparse Ax = b Solver.
+      DSILUR-D  Routine to solve a general linear system  Ax = b  using
+                the incomplete LU decomposition with iterative refinement.
+
+      SSJAC-S   Jacobi&#39;s Method Iterative Sparse Ax = b Solver.
+      DSJAC-D   Routine to solve a general linear system  Ax = b  using
+                Jacobi iteration.
+
+      SSLUBC-S  Incomplete LU BiConjugate Gradient Sparse Ax=b Solver.
+      DSLUBC-D  Routine to solve a linear system  Ax = b  using the
+                BiConjugate Gradient method with Incomplete LU
+                decomposition preconditioning.
+
+      SSLUCN-S  Incomplete LU CG Sparse Ax=b Solver for Normal Equations.
+      DSLUCN-D  Routine to solve a general linear system  Ax = b  using the
+                incomplete LU decomposition with the Conjugate Gradient
+                method applied to the normal equations, viz.,  AA&#39;y = b,
+                x = A&#39;y.
+
+      SSLUCS-S  Incomplete LU BiConjugate Gradient Squared Ax=b Solver.
+      DSLUCS-D  Routine to solve a linear system  Ax = b  using the
+                BiConjugate Gradient Squared method with Incomplete LU
+                decomposition preconditioning.
+
+      SSLUGM-S  Incomplete LU GMRES Iterative Sparse Ax=b Solver.
+      DSLUGM-D  This routine uses the generalized minimum residual
+                (GMRES) method with incomplete LU factorization for
+                preconditioning to solve possibly non-symmetric linear
+                systems of the form: Ax = b.
+
+      SSLUOM-S  Incomplete LU Orthomin Sparse Iterative Ax=b Solver.
+      DSLUOM-D  Routine to solve a general linear system  Ax = b  using
+                the Orthomin method with Incomplete LU decomposition.</code></pre><p>D2B.  Real symmetric matrices D2B1.  General D2B1A.  Indefinite</p><pre><code class="nohighlight hljs">      SSICO-S   Factor a symmetric matrix by elimination with symmetric
+      DSICO-D   pivoting and estimate the condition number of the matrix.
+      CHICO-C
+      CSICO-C
+
+      SSIDI-S   Compute the determinant, inertia and inverse of a real
+      DSIDI-D   symmetric matrix using the factors from SSIFA.
+      CHIDI-C
+      CSIDI-C
+
+      SSIFA-S   Factor a real symmetric matrix by elimination with
+      DSIFA-D   symmetric pivoting.
+      CHIFA-C
+      CSIFA-C
+
+      SSISL-S   Solve a real symmetric system using the factors obtained
+      DSISL-D   from SSIFA.
+      CHISL-C
+      CSISL-C
+
+      SSPCO-S   Factor a real symmetric matrix stored in packed form
+      DSPCO-D   by elimination with symmetric pivoting and estimate the
+      CHPCO-C   condition number of the matrix.
+      CSPCO-C
+
+      SSPDI-S   Compute the determinant, inertia, inverse of a real
+      DSPDI-D   symmetric matrix stored in packed form using the factors
+      CHPDI-C   from SSPFA.
+      CSPDI-C
+
+      SSPFA-S   Factor a real symmetric matrix stored in packed form by
+      DSPFA-D   elimination with symmetric pivoting.
+      CHPFA-C
+      CSPFA-C
+
+      SSPSL-S   Solve a real symmetric system using the factors obtained
+      DSPSL-D   from SSPFA.
+      CHPSL-C
+      CSPSL-C</code></pre><p>D2B1B.  Positive definite</p><pre><code class="nohighlight hljs">      SCHDC-S   Compute the Cholesky decomposition of a positive definite
+      DCHDC-D   matrix.  A pivoting option allows the user to estimate the
+      CCHDC-C   condition number of a positive definite matrix or determine
+                the rank of a positive semidefinite matrix.
+
+      SPOCO-S   Factor a real symmetric positive definite matrix
+      DPOCO-D   and estimate the condition number of the matrix.
+      CPOCO-C
+
+      SPODI-S   Compute the determinant and inverse of a certain real
+      DPODI-D   symmetric positive definite matrix using the factors
+      CPODI-C   computed by SPOCO, SPOFA or SQRDC.
+
+      SPOFA-S   Factor a real symmetric positive definite matrix.
+      DPOFA-D
+      CPOFA-C
+
+      SPOFS-S   Solve a positive definite symmetric system of linear
+      DPOFS-D   equations.
+      CPOFS-C
+
+      SPOIR-S   Solve a positive definite symmetric system of linear
+      CPOIR-C   equations.  Iterative refinement is used to obtain an error
+                estimate.
+
+      SPOSL-S   Solve the real symmetric positive definite linear system
+      DPOSL-D   using the factors computed by SPOCO or SPOFA.
+      CPOSL-C
+
+      SPPCO-S   Factor a symmetric positive definite matrix stored in
+      DPPCO-D   packed form and estimate the condition number of the
+      CPPCO-C   matrix.
+
+      SPPDI-S   Compute the determinant and inverse of a real symmetric
+      DPPDI-D   positive definite matrix using factors from SPPCO or SPPFA.
+      CPPDI-C
+
+      SPPFA-S   Factor a real symmetric positive definite matrix stored in
+      DPPFA-D   packed form.
+      CPPFA-C
+
+      SPPSL-S   Solve the real symmetric positive definite system using
+      DPPSL-D   the factors computed by SPPCO or SPPFA.
+      CPPSL-C</code></pre><p>D2B2.  Positive definite banded</p><pre><code class="nohighlight hljs">      SPBCO-S   Factor a real symmetric positive definite matrix stored in
+      DPBCO-D   band form and estimate the condition number of the matrix.
+      CPBCO-C
+
+      SPBFA-S   Factor a real symmetric positive definite matrix stored in
+      DPBFA-D   band form.
+      CPBFA-C
+
+      SPBSL-S   Solve a real symmetric positive definite band system
+      DPBSL-D   using the factors computed by SPBCO or SPBFA.
+      CPBSL-C</code></pre><p>D2B2A.  Tridiagonal</p><pre><code class="nohighlight hljs">      SPTSL-S   Solve a positive definite tridiagonal linear system.
+      DPTSL-D
+      CPTSL-C</code></pre><p>D2B4.  Sparse</p><pre><code class="nohighlight hljs">      SBCG-S    Preconditioned BiConjugate Gradient Sparse Ax = b Solver.
+      DBCG-D    Routine to solve a Non-Symmetric linear system  Ax = b
+                using the Preconditioned BiConjugate Gradient method.
+
+      SCG-S     Preconditioned Conjugate Gradient Sparse Ax=b Solver.
+      DCG-D     Routine to solve a symmetric positive definite linear
+                system  Ax = b  using the Preconditioned Conjugate
+                Gradient method.
+
+      SCGN-S    Preconditioned CG Sparse Ax=b Solver for Normal Equations.
+      DCGN-D    Routine to solve a general linear system  Ax = b  using the
+                Preconditioned Conjugate Gradient method applied to the
+                normal equations  AA&#39;y = b, x=A&#39;y.
+
+      SCGS-S    Preconditioned BiConjugate Gradient Squared Ax=b Solver.
+      DCGS-D    Routine to solve a Non-Symmetric linear system  Ax = b
+                using the Preconditioned BiConjugate Gradient Squared
+                method.
+
+      SGMRES-S  Preconditioned GMRES Iterative Sparse Ax=b Solver.
+      DGMRES-D  This routine uses the generalized minimum residual
+                (GMRES) method with preconditioning to solve
+                non-symmetric linear systems of the form: Ax = b.
+
+      SIR-S     Preconditioned Iterative Refinement Sparse Ax = b Solver.
+      DIR-D     Routine to solve a general linear system  Ax = b  using
+                iterative refinement with a matrix splitting.
+
+      SLPDOC-S  Sparse Linear Algebra Package Version 2.0.2 Documentation.
+      DLPDOC-D  Routines to solve large sparse symmetric and nonsymmetric
+                positive definite linear systems, Ax = b, using precondi-
+                tioned iterative methods.
+
+      SOMN-S    Preconditioned Orthomin Sparse Iterative Ax=b Solver.
+      DOMN-D    Routine to solve a general linear system  Ax = b  using
+                the Preconditioned Orthomin method.
+
+      SSDBCG-S  Diagonally Scaled BiConjugate Gradient Sparse Ax=b Solver.
+      DSDBCG-D  Routine to solve a linear system  Ax = b  using the
+                BiConjugate Gradient method with diagonal scaling.
+
+      SSDCG-S   Diagonally Scaled Conjugate Gradient Sparse Ax=b Solver.
+      DSDCG-D   Routine to solve a symmetric positive definite linear
+                system  Ax = b  using the Preconditioned Conjugate
+                Gradient method.  The preconditioner is diagonal scaling.
+
+      SSDCGN-S  Diagonally Scaled CG Sparse Ax=b Solver for Normal Eqn&#39;s.
+      DSDCGN-D  Routine to solve a general linear system  Ax = b  using
+                diagonal scaling with the Conjugate Gradient method
+                applied to the the normal equations, viz.,  AA&#39;y = b,
+                where  x = A&#39;y.
+
+      SSDCGS-S  Diagonally Scaled CGS Sparse Ax=b Solver.
+      DSDCGS-D  Routine to solve a linear system  Ax = b  using the
+                BiConjugate Gradient Squared method with diagonal scaling.
+
+      SSDGMR-S  Diagonally Scaled GMRES Iterative Sparse Ax=b Solver.
+      DSDGMR-D  This routine uses the generalized minimum residual
+                (GMRES) method with diagonal scaling to solve possibly
+                non-symmetric linear systems of the form: Ax = b.
+
+      SSDOMN-S  Diagonally Scaled Orthomin Sparse Iterative Ax=b Solver.
+      DSDOMN-D  Routine to solve a general linear system  Ax = b  using
+                the Orthomin method with diagonal scaling.
+
+      SSGS-S    Gauss-Seidel Method Iterative Sparse Ax = b Solver.
+      DSGS-D    Routine to solve a general linear system  Ax = b  using
+                Gauss-Seidel iteration.
+
+      SSICCG-S  Incomplete Cholesky Conjugate Gradient Sparse Ax=b Solver.
+      DSICCG-D  Routine to solve a symmetric positive definite linear
+                system  Ax = b  using the incomplete Cholesky
+                Preconditioned Conjugate Gradient method.
+
+      SSILUR-S  Incomplete LU Iterative Refinement Sparse Ax = b Solver.
+      DSILUR-D  Routine to solve a general linear system  Ax = b  using
+                the incomplete LU decomposition with iterative refinement.
+
+      SSJAC-S   Jacobi&#39;s Method Iterative Sparse Ax = b Solver.
+      DSJAC-D   Routine to solve a general linear system  Ax = b  using
+                Jacobi iteration.
+
+      SSLUBC-S  Incomplete LU BiConjugate Gradient Sparse Ax=b Solver.
+      DSLUBC-D  Routine to solve a linear system  Ax = b  using the
+                BiConjugate Gradient method with Incomplete LU
+                decomposition preconditioning.
+
+      SSLUCN-S  Incomplete LU CG Sparse Ax=b Solver for Normal Equations.
+      DSLUCN-D  Routine to solve a general linear system  Ax = b  using the
+                incomplete LU decomposition with the Conjugate Gradient
+                method applied to the normal equations, viz.,  AA&#39;y = b,
+                x = A&#39;y.
+
+      SSLUCS-S  Incomplete LU BiConjugate Gradient Squared Ax=b Solver.
+      DSLUCS-D  Routine to solve a linear system  Ax = b  using the
+                BiConjugate Gradient Squared method with Incomplete LU
+                decomposition preconditioning.
+
+      SSLUGM-S  Incomplete LU GMRES Iterative Sparse Ax=b Solver.
+      DSLUGM-D  This routine uses the generalized minimum residual
+                (GMRES) method with incomplete LU factorization for
+                preconditioning to solve possibly non-symmetric linear
+                systems of the form: Ax = b.
+
+      SSLUOM-S  Incomplete LU Orthomin Sparse Iterative Ax=b Solver.
+      DSLUOM-D  Routine to solve a general linear system  Ax = b  using
+                the Orthomin method with Incomplete LU decomposition.</code></pre><p>D2C.  Complex non-Hermitian matrices D2C1.  General</p><pre><code class="nohighlight hljs">      CGECO-C   Factor a matrix using Gaussian elimination and estimate
+      SGECO-S   the condition number of the matrix.
+      DGECO-D
+
+      CGEDI-C   Compute the determinant and inverse of a matrix using the
+      SGEDI-S   factors computed by CGECO or CGEFA.
+      DGEDI-D
+
+      CGEFA-C   Factor a matrix using Gaussian elimination.
+      SGEFA-S
+      DGEFA-D
+
+      CGEFS-C   Solve a general system of linear equations.
+      SGEFS-S
+      DGEFS-D
+
+      CGEIR-C   Solve a general system of linear equations.  Iterative
+      SGEIR-S   refinement is used to obtain an error estimate.
+
+      CGESL-C   Solve the complex system A*X=B or CTRANS(A)*X=B using the
+      SGESL-S   factors computed by CGECO or CGEFA.
+      DGESL-D
+
+      CQRSL-C   Apply the output of CQRDC to compute coordinate transfor-
+      SQRSL-S   mations, projections, and least squares solutions.
+      DQRSL-D
+
+      CSICO-C   Factor a complex symmetric matrix by elimination with
+      SSICO-S   symmetric pivoting and estimate the condition number of the
+      DSICO-D   matrix.
+      CHICO-C
+
+      CSIDI-C   Compute the determinant and inverse of a complex symmetric
+      SSIDI-S   matrix using the factors from CSIFA.
+      DSIDI-D
+      CHIDI-C
+
+      CSIFA-C   Factor a complex symmetric matrix by elimination with
+      SSIFA-S   symmetric pivoting.
+      DSIFA-D
+      CHIFA-C
+
+      CSISL-C   Solve a complex symmetric system using the factors obtained
+      SSISL-S   from CSIFA.
+      DSISL-D
+      CHISL-C
+
+      CSPCO-C   Factor a complex symmetric matrix stored in packed form
+      SSPCO-S   by elimination with symmetric pivoting and estimate the
+      DSPCO-D   condition number of the matrix.
+      CHPCO-C
+
+      CSPDI-C   Compute the determinant and inverse of a complex symmetric
+      SSPDI-S   matrix stored in packed form using the factors from CSPFA.
+      DSPDI-D
+      CHPDI-C
+
+      CSPFA-C   Factor a complex symmetric matrix stored in packed form by
+      SSPFA-S   elimination with symmetric pivoting.
+      DSPFA-D
+      CHPFA-C
+
+      CSPSL-C   Solve a complex symmetric system using the factors obtained
+      SSPSL-S   from CSPFA.
+      DSPSL-D
+      CHPSL-C</code></pre><p>D2C2.  Banded</p><pre><code class="nohighlight hljs">      CGBCO-C   Factor a band matrix by Gaussian elimination and
+      SGBCO-S   estimate the condition number of the matrix.
+      DGBCO-D
+
+      CGBFA-C   Factor a band matrix using Gaussian elimination.
+      SGBFA-S
+      DGBFA-D
+
+      CGBSL-C   Solve the complex band system A*X=B or CTRANS(A)*X=B using
+      SGBSL-S   the factors computed by CGBCO or CGBFA.
+      DGBSL-D
+
+      CNBCO-C   Factor a band matrix using Gaussian elimination and
+      SNBCO-S   estimate the condition number.
+      DNBCO-D
+
+      CNBFA-C   Factor a band matrix by elimination.
+      SNBFA-S
+      DNBFA-D
+
+      CNBFS-C   Solve a general nonsymmetric banded system of linear
+      SNBFS-S   equations.
+      DNBFS-D
+
+      CNBIR-C   Solve a general nonsymmetric banded system of linear
+      SNBIR-S   equations.  Iterative refinement is used to obtain an error
+                estimate.
+
+      CNBSL-C   Solve a complex band system using the factors computed by
+      SNBSL-S   CNBCO or CNBFA.
+      DNBSL-D</code></pre><p>D2C2A.  Tridiagonal</p><pre><code class="nohighlight hljs">      CGTSL-C   Solve a tridiagonal linear system.
+      SGTSL-S
+      DGTSL-D</code></pre><p>D2C3.  Triangular</p><pre><code class="nohighlight hljs">      CTRCO-C   Estimate the condition number of a triangular matrix.
+      STRCO-S
+      DTRCO-D
+
+      CTRDI-C   Compute the determinant and inverse of a triangular matrix.
+      STRDI-S
+      DTRDI-D
+
+      CTRSL-C   Solve a system of the form  T*X=B or CTRANS(T)*X=B, where
+      STRSL-S   T is a triangular matrix.  Here CTRANS(T) is the conjugate
+      DTRSL-D   transpose.</code></pre><p>D2D.  Complex Hermitian matrices D2D1.  General D2D1A.  Indefinite</p><pre><code class="nohighlight hljs">      CHICO-C   Factor a complex Hermitian matrix by elimination with sym-
+      SSICO-S   metric pivoting and estimate the condition of the matrix.
+      DSICO-D
+      CSICO-C
+
+      CHIDI-C   Compute the determinant, inertia and inverse of a complex
+      SSIDI-S   Hermitian matrix using the factors obtained from CHIFA.
+      DSISI-D
+      CSIDI-C
+
+      CHIFA-C   Factor a complex Hermitian matrix by elimination
+      SSIFA-S   (symmetric pivoting).
+      DSIFA-D
+      CSIFA-C
+
+      CHISL-C   Solve the complex Hermitian system using factors obtained
+      SSISL-S   from CHIFA.
+      DSISL-D
+      CSISL-C
+
+      CHPCO-C   Factor a complex Hermitian matrix stored in packed form by
+      SSPCO-S   elimination with symmetric pivoting and estimate the
+      DSPCO-D   condition number of the matrix.
+      CSPCO-C
+
+      CHPDI-C   Compute the determinant, inertia and inverse of a complex
+      SSPDI-S   Hermitian matrix stored in packed form using the factors
+      DSPDI-D   obtained from CHPFA.
+      DSPDI-C
+
+      CHPFA-C   Factor a complex Hermitian matrix stored in packed form by
+      SSPFA-S   elimination with symmetric pivoting.
+      DSPFA-D
+      DSPFA-C
+
+      CHPSL-C   Solve a complex Hermitian system using factors obtained
+      SSPSL-S   from CHPFA.
+      DSPSL-D
+      CSPSL-C</code></pre><p>D2D1B.  Positive definite</p><pre><code class="nohighlight hljs">      CCHDC-C   Compute the Cholesky decomposition of a positive definite
+      SCHDC-S   matrix.  A pivoting option allows the user to estimate the
+      DCHDC-D   condition number of a positive definite matrix or determine
+                the rank of a positive semidefinite matrix.
+
+      CPOCO-C   Factor a complex Hermitian positive definite matrix
+      SPOCO-S   and estimate the condition number of the matrix.
+      DPOCO-D
+
+      CPODI-C   Compute the determinant and inverse of a certain complex
+      SPODI-S   Hermitian positive definite matrix using the factors
+      DPODI-D   computed by CPOCO, CPOFA, or CQRDC.
+
+      CPOFA-C   Factor a complex Hermitian positive definite matrix.
+      SPOFA-S
+      DPOFA-D
+
+      CPOFS-C   Solve a positive definite symmetric complex system of
+      SPOFS-S   linear equations.
+      DPOFS-D
+
+      CPOIR-C   Solve a positive definite Hermitian system of linear
+      SPOIR-S   equations.  Iterative refinement is used to obtain an
+                error estimate.
+
+      CPOSL-C   Solve the complex Hermitian positive definite linear system
+      SPOSL-S   using the factors computed by CPOCO or CPOFA.
+      DPOSL-D
+
+      CPPCO-C   Factor a complex Hermitian positive definite matrix stored
+      SPPCO-S   in packed form and estimate the condition number of the
+      DPPCO-D   matrix.
+
+      CPPDI-C   Compute the determinant and inverse of a complex Hermitian
+      SPPDI-S   positive definite matrix using factors from CPPCO or CPPFA.
+      DPPDI-D
+
+      CPPFA-C   Factor a complex Hermitian positive definite matrix stored
+      SPPFA-S   in packed form.
+      DPPFA-D
+
+      CPPSL-C   Solve the complex Hermitian positive definite system using
+      SPPSL-S   the factors computed by CPPCO or CPPFA.
+      DPPSL-D</code></pre><p>D2D2.  Positive definite banded</p><pre><code class="nohighlight hljs">      CPBCO-C   Factor a complex Hermitian positive definite matrix stored
+      SPBCO-S   in band form and estimate the condition number of the
+      DPBCO-D   matrix.
+
+      CPBFA-C   Factor a complex Hermitian positive definite matrix stored
+      SPBFA-S   in band form.
+      DPBFA-D
+
+      CPBSL-C   Solve the complex Hermitian positive definite band system
+      SPBSL-S   using the factors computed by CPBCO or CPBFA.
+      DPBSL-D</code></pre><p>D2D2A.  Tridiagonal</p><pre><code class="nohighlight hljs">      CPTSL-C   Solve a positive definite tridiagonal linear system.
+      SPTSL-S
+      DPTSL-D</code></pre><p>D2E.  Associated operations (e.g., matrix reorderings)</p><pre><code class="nohighlight hljs">      SLLTI2-S  SLAP Backsolve routine for LDL&#39; Factorization.
+      DLLTI2-D  Routine to solve a system of the form  L*D*L&#39; X = B,
+                where L is a unit lower triangular matrix and D is a
+                diagonal matrix and &#39; means transpose.
+
+      SS2LT-S   Lower Triangle Preconditioner SLAP Set Up.
+      DS2LT-D   Routine to store the lower triangle of a matrix stored
+                in the SLAP Column format.
+
+      SSD2S-S   Diagonal Scaling Preconditioner SLAP Normal Eqns Set Up.
+      DSD2S-D   Routine to compute the inverse of the diagonal of the
+                matrix A*A&#39;, where A is stored in SLAP-Column format.
+
+      SSDS-S    Diagonal Scaling Preconditioner SLAP Set Up.
+      DSDS-D    Routine to compute the inverse of the diagonal of a matrix
+                stored in the SLAP Column format.
+
+      SSDSCL-S  Diagonal Scaling of system Ax = b.
+      DSDSCL-D  This routine scales (and unscales) the system  Ax = b
+                by symmetric diagonal scaling.
+
+      SSICS-S   Incompl. Cholesky Decomposition Preconditioner SLAP Set Up.
+      DSICS-D   Routine to generate the Incomplete Cholesky decomposition,
+                L*D*L-trans, of a symmetric positive definite matrix, A,
+                which is stored in SLAP Column format.  The unit lower
+                triangular matrix L is stored by rows, and the inverse of
+                the diagonal matrix D is stored.
+
+      SSILUS-S  Incomplete LU Decomposition Preconditioner SLAP Set Up.
+      DSILUS-D  Routine to generate the incomplete LDU decomposition of a
+                matrix.  The unit lower triangular factor L is stored by
+                rows and the unit upper triangular factor U is stored by
+                columns.  The inverse of the diagonal matrix D is stored.
+                No fill in is allowed.
+
+      SSLLTI-S  SLAP MSOLVE for LDL&#39; (IC) Factorization.
+      DSLLTI-D  This routine acts as an interface between the SLAP generic
+                MSOLVE calling convention and the routine that actually
+                               -1
+                computes (LDL&#39;)  B = X.
+
+      SSLUI-S   SLAP MSOLVE for LDU Factorization.
+      DSLUI-D   This routine acts as an interface between the SLAP generic
+                MSOLVE calling convention and the routine that actually
+                               -1
+                computes  (LDU)  B = X.
+
+      SSLUI2-S  SLAP Backsolve for LDU Factorization.
+      DSLUI2-D  Routine to solve a system of the form  L*D*U X = B,
+                where L is a unit lower triangular matrix, D is a diagonal
+                matrix, and U is a unit upper triangular matrix.
+
+      SSLUI4-S  SLAP Backsolve for LDU Factorization.
+      DSLUI4-D  Routine to solve a system of the form  (L*D*U)&#39; X = B,
+                where L is a unit lower triangular matrix, D is a diagonal
+                matrix, and U is a unit upper triangular matrix and &#39;
+                denotes transpose.
+
+      SSLUTI-S  SLAP MTSOLV for LDU Factorization.
+      DSLUTI-D  This routine acts as an interface between the SLAP generic
+                MTSOLV calling convention and the routine that actually
+                               -T
+                computes  (LDU)  B = X.
+
+      SSMMI2-S  SLAP Backsolve for LDU Factorization of Normal Equations.
+      DSMMI2-D  To solve a system of the form  (L*D*U)*(L*D*U)&#39; X = B,
+                where L is a unit lower triangular matrix, D is a diagonal
+                matrix, and U is a unit upper triangular matrix and &#39;
+                denotes transpose.
+
+      SSMMTI-S  SLAP MSOLVE for LDU Factorization of Normal Equations.
+      DSMMTI-D  This routine acts as an interface between the SLAP generic
+                MMTSLV calling convention and the routine that actually
+                                        -1
+                computes  [(LDU)*(LDU)&#39;]  B = X.</code></pre><h2 id="D3.-Determinants"><a class="docs-heading-anchor" href="#D3.-Determinants">D3. Determinants</a><a id="D3.-Determinants-1"></a><a class="docs-heading-anchor-permalink" href="#D3.-Determinants" title="Permalink"></a></h2><p>D3A.  Real nonsymmetric matrices D3A1.  General</p><pre><code class="nohighlight hljs">      SGEDI-S   Compute the determinant and inverse of a matrix using the
+      DGEDI-D   factors computed by SGECO or SGEFA.
+      CGEDI-C</code></pre><p>D3A2.  Banded</p><pre><code class="nohighlight hljs">      SGBDI-S   Compute the determinant of a band matrix using the factors
+      DGBDI-D   computed by SGBCO or SGBFA.
+      CGBDI-C
+
+      SNBDI-S   Compute the determinant of a band matrix using the factors
+      DNBDI-D   computed by SNBCO or SNBFA.
+      CNBDI-C</code></pre><p>D3A3.  Triangular</p><pre><code class="nohighlight hljs">      STRDI-S   Compute the determinant and inverse of a triangular matrix.
+      DTRDI-D
+      CTRDI-C</code></pre><p>D3B.  Real symmetric matrices D3B1.  General D3B1A.  Indefinite</p><pre><code class="nohighlight hljs">      SSIDI-S   Compute the determinant, inertia and inverse of a real
+      DSIDI-D   symmetric matrix using the factors from SSIFA.
+      CHIDI-C
+      CSIDI-C
+
+      SSPDI-S   Compute the determinant, inertia, inverse of a real
+      DSPDI-D   symmetric matrix stored in packed form using the factors
+      CHPDI-C   from SSPFA.
+      CSPDI-C</code></pre><p>D3B1B.  Positive definite</p><pre><code class="nohighlight hljs">      SPODI-S   Compute the determinant and inverse of a certain real
+      DPODI-D   symmetric positive definite matrix using the factors
+      CPODI-C   computed by SPOCO, SPOFA or SQRDC.
+
+      SPPDI-S   Compute the determinant and inverse of a real symmetric
+      DPPDI-D   positive definite matrix using factors from SPPCO or SPPFA.
+      CPPDI-C</code></pre><p>D3B2.  Positive definite banded</p><pre><code class="nohighlight hljs">      SPBDI-S   Compute the determinant of a symmetric positive definite
+      DPBDI-D   band matrix using the factors computed by SPBCO or SPBFA.
+      CPBDI-C</code></pre><p>D3C.  Complex non-Hermitian matrices D3C1.  General</p><pre><code class="nohighlight hljs">      CGEDI-C   Compute the determinant and inverse of a matrix using the
+      SGEDI-S   factors computed by CGECO or CGEFA.
+      DGEDI-D
+
+      CSIDI-C   Compute the determinant and inverse of a complex symmetric
+      SSIDI-S   matrix using the factors from CSIFA.
+      DSIDI-D
+      CHIDI-C
+
+      CSPDI-C   Compute the determinant and inverse of a complex symmetric
+      SSPDI-S   matrix stored in packed form using the factors from CSPFA.
+      DSPDI-D
+      CHPDI-C</code></pre><p>D3C2.  Banded</p><pre><code class="nohighlight hljs">      CGBDI-C   Compute the determinant of a complex band matrix using the
+      SGBDI-S   factors from CGBCO or CGBFA.
+      DGBDI-D
+
+      CNBDI-C   Compute the determinant of a band matrix using the factors
+      SNBDI-S   computed by CNBCO or CNBFA.
+      DNBDI-D</code></pre><p>D3C3.  Triangular</p><pre><code class="nohighlight hljs">      CTRDI-C   Compute the determinant and inverse of a triangular matrix.
+      STRDI-S
+      DTRDI-D</code></pre><p>D3D.  Complex Hermitian matrices D3D1.  General D3D1A.  Indefinite</p><pre><code class="nohighlight hljs">      CHIDI-C   Compute the determinant, inertia and inverse of a complex
+      SSIDI-S   Hermitian matrix using the factors obtained from CHIFA.
+      DSISI-D
+      CSIDI-C
+
+      CHPDI-C   Compute the determinant, inertia and inverse of a complex
+      SSPDI-S   Hermitian matrix stored in packed form using the factors
+      DSPDI-D   obtained from CHPFA.
+      DSPDI-C</code></pre><p>D3D1B.  Positive definite</p><pre><code class="nohighlight hljs">      CPODI-C   Compute the determinant and inverse of a certain complex
+      SPODI-S   Hermitian positive definite matrix using the factors
+      DPODI-D   computed by CPOCO, CPOFA, or CQRDC.
+
+      CPPDI-C   Compute the determinant and inverse of a complex Hermitian
+      SPPDI-S   positive definite matrix using factors from CPPCO or CPPFA.
+      DPPDI-D</code></pre><p>D3D2.  Positive definite banded</p><pre><code class="nohighlight hljs">      CPBDI-C   Compute the determinant of a complex Hermitian positive
+      SPBDI-S   definite band matrix using the factors computed by CPBCO or
+      DPBDI-D   CPBFA.</code></pre><h2 id="D4.-Eigenvalues,-eigenvectors"><a class="docs-heading-anchor" href="#D4.-Eigenvalues,-eigenvectors">D4. Eigenvalues, eigenvectors</a><a id="D4.-Eigenvalues,-eigenvectors-1"></a><a class="docs-heading-anchor-permalink" href="#D4.-Eigenvalues,-eigenvectors" title="Permalink"></a></h2><pre><code class="nohighlight hljs">      EISDOC-A  Documentation for EISPACK, a collection of subprograms for
+                solving matrix eigen-problems.</code></pre><p>D4A.  Ordinary eigenvalue problems (Ax = (lambda) * x) D4A1.  Real symmetric</p><pre><code class="nohighlight hljs">      RS-S      Compute the eigenvalues and, optionally, the eigenvectors
+      CH-C      of a real symmetric matrix.
+
+      RSP-S     Compute the eigenvalues and, optionally, the eigenvectors
+                of a real symmetric matrix packed into a one dimensional
+                array.
+
+      SSIEV-S   Compute the eigenvalues and, optionally, the eigenvectors
+      CHIEV-C   of a real symmetric matrix.
+
+      SSPEV-S   Compute the eigenvalues and, optionally, the eigenvectors
+                of a real symmetric matrix stored in packed form.</code></pre><p>D4A2.  Real nonsymmetric</p><pre><code class="nohighlight hljs">      RG-S      Compute the eigenvalues and, optionally, the eigenvectors
+      CG-C      of a real general matrix.
+
+      SGEEV-S   Compute the eigenvalues and, optionally, the eigenvectors
+      CGEEV-C   of a real general matrix.</code></pre><p>D4A3.  Complex Hermitian</p><pre><code class="nohighlight hljs">      CH-C      Compute the eigenvalues and, optionally, the eigenvectors
+      RS-S      of a complex Hermitian matrix.
+
+      CHIEV-C   Compute the eigenvalues and, optionally, the eigenvectors
+      SSIEV-S   of a complex Hermitian matrix.</code></pre><p>D4A4.  Complex non-Hermitian</p><pre><code class="nohighlight hljs">      CG-C      Compute the eigenvalues and, optionally, the eigenvectors
+      RG-S      of a complex general matrix.
+
+      CGEEV-C   Compute the eigenvalues and, optionally, the eigenvectors
+      SGEEV-S   of a complex general matrix.</code></pre><p>D4A5.  Tridiagonal</p><pre><code class="nohighlight hljs">      BISECT-S  Compute the eigenvalues of a symmetric tridiagonal matrix
+                in a given interval using Sturm sequencing.
+
+      IMTQL1-S  Compute the eigenvalues of a symmetric tridiagonal matrix
+                using the implicit QL method.
+
+      IMTQL2-S  Compute the eigenvalues and eigenvectors of a symmetric
+                tridiagonal matrix using the implicit QL method.
+
+      IMTQLV-S  Compute the eigenvalues of a symmetric tridiagonal matrix
+                using the implicit QL method.  Eigenvectors may be computed
+                later.
+
+      RATQR-S   Compute the largest or smallest eigenvalues of a symmetric
+                tridiagonal matrix using the rational QR method with Newton
+                correction.
+
+      RST-S     Compute the eigenvalues and, optionally, the eigenvectors
+                of a real symmetric tridiagonal matrix.
+
+      RT-S      Compute the eigenvalues and eigenvectors of a special real
+                tridiagonal matrix.
+
+      TQL1-S    Compute the eigenvalues of symmetric tridiagonal matrix by
+                the QL method.
+
+      TQL2-S    Compute the eigenvalues and eigenvectors of symmetric
+                tridiagonal matrix.
+
+      TQLRAT-S  Compute the eigenvalues of symmetric tridiagonal matrix
+                using a rational variant of the QL method.
+
+      TRIDIB-S  Compute the eigenvalues of a symmetric tridiagonal matrix
+                in a given interval using Sturm sequencing.
+
+      TSTURM-S  Find those eigenvalues of a symmetric tridiagonal matrix
+                in a given interval and their associated eigenvectors by
+                Sturm sequencing.</code></pre><p>D4A6.  Banded</p><pre><code class="nohighlight hljs">      BQR-S     Compute some of the eigenvalues of a real symmetric
+                matrix using the QR method with shifts of origin.
+
+      RSB-S     Compute the eigenvalues and, optionally, the eigenvectors
+                of a symmetric band matrix.</code></pre><p>D4B.  Generalized eigenvalue problems (e.g., Ax = (lambda)*Bx) D4B1.  Real symmetric</p><pre><code class="nohighlight hljs">      RSG-S     Compute the eigenvalues and, optionally, the eigenvectors
+                of a symmetric generalized eigenproblem.
+
+      RSGAB-S   Compute the eigenvalues and, optionally, the eigenvectors
+                of a symmetric generalized eigenproblem.
+
+      RSGBA-S   Compute the eigenvalues and, optionally, the eigenvectors
+                of a symmetric generalized eigenproblem.</code></pre><p>D4B2.  Real general</p><pre><code class="nohighlight hljs">      RGG-S     Compute the eigenvalues and eigenvectors for a real
+                generalized eigenproblem.</code></pre><p>D4C.  Associated operations D4C1.  Transform problem D4C1A.  Balance matrix</p><pre><code class="nohighlight hljs">      BALANC-S  Balance a real general matrix and isolate eigenvalues
+      CBAL-C    whenever possible.</code></pre><p>D4C1B.  Reduce to compact form D4C1B1.  Tridiagonal</p><pre><code class="nohighlight hljs">      BANDR-S   Reduce a real symmetric band matrix to symmetric
+                tridiagonal matrix and, optionally, accumulate
+                orthogonal similarity transformations.
+
+      HTRID3-S  Reduce a complex Hermitian (packed) matrix to a real
+                symmetric tridiagonal matrix by unitary similarity
+                transformations.
+
+      HTRIDI-S  Reduce a complex Hermitian matrix to a real symmetric
+                tridiagonal matrix using unitary similarity
+                transformations.
+
+      TRED1-S   Reduce a real symmetric matrix to symmetric tridiagonal
+                matrix using orthogonal similarity transformations.
+
+      TRED2-S   Reduce a real symmetric matrix to a symmetric tridiagonal
+                matrix using and accumulating orthogonal transformations.
+
+      TRED3-S   Reduce a real symmetric matrix stored in packed form to
+                symmetric tridiagonal matrix using orthogonal
+                transformations.</code></pre><p>D4C1B2.  Hessenberg</p><pre><code class="nohighlight hljs">      ELMHES-S  Reduce a real general matrix to upper Hessenberg form
+      COMHES-C  using stabilized elementary similarity transformations.
+
+      ORTHES-S  Reduce a real general matrix to upper Hessenberg form
+      CORTH-C   using orthogonal similarity transformations.</code></pre><p>D4C1B3.  Other</p><pre><code class="nohighlight hljs">      QZHES-S   The first step of the QZ algorithm for solving generalized
+                matrix eigenproblems.  Accepts a pair of real general
+                matrices and reduces one of them to upper Hessenberg
+                and the other to upper triangular form using orthogonal
+                transformations. Usually followed by QZIT, QZVAL, QZVEC.
+
+      QZIT-S    The second step of the QZ algorithm for generalized
+                eigenproblems.  Accepts an upper Hessenberg and an upper
+                triangular matrix and reduces the former to
+                quasi-triangular form while preserving the form of the
+                latter.  Usually preceded by QZHES and followed by QZVAL
+                and QZVEC.</code></pre><p>D4C1C.  Standardize problem</p><pre><code class="nohighlight hljs">      FIGI-S    Transforms certain real non-symmetric tridiagonal matrix
+                to symmetric tridiagonal matrix.
+
+      FIGI2-S   Transforms certain real non-symmetric tridiagonal matrix
+                to symmetric tridiagonal matrix.
+
+      REDUC-S   Reduce a generalized symmetric eigenproblem to a standard
+                symmetric eigenproblem using Cholesky factorization.
+
+      REDUC2-S  Reduce a certain generalized symmetric eigenproblem to a
+                standard symmetric eigenproblem using Cholesky
+                factorization.</code></pre><p>D4C2.  Compute eigenvalues of matrix in compact form D4C2A.  Tridiagonal</p><pre><code class="nohighlight hljs">      BISECT-S  Compute the eigenvalues of a symmetric tridiagonal matrix
+                in a given interval using Sturm sequencing.
+
+      IMTQL1-S  Compute the eigenvalues of a symmetric tridiagonal matrix
+                using the implicit QL method.
+
+      IMTQL2-S  Compute the eigenvalues and eigenvectors of a symmetric
+                tridiagonal matrix using the implicit QL method.
+
+      IMTQLV-S  Compute the eigenvalues of a symmetric tridiagonal matrix
+                using the implicit QL method.  Eigenvectors may be computed
+                later.
+
+      RATQR-S   Compute the largest or smallest eigenvalues of a symmetric
+                tridiagonal matrix using the rational QR method with Newton
+                correction.
+
+      TQL1-S    Compute the eigenvalues of symmetric tridiagonal matrix by
+                the QL method.
+
+      TQL2-S    Compute the eigenvalues and eigenvectors of symmetric
+                tridiagonal matrix.
+
+      TQLRAT-S  Compute the eigenvalues of symmetric tridiagonal matrix
+                using a rational variant of the QL method.
+
+      TRIDIB-S  Compute the eigenvalues of a symmetric tridiagonal matrix
+                in a given interval using Sturm sequencing.
+
+      TSTURM-S  Find those eigenvalues of a symmetric tridiagonal matrix
+                in a given interval and their associated eigenvectors by
+                Sturm sequencing.</code></pre><p>D4C2B.  Hessenberg</p><pre><code class="nohighlight hljs">      COMLR-C   Compute the eigenvalues of a complex upper Hessenberg
+                matrix using the modified LR method.
+
+      COMLR2-C  Compute the eigenvalues and eigenvectors of a complex upper
+                Hessenberg matrix using the modified LR method.
+
+      HQR-S     Compute the eigenvalues of a real upper Hessenberg matrix
+      COMQR-C   using the QR method.
+
+      HQR2-S    Compute the eigenvalues and eigenvectors of a real upper
+      COMQR2-C  Hessenberg matrix using QR method.
+
+      INVIT-S   Compute the eigenvectors of a real upper Hessenberg
+      CINVIT-C  matrix associated with specified eigenvalues by inverse
+                iteration.</code></pre><p>D4C2C.  Other</p><pre><code class="nohighlight hljs">      QZVAL-S   The third step of the QZ algorithm for generalized
+                eigenproblems.  Accepts a pair of real matrices, one in
+                quasi-triangular form and the other in upper triangular
+                form and computes the eigenvalues of the associated
+                eigenproblem.  Usually preceded by QZHES, QZIT, and
+                followed by QZVEC.</code></pre><p>D4C3.  Form eigenvectors from eigenvalues</p><pre><code class="nohighlight hljs">      BANDV-S   Form the eigenvectors of a real symmetric band matrix
+                associated with a set of ordered approximate eigenvalues
+                by inverse iteration.
+
+      QZVEC-S   The optional fourth step of the QZ algorithm for
+                generalized eigenproblems.  Accepts a matrix in
+                quasi-triangular form and another in upper triangular
+                and computes the eigenvectors of the triangular problem
+                and transforms them back to the original coordinates
+                Usually preceded by QZHES, QZIT, and QZVAL.
+
+      TINVIT-S  Compute the eigenvectors of symmetric tridiagonal matrix
+                corresponding to specified eigenvalues, using inverse
+                iteration.</code></pre><p>D4C4.  Back transform eigenvectors</p><pre><code class="nohighlight hljs">      BAKVEC-S  Form the eigenvectors of a certain real non-symmetric
+                tridiagonal matrix from a symmetric tridiagonal matrix
+                output from FIGI.
+
+      BALBAK-S  Form the eigenvectors of a real general matrix from the
+      CBABK2-C  eigenvectors of matrix output from BALANC.
+
+      ELMBAK-S  Form the eigenvectors of a real general matrix from the
+      COMBAK-C  eigenvectors of the upper Hessenberg matrix output from
+                ELMHES.
+
+      ELTRAN-S  Accumulates the stabilized elementary similarity
+                transformations used in the reduction of a real general
+                matrix to upper Hessenberg form by ELMHES.
+
+      HTRIB3-S  Compute the eigenvectors of a complex Hermitian matrix from
+                the eigenvectors of a real symmetric tridiagonal matrix
+                output from HTRID3.
+
+      HTRIBK-S  Form the eigenvectors of a complex Hermitian matrix from
+                the eigenvectors of a real symmetric tridiagonal matrix
+                output from HTRIDI.
+
+      ORTBAK-S  Form the eigenvectors of a general real matrix from the
+      CORTB-C   eigenvectors of the upper Hessenberg matrix output from
+                ORTHES.
+
+      ORTRAN-S  Accumulate orthogonal similarity transformations in the
+                reduction of real general matrix by ORTHES.
+
+      REBAK-S   Form the eigenvectors of a generalized symmetric
+                eigensystem from the eigenvectors of derived matrix output
+                from REDUC or REDUC2.
+
+      REBAKB-S  Form the eigenvectors of a generalized symmetric
+                eigensystem from the eigenvectors of derived matrix output
+                from REDUC2.
+
+      TRBAK1-S  Form the eigenvectors of real symmetric matrix from
+                the eigenvectors of a symmetric tridiagonal matrix formed
+                by TRED1.
+
+      TRBAK3-S  Form the eigenvectors of a real symmetric matrix from the
+                eigenvectors of a symmetric tridiagonal matrix formed
+                by TRED3.</code></pre><h2 id="D5.-QR-decomposition,-Gram-Schmidt-orthogonalization"><a class="docs-heading-anchor" href="#D5.-QR-decomposition,-Gram-Schmidt-orthogonalization">D5. QR decomposition, Gram-Schmidt orthogonalization</a><a id="D5.-QR-decomposition,-Gram-Schmidt-orthogonalization-1"></a><a class="docs-heading-anchor-permalink" href="#D5.-QR-decomposition,-Gram-Schmidt-orthogonalization" title="Permalink"></a></h2><pre><code class="nohighlight hljs">      LLSIA-S   Solve a linear least squares problems by performing a QR
+      DLLSIA-D  factorization of the matrix using Householder
+                transformations.  Emphasis is put on detecting possible
+                rank deficiency.
+
+      SGLSS-S   Solve a linear least squares problems by performing a QR
+      DGLSS-D   factorization of the matrix using Householder
+                transformations.  Emphasis is put on detecting possible
+                rank deficiency.
+
+      SQRDC-S   Use Householder transformations to compute the QR
+      DQRDC-D   factorization of an N by P matrix.  Column pivoting is a
+      CQRDC-C   users option.</code></pre><h2 id="D6.-Singular-value-decomposition"><a class="docs-heading-anchor" href="#D6.-Singular-value-decomposition">D6. Singular value decomposition</a><a id="D6.-Singular-value-decomposition-1"></a><a class="docs-heading-anchor-permalink" href="#D6.-Singular-value-decomposition" title="Permalink"></a></h2><pre><code class="nohighlight hljs">      SSVDC-S   Perform the singular value decomposition of a rectangular
+      DSVDC-D   matrix.
+      CSVDC-C</code></pre><h2 id="D7.-Update-matrix-decompositions"><a class="docs-heading-anchor" href="#D7.-Update-matrix-decompositions">D7. Update matrix decompositions</a><a id="D7.-Update-matrix-decompositions-1"></a><a class="docs-heading-anchor-permalink" href="#D7.-Update-matrix-decompositions" title="Permalink"></a></h2><p>D7B.  Cholesky</p><pre><code class="nohighlight hljs">      SCHDD-S   Downdate an augmented Cholesky decomposition or the
+      DCHDD-D   triangular factor of an augmented QR decomposition.
+      CCHDD-C
+
+      SCHEX-S   Update the Cholesky factorization  A=TRANS(R)*R  of A
+      DCHEX-D   positive definite matrix A of order P under diagonal
+      CCHEX-C   permutations of the form TRANS(E)*A*E, where E is a
+                permutation matrix.
+
+      SCHUD-S   Update an augmented Cholesky decomposition of the
+      DCHUD-D   triangular part of an augmented QR decomposition.
+      CCHUD-C</code></pre><h2 id="D9.-Overdetermined-or-underdetermined-systems-of-equations,-singular-systems,-pseudo-inverses"><a class="docs-heading-anchor" href="#D9.-Overdetermined-or-underdetermined-systems-of-equations,-singular-systems,-pseudo-inverses">D9. Overdetermined or underdetermined systems of equations, singular systems, pseudo-inverses</a><a id="D9.-Overdetermined-or-underdetermined-systems-of-equations,-singular-systems,-pseudo-inverses-1"></a><a class="docs-heading-anchor-permalink" href="#D9.-Overdetermined-or-underdetermined-systems-of-equations,-singular-systems,-pseudo-inverses" title="Permalink"></a></h2><p>(search also classes D5, D6, K1a, L8a)</p><pre><code class="nohighlight hljs">      BNDACC-S  Compute the LU factorization of a banded matrices using
+      DBNDAC-D  sequential accumulation of rows of the data matrix.
+                Exactly one right-hand side vector is permitted.
+
+      BNDSOL-S  Solve the least squares problem for a banded matrix using
+      DBNDSL-D  sequential accumulation of rows of the data matrix.
+                Exactly one right-hand side vector is permitted.
+
+      HFTI-S    Solve a linear least squares problems by performing a QR
+      DHFTI-D   factorization of the matrix using Householder
+                transformations.
+
+      LLSIA-S   Solve a linear least squares problems by performing a QR
+      DLLSIA-D  factorization of the matrix using Householder
+                transformations.  Emphasis is put on detecting possible
+                rank deficiency.
+
+      LSEI-S    Solve a linearly constrained least squares problem with
+      DLSEI-D   equality and inequality constraints, and optionally compute
+                a covariance matrix.
+
+      MINFIT-S  Compute the singular value decomposition of a rectangular
+                matrix and solve the related linear least squares problem.
+
+      SGLSS-S   Solve a linear least squares problems by performing a QR
+      DGLSS-D   factorization of the matrix using Householder
+                transformations.  Emphasis is put on detecting possible
+                rank deficiency.
+
+      SQRSL-S   Apply the output of SQRDC to compute coordinate transfor-
+      DQRSL-D   mations, projections, and least squares solutions.
+      CQRSL-C
+
+      ULSIA-S   Solve an underdetermined linear system of equations by
+      DULSIA-D  performing an LQ factorization of the matrix using
+                Householder transformations.  Emphasis is put on detecting
+                possible rank deficiency.</code></pre></article><nav class="docs-footer"><a class="docs-footer-prevpage" href="../gams-c/">« C. Elementary and special functions</a><div class="flexbox-break"></div><p class="footer-message">Powered by <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> and the <a href="https://julialang.org/">Julia Programming Language</a>.</p></nav></div><div class="modal" id="documenter-settings"><div class="modal-background"></div><div class="modal-card"><header class="modal-card-head"><p class="modal-card-title">Settings</p><button class="delete"></button></header><section class="modal-card-body"><p><label class="label">Theme</label><div class="select"><select id="documenter-themepicker"><option value="auto">Automatic (OS)</option><option value="documenter-light">documenter-light</option><option value="documenter-dark">documenter-dark</option><option value="catppuccin-latte">catppuccin-latte</option><option value="catppuccin-frappe">catppuccin-frappe</option><option value="catppuccin-macchiato">catppuccin-macchiato</option><option value="catppuccin-mocha">catppuccin-mocha</option></select></div></p><hr/><p>This document was generated with <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> version 1.16.1 on <span class="colophon-date" title="Saturday 3 January 2026 11:37">Saturday 3 January 2026</span>. Using Julia version 1.12.3.</p></section><footer class="modal-card-foot"></footer></div></div></div></body></html>

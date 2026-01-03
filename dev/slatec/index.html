@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>TOC All · SLATEC.jl</title><meta name="title" content="TOC All · SLATEC.jl"/><meta property="og:title" content="TOC All · SLATEC.jl"/><meta property="twitter:title" content="TOC All · SLATEC.jl"/><meta name="description" content="Documentation for SLATEC.jl."/><meta property="og:description" content="Documentation for SLATEC.jl."/><meta property="twitter:description" content="Documentation for SLATEC.jl."/><meta property="og:url" content="https://cyhan.dev/SLATEC.jl/slatec/"/><meta property="twitter:url" content="https://cyhan.dev/SLATEC.jl/slatec/"/><link rel="canonical" href="https://cyhan.dev/SLATEC.jl/slatec/"/><script data-outdated-warner src="../assets/warner.js"></script><link href="https://cdnjs.cloudflare.com/ajax/libs/lato-font/3.0.0/css/lato-font.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/juliamono/0.050/juliamono.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/fontawesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/solid.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/brands.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.8/katex.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL=".."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" data-main="../assets/documenter.js"></script><script src="../search_index.js"></script><script src="../siteinfo.js"></script><script src="../../versions.js"></script><link class="docs-theme-link" rel="stylesheet" type="text/css" href="../assets/themes/catppuccin-mocha.css" data-theme-name="catppuccin-mocha"/><link class="docs-theme-link" rel="stylesheet" type="text/css" href="../assets/themes/catppuccin-macchiato.css" data-theme-name="catppuccin-macchiato"/><link class="docs-theme-link" rel="stylesheet" type="text/css" href="../assets/themes/catppuccin-frappe.css" data-theme-name="catppuccin-frappe"/><link class="docs-theme-link" rel="stylesheet" type="text/css" href="../assets/themes/catppuccin-latte.css" data-theme-name="catppuccin-latte"/><link class="docs-theme-link" rel="stylesheet" type="text/css" href="../assets/themes/documenter-dark.css" data-theme-name="documenter-dark" data-theme-primary-dark/><link class="docs-theme-link" rel="stylesheet" type="text/css" href="../assets/themes/documenter-light.css" data-theme-name="documenter-light" data-theme-primary/><script src="../assets/themeswap.js"></script></head><body><div id="documenter"><nav class="docs-sidebar"><div class="docs-package-name"><span class="docs-autofit"><a href="../">SLATEC.jl</a></span></div><button class="docs-search-query input is-rounded is-small is-clickable my-2 mx-auto py-1 px-2" id="documenter-search-query">Search docs (Ctrl + /)</button><ul class="docs-menu"><li><a class="tocitem" href="../">Home</a></li><li><span class="tocitem">Reference</span><ul><li><a class="tocitem" href="../ref/">API</a></li><li><a class="tocitem" href="../ref/fnlib/">FNLib</a></li></ul></li><li><span class="tocitem">SLATEC TOC</span><ul><li class="is-active"><a class="tocitem" href>TOC All</a><ul class="internal"><li><a class="tocitem" href="#Page-TOC"><span>Page TOC</span></a></li><li><a class="tocitem" href="#A.-Arithmetic,-error-analysis"><span>A. Arithmetic, error analysis</span></a></li><li><a class="tocitem" href="#C-GAMS-Class-C"><span>C - GAMS Class C</span></a></li><li><a class="tocitem" href="#D-GAMS-Class-D"><span>D - GAMS Class D</span></a></li><li><a class="tocitem" href="#E.-Interpolation"><span>E. Interpolation</span></a></li><li><a class="tocitem" href="#F.-Solution-of-nonlinear-equations"><span>F. Solution of nonlinear equations</span></a></li><li><a class="tocitem" href="#G.-Optimization"><span>G. Optimization</span></a></li><li><a class="tocitem" href="#H.-Differentiation,-integration"><span>H. Differentiation, integration</span></a></li><li><a class="tocitem" href="#I.-Differential-and-integral-equations"><span>I. Differential and integral equations</span></a></li><li><a class="tocitem" href="#J.-Integral-transforms"><span>J. Integral transforms</span></a></li><li><a class="tocitem" href="#K.-Approximation"><span>K. Approximation</span></a></li><li><a class="tocitem" href="#L.-Statistics,-probability"><span>L. Statistics, probability</span></a></li><li><a class="tocitem" href="#N.-Data-handling"><span>N. Data handling</span></a></li><li><a class="tocitem" href="#R.-Service-routines"><span>R. Service routines</span></a></li><li><a class="tocitem" href="#Z.-Other"><span>Z. Other</span></a></li></ul></li><li><a class="tocitem" href="gams-c/">C. Elementary and special functions</a></li><li><a class="tocitem" href="gams-d/">D. Linear Algebra</a></li></ul></li></ul><div class="docs-version-selector field has-addons"><div class="control"><span class="docs-label button is-static is-size-7">Version</span></div><div class="docs-selector control is-expanded"><div class="select is-fullwidth is-size-7"><select id="documenter-version-selector"></select></div></div></div></nav><div class="docs-main"><header class="docs-navbar"><a class="docs-sidebar-button docs-navbar-link fa-solid fa-bars is-hidden-desktop" id="documenter-sidebar-button" href="#"></a><nav class="breadcrumb"><ul class="is-hidden-mobile"><li><a class="is-disabled">SLATEC TOC</a></li><li class="is-active"><a href>TOC All</a></li></ul><ul class="is-hidden-tablet"><li class="is-active"><a href>TOC All</a></li></ul></nav><div class="docs-right"><a class="docs-navbar-link" href="https://github.com/inkydragon/SLATEC.jl" title="View the repository on GitHub"><span class="docs-icon fa-brands"></span><span class="docs-label is-hidden-touch">GitHub</span></a><a class="docs-navbar-link" href="https://github.com/inkydragon/SLATEC.jl/blob/main/docs/src/slatec/index.md" title="Edit source on GitHub"><span class="docs-icon fa-solid"></span></a><a class="docs-settings-button docs-navbar-link fa-solid fa-gear" id="documenter-settings-button" href="#" title="Settings"></a><a class="docs-article-toggle-button fa-solid fa-chevron-up" id="documenter-article-toggle-button" href="javascript:;" title="Collapse all docstrings"></a></div></header><article class="content" id="documenter-page"><h1 id="TOC-All"><a class="docs-heading-anchor" href="#TOC-All">TOC All</a><a id="TOC-All-1"></a><a class="docs-heading-anchor-permalink" href="#TOC-All" title="Permalink"></a></h1><blockquote><p>SLATEC Common Mathematical Library, Table of Contents</p></blockquote><p>This table of contents of the SLATEC Common Mathematical Library (CML) contains the names and purposes of all user-callable CML routines, arranged by GAMS category.</p><p>The current library has routines in the following GAMS major categories:</p><pre><code class="nohighlight hljs">A.  Arithmetic, error analysis
+C.  Elementary and special functions (search also class L5)
+D.  Linear Algebra
+E.  Interpolation
+F.  Solution of nonlinear equations
+G.  Optimization (search also classes K, L8)
+H.  Differentiation, integration
+I.  Differential and integral equations
+J.  Integral transforms
+K.  Approximation (search also class L8)
+L.  Statistics, probability
+N.  Data handling (search also class L2)
+R.  Service routines
+Z.  Other</code></pre><p>The library contains routines which operate on different types of data but which are otherwise equivalent.  The names of equivalent routines are listed vertically before the purpose.  Immediately after each name is a hyphen (-) and one of the alphabetic characters S, D, C, I, H, L, or A, where S indicates a single precision routine, D double precision, C complex, I integer, H character, L logical, and A is a pseudo-type given to routines that could not reasonably be converted to some other type.</p><div class="admonition is-info" id="Exported-functions-name-6f354bb0b35b5b8a"><header class="admonition-header">Exported functions name<a class="admonition-anchor" href="#Exported-functions-name-6f354bb0b35b5b8a" title="Permalink"></a></header><div class="admonition-body"><p>When exporting from this library, the single-precision routine names are used; implementations of other precisions are forwarded to the same name but with different argument types.</p></div></div><h2 id="Page-TOC"><a class="docs-heading-anchor" href="#Page-TOC">Page TOC</a><a id="Page-TOC-1"></a><a class="docs-heading-anchor-permalink" href="#Page-TOC" title="Permalink"></a></h2><ul><li><a href="#TOC-All">TOC All</a></li><li class="no-marker"><ul><li><a href="#Page-TOC">Page TOC</a></li><li><a href="#A.-Arithmetic,-error-analysis">A. Arithmetic, error analysis</a></li><li class="no-marker"><ul><li><a href="#A3.-Real">A3. Real</a></li><li><a href="#A4.-Complex">A4. Complex</a></li><li><a href="#A6.-Change-of-representation">A6. Change of representation</a></li></ul></li><li><a href="#C-GAMS-Class-C">C - GAMS Class C</a></li><li><a href="#D-GAMS-Class-D">D - GAMS Class D</a></li><li><a href="#E.-Interpolation">E. Interpolation</a></li><li class="no-marker"><ul><li><a href="#E1.-Univariate-data-(curve-fitting)">E1. Univariate data (curve fitting)</a></li><li><a href="#E3.-Service-routines">E3. Service routines</a></li></ul></li><li><a href="#F.-Solution-of-nonlinear-equations">F. Solution of nonlinear equations</a></li><li class="no-marker"><ul><li><a href="#F1.-Single-equation">F1. Single equation</a></li><li><a href="#F2.-System-of-equations">F2. System of equations</a></li><li><a href="#F3.-Service-routines">F3. Service routines</a></li></ul></li><li><a href="#G.-Optimization">G. Optimization</a></li><li class="no-marker"><ul><li><a href="#G2.-Constrained">G2. Constrained</a></li><li><a href="#G4.-Service-routines">G4. Service routines</a></li></ul></li><li><a href="#H.-Differentiation,-integration">H. Differentiation, integration</a></li><li class="no-marker"><ul><li><a href="#H1.-Numerical-differentiation">H1. Numerical differentiation</a></li><li><a href="#H2.-Quadrature-(numerical-evaluation-of-definite-integrals)">H2. Quadrature (numerical evaluation of definite integrals)</a></li></ul></li><li><a href="#I.-Differential-and-integral-equations">I. Differential and integral equations</a></li><li class="no-marker"><ul><li><a href="#I1.-Ordinary-differential-equations">I1. Ordinary differential equations</a></li><li><a href="#I2.-Partial-differential-equations">I2. Partial differential equations</a></li></ul></li><li><a href="#J.-Integral-transforms">J. Integral transforms</a></li><li class="no-marker"><ul><li><a href="#J1.-Fast-Fourier-transforms">J1. Fast Fourier transforms</a></li><li><a href="#J4.-Hilbert-transforms">J4. Hilbert transforms</a></li></ul></li><li><a href="#K.-Approximation">K. Approximation</a></li><li class="no-marker"><ul><li><a href="#K1.-Least-squares-(L-2)-approximation">K1. Least squares (L-2) approximation</a></li><li><a href="#K6.-Service-routines">K6. Service routines</a></li></ul></li><li><a href="#L.-Statistics,-probability">L. Statistics, probability</a></li><li class="no-marker"><ul><li><a href="#L5.-Function-evaluation">L5. Function evaluation</a></li><li><a href="#L6.-Pseudo-random-number-generation">L6. Pseudo-random number generation</a></li><li><a href="#L7.-Experimental-design,-including-analysis-of-variance">L7. Experimental design, including analysis of variance</a></li><li><a href="#L8.-Regression">L8. Regression</a></li></ul></li><li><a href="#N.-Data-handling">N. Data handling</a></li><li class="no-marker"><ul><li><a href="#N1.-Input,-output">N1. Input, output</a></li><li><a href="#N6.-Sorting">N6. Sorting</a></li><li><a href="#N8.-Permuting">N8. Permuting</a></li></ul></li><li><a href="#R.-Service-routines">R. Service routines</a></li><li class="no-marker"><ul><li><a href="#R1.-Machine-dependent-constants">R1. Machine-dependent constants</a></li><li><a href="#R2.-Error-checking">R2. Error checking</a></li><li><a href="#R3.-Error-handling">R3. Error handling</a></li></ul></li><li><a href="#Z.-Other">Z. Other</a></li></ul></li></ul><h2 id="A.-Arithmetic,-error-analysis"><a class="docs-heading-anchor" href="#A.-Arithmetic,-error-analysis">A. Arithmetic, error analysis</a><a id="A.-Arithmetic,-error-analysis-1"></a><a class="docs-heading-anchor-permalink" href="#A.-Arithmetic,-error-analysis" title="Permalink"></a></h2><h3 id="A3.-Real"><a class="docs-heading-anchor" href="#A3.-Real">A3. Real</a><a id="A3.-Real-1"></a><a class="docs-heading-anchor-permalink" href="#A3.-Real" title="Permalink"></a></h3><p>A3D.  Extended range</p><pre><code class="nohighlight hljs">      XADD-S    To provide single-precision floating-point arithmetic
+      DXADD-D   with an extended exponent range.
+
+      XADJ-S    To provide single-precision floating-point arithmetic
+      DXADJ-D   with an extended exponent range.
+
+      XC210-S   To provide single-precision floating-point arithmetic
+      DXC210-D  with an extended exponent range.
+
+      XCON-S    To provide single-precision floating-point arithmetic
+      DXCON-D   with an extended exponent range.
+
+      XRED-S    To provide single-precision floating-point arithmetic
+      DXRED-D   with an extended exponent range.
+
+      XSET-S    To provide single-precision floating-point arithmetic
+      DXSET-D   with an extended exponent range.</code></pre><h3 id="A4.-Complex"><a class="docs-heading-anchor" href="#A4.-Complex">A4. Complex</a><a id="A4.-Complex-1"></a><a class="docs-heading-anchor-permalink" href="#A4.-Complex" title="Permalink"></a></h3><p>A4A.  Single precision</p><pre><code class="nohighlight hljs">      CARG-C    Compute the argument of a complex number.</code></pre><h3 id="A6.-Change-of-representation"><a class="docs-heading-anchor" href="#A6.-Change-of-representation">A6. Change of representation</a><a id="A6.-Change-of-representation-1"></a><a class="docs-heading-anchor-permalink" href="#A6.-Change-of-representation" title="Permalink"></a></h3><p>A6B.  Base conversion</p><pre><code class="nohighlight hljs">      R9PAK-S   Pack a base 2 exponent into a floating point number.
+      D9PAK-D
+
+      R9UPAK-S  Unpack a floating point number X so that X = Y*2**N.
+      D9UPAK-D</code></pre><h2 id="C-GAMS-Class-C"><a class="docs-heading-anchor" href="#C-GAMS-Class-C">C - GAMS Class C</a><a id="C-GAMS-Class-C-1"></a><a class="docs-heading-anchor-permalink" href="#C-GAMS-Class-C" title="Permalink"></a></h2><p><a href="gams-c/">C. Elementary and special functions</a></p><h2 id="D-GAMS-Class-D"><a class="docs-heading-anchor" href="#D-GAMS-Class-D">D - GAMS Class D</a><a id="D-GAMS-Class-D-1"></a><a class="docs-heading-anchor-permalink" href="#D-GAMS-Class-D" title="Permalink"></a></h2><p><a href="gams-d/">D. Linear Algebra</a></p><h2 id="E.-Interpolation"><a class="docs-heading-anchor" href="#E.-Interpolation">E. Interpolation</a><a id="E.-Interpolation-1"></a><a class="docs-heading-anchor-permalink" href="#E.-Interpolation" title="Permalink"></a></h2><pre><code class="nohighlight hljs">      BSPDOC-A  Documentation for BSPLINE, a package of subprograms for
+                working with piecewise polynomial functions
+                in B-representation.</code></pre><h3 id="E1.-Univariate-data-(curve-fitting)"><a class="docs-heading-anchor" href="#E1.-Univariate-data-(curve-fitting)">E1. Univariate data (curve fitting)</a><a id="E1.-Univariate-data-(curve-fitting)-1"></a><a class="docs-heading-anchor-permalink" href="#E1.-Univariate-data-(curve-fitting)" title="Permalink"></a></h3><p>E1A.  Polynomial splines (piecewise polynomials)</p><pre><code class="nohighlight hljs">      BINT4-S   Compute the B-representation of a cubic spline
+      DBINT4-D  which interpolates given data.
+
+      BINTK-S   Compute the B-representation of a spline which interpolates
+      DBINTK-D  given data.
+
+      BSPDOC-A  Documentation for BSPLINE, a package of subprograms for
+                working with piecewise polynomial functions
+                in B-representation.
+
+      PCHDOC-A  Documentation for PCHIP, a Fortran package for piecewise
+                cubic Hermite interpolation of data.
+
+      PCHIC-S   Set derivatives needed to determine a piecewise monotone
+      DPCHIC-D  piecewise cubic Hermite interpolant to given data.
+                User control is available over boundary conditions and/or
+                treatment of points where monotonicity switches direction.
+
+      PCHIM-S   Set derivatives needed to determine a monotone piecewise
+      DPCHIM-D  cubic Hermite interpolant to given data.  Boundary values
+                are provided which are compatible with monotonicity.  The
+                interpolant will have an extremum at each point where mono-
+                tonicity switches direction.  (See PCHIC if user control is
+                desired over boundary or switch conditions.)
+
+      PCHSP-S   Set derivatives needed to determine the Hermite represen-
+      DPCHSP-D  tation of the cubic spline interpolant to given data, with
+                specified boundary conditions.</code></pre><p>E1B.  Polynomials</p><pre><code class="nohighlight hljs">      POLCOF-S  Compute the coefficients of the polynomial fit (including
+      DPOLCF-D  Hermite polynomial fits) produced by a previous call to
+                POLINT.
+
+      POLINT-S  Produce the polynomial which interpolates a set of discrete
+      DPLINT-D  data points.</code></pre><h3 id="E3.-Service-routines"><a class="docs-heading-anchor" href="#E3.-Service-routines">E3. Service routines</a><a id="E3.-Service-routines-1"></a><a class="docs-heading-anchor-permalink" href="#E3.-Service-routines" title="Permalink"></a></h3><blockquote><p>(e.g., grid generation, evaluation of fitted functions) (search also class N5)</p></blockquote><pre><code class="nohighlight hljs">      BFQAD-S   Compute the integral of a product of a function and a
+      DBFQAD-D  derivative of a B-spline.
+
+      BSPDR-S   Use the B-representation to construct a divided difference
+      DBSPDR-D  table preparatory to a (right) derivative calculation.
+
+      BSPEV-S   Calculate the value of the spline and its derivatives from
+      DBSPEV-D  the B-representation.
+
+      BSPPP-S   Convert the B-representation of a B-spline to the piecewise
+      DBSPPP-D  polynomial (PP) form.
+
+      BSPVD-S   Calculate the value and all derivatives of order less than
+      DBSPVD-D  NDERIV of all basis functions which do not vanish at X.
+
+      BSPVN-S   Calculate the value of all (possibly) nonzero basis
+      DBSPVN-D  functions at X.
+
+      BSQAD-S   Compute the integral of a K-th order B-spline using the
+      DBSQAD-D  B-representation.
+
+      BVALU-S   Evaluate the B-representation of a B-spline at X for the
+      DBVALU-D  function value or any of its derivatives.
+
+      CHFDV-S   Evaluate a cubic polynomial given in Hermite form and its
+      DCHFDV-D  first derivative at an array of points.  While designed for
+                use by PCHFD, it may be useful directly as an evaluator
+                for a piecewise cubic Hermite function in applications,
+                such as graphing, where the interval is known in advance.
+                If only function values are required, use CHFEV instead.
+
+      CHFEV-S   Evaluate a cubic polynomial given in Hermite form at an
+      DCHFEV-D  array of points.  While designed for use by PCHFE, it may
+                be useful directly as an evaluator for a piecewise cubic
+                Hermite function in applications, such as graphing, where
+                the interval is known in advance.
+
+      INTRV-S   Compute the largest integer ILEFT in 1 .LE. ILEFT .LE. LXT
+      DINTRV-D  such that XT(ILEFT) .LE. X where XT(*) is a subdivision
+                of the X interval.
+
+      PCHBS-S   Piecewise Cubic Hermite to B-Spline converter.
+      DPCHBS-D
+
+      PCHCM-S   Check a cubic Hermite function for monotonicity.
+      DPCHCM-D
+
+      PCHFD-S   Evaluate a piecewise cubic Hermite function and its first
+      DPCHFD-D  derivative at an array of points.  May be used by itself
+                for Hermite interpolation, or as an evaluator for PCHIM
+                or PCHIC.  If only function values are required, use
+                PCHFE instead.
+
+      PCHFE-S   Evaluate a piecewise cubic Hermite function at an array of
+      DPCHFE-D  points.  May be used by itself for Hermite interpolation,
+                or as an evaluator for PCHIM or PCHIC.
+
+      PCHIA-S   Evaluate the definite integral of a piecewise cubic
+      DPCHIA-D  Hermite function over an arbitrary interval.
+
+      PCHID-S   Evaluate the definite integral of a piecewise cubic
+      DPCHID-D  Hermite function over an interval whose endpoints are data
+                points.
+
+      PFQAD-S   Compute the integral on (X1,X2) of a product of a function
+      DPFQAD-D  F and the ID-th derivative of a B-spline,
+                (PP-representation).
+
+      POLYVL-S  Calculate the value of a polynomial and its first NDER
+      DPOLVL-D  derivatives where the polynomial was produced by a previous
+                call to POLINT.
+
+      PPQAD-S   Compute the integral on (X1,X2) of a K-th order B-spline
+      DPPQAD-D  using the piecewise polynomial (PP) representation.
+
+      PPVAL-S   Calculate the value of the IDERIV-th derivative of the
+      DPPVAL-D  B-spline from the PP-representation.</code></pre><h2 id="F.-Solution-of-nonlinear-equations"><a class="docs-heading-anchor" href="#F.-Solution-of-nonlinear-equations">F. Solution of nonlinear equations</a><a id="F.-Solution-of-nonlinear-equations-1"></a><a class="docs-heading-anchor-permalink" href="#F.-Solution-of-nonlinear-equations" title="Permalink"></a></h2><h3 id="F1.-Single-equation"><a class="docs-heading-anchor" href="#F1.-Single-equation">F1. Single equation</a><a id="F1.-Single-equation-1"></a><a class="docs-heading-anchor-permalink" href="#F1.-Single-equation" title="Permalink"></a></h3><p>F1A.  Smooth F1A1.  Polynomial F1A1A.  Real coefficients</p><pre><code class="nohighlight hljs">      RPQR79-S  Find the zeros of a polynomial with real coefficients.
+      CPQR79-C
+
+      RPZERO-S  Find the zeros of a polynomial with real coefficients.
+      CPZERO-C</code></pre><p>F1A1B.  Complex coefficients</p><pre><code class="nohighlight hljs">      CPQR79-C  Find the zeros of a polynomial with complex coefficients.
+      RPQR79-S
+
+      CPZERO-C  Find the zeros of a polynomial with complex coefficients.
+      RPZERO-S</code></pre><p>F1B.  General (no smoothness assumed)</p><pre><code class="nohighlight hljs">      FZERO-S   Search for a zero of a function F(X) in a given interval
+      DFZERO-D  (B,C).  It is designed primarily for problems where F(B)
+                and F(C) have opposite signs.</code></pre><h3 id="F2.-System-of-equations"><a class="docs-heading-anchor" href="#F2.-System-of-equations">F2. System of equations</a><a id="F2.-System-of-equations-1"></a><a class="docs-heading-anchor-permalink" href="#F2.-System-of-equations" title="Permalink"></a></h3><p>F2A.  Smooth</p><pre><code class="nohighlight hljs">      SNSQ-S    Find a zero of a system of a N nonlinear functions in N
+      DNSQ-D    variables by a modification of the Powell hybrid method.
+
+      SNSQE-S   An easy-to-use code to find a zero of a system of N
+      DNSQE-D   nonlinear functions in N variables by a modification of
+                the Powell hybrid method.
+
+      SOS-S     Solve a square system of nonlinear equations.
+      DSOS-D</code></pre><h3 id="F3.-Service-routines"><a class="docs-heading-anchor" href="#F3.-Service-routines">F3. Service routines</a><a id="F3.-Service-routines-1"></a><a class="docs-heading-anchor-permalink" href="#F3.-Service-routines" title="Permalink"></a></h3><p>(e.g., check user-supplied derivatives)</p><pre><code class="nohighlight hljs">      CHKDER-S  Check the gradients of M nonlinear functions in N
+      DCKDER-D  variables, evaluated at a point X, for consistency
+                with the functions themselves.</code></pre><h2 id="G.-Optimization"><a class="docs-heading-anchor" href="#G.-Optimization">G. Optimization</a><a id="G.-Optimization-1"></a><a class="docs-heading-anchor-permalink" href="#G.-Optimization" title="Permalink"></a></h2><blockquote><p>(search also classes K, L8)</p></blockquote><h3 id="G2.-Constrained"><a class="docs-heading-anchor" href="#G2.-Constrained">G2. Constrained</a><a id="G2.-Constrained-1"></a><a class="docs-heading-anchor-permalink" href="#G2.-Constrained" title="Permalink"></a></h3><p>G2A.  Linear programming G2A2.  Sparse matrix of constraints</p><pre><code class="nohighlight hljs">      SPLP-S    Solve linear programming problems involving at
+      DSPLP-D   most a few thousand constraints and variables.
+                Takes advantage of sparsity in the constraint matrix.</code></pre><p>G2E.  Quadratic programming</p><pre><code class="nohighlight hljs">      SBOCLS-S  Solve the bounded and constrained least squares
+      DBOCLS-D  problem consisting of solving the equation
+                          E*X = F  (in the least squares sense)
+                 subject to the linear constraints
+                                C*X = Y.
+
+      SBOLS-S   Solve the problem
+      DBOLS-D        E*X = F (in the least  squares  sense)
+                with bounds on selected X values.</code></pre><p>G2H.  General nonlinear programming G2H1.  Simple bounds</p><pre><code class="nohighlight hljs">      SBOCLS-S  Solve the bounded and constrained least squares
+      DBOCLS-D  problem consisting of solving the equation
+                          E*X = F  (in the least squares sense)
+                 subject to the linear constraints
+                                C*X = Y.
+
+      SBOLS-S   Solve the problem
+      DBOLS-D        E*X = F (in the least  squares  sense)
+                with bounds on selected X values.</code></pre><p>G2H2.  Linear equality or inequality constraints</p><pre><code class="nohighlight hljs">      SBOCLS-S  Solve the bounded and constrained least squares
+      DBOCLS-D  problem consisting of solving the equation
+                          E*X = F  (in the least squares sense)
+                 subject to the linear constraints
+                                C*X = Y.
+
+      SBOLS-S   Solve the problem
+      DBOLS-D        E*X = F (in the least  squares  sense)
+                with bounds on selected X values.</code></pre><h3 id="G4.-Service-routines"><a class="docs-heading-anchor" href="#G4.-Service-routines">G4. Service routines</a><a id="G4.-Service-routines-1"></a><a class="docs-heading-anchor-permalink" href="#G4.-Service-routines" title="Permalink"></a></h3><p>G4C.  Check user-supplied derivatives</p><pre><code class="nohighlight hljs">      CHKDER-S  Check the gradients of M nonlinear functions in N
+      DCKDER-D  variables, evaluated at a point X, for consistency
+                with the functions themselves.</code></pre><h2 id="H.-Differentiation,-integration"><a class="docs-heading-anchor" href="#H.-Differentiation,-integration">H. Differentiation, integration</a><a id="H.-Differentiation,-integration-1"></a><a class="docs-heading-anchor-permalink" href="#H.-Differentiation,-integration" title="Permalink"></a></h2><h3 id="H1.-Numerical-differentiation"><a class="docs-heading-anchor" href="#H1.-Numerical-differentiation">H1. Numerical differentiation</a><a id="H1.-Numerical-differentiation-1"></a><a class="docs-heading-anchor-permalink" href="#H1.-Numerical-differentiation" title="Permalink"></a></h3><pre><code class="nohighlight hljs">      CHFDV-S   Evaluate a cubic polynomial given in Hermite form and its
+      DCHFDV-D  first derivative at an array of points.  While designed for
+                use by PCHFD, it may be useful directly as an evaluator
+                for a piecewise cubic Hermite function in applications,
+                such as graphing, where the interval is known in advance.
+                If only function values are required, use CHFEV instead.
+
+      PCHFD-S   Evaluate a piecewise cubic Hermite function and its first
+      DPCHFD-D  derivative at an array of points.  May be used by itself
+                for Hermite interpolation, or as an evaluator for PCHIM
+                or PCHIC.  If only function values are required, use
+                PCHFE instead.</code></pre><h3 id="H2.-Quadrature-(numerical-evaluation-of-definite-integrals)"><a class="docs-heading-anchor" href="#H2.-Quadrature-(numerical-evaluation-of-definite-integrals)">H2. Quadrature (numerical evaluation of definite integrals)</a><a id="H2.-Quadrature-(numerical-evaluation-of-definite-integrals)-1"></a><a class="docs-heading-anchor-permalink" href="#H2.-Quadrature-(numerical-evaluation-of-definite-integrals)" title="Permalink"></a></h3><pre><code class="nohighlight hljs">      QPDOC-A   Documentation for QUADPACK, a package of subprograms for
+                automatic evaluation of one-dimensional definite integrals.</code></pre><p>H2A.  One-dimensional integrals H2A1.  Finite interval (general integrand) H2A1A.  Integrand available via user-defined procedure H2A1A1.  Automatic (user need only specify required accuracy)</p><pre><code class="nohighlight hljs">      GAUS8-S   Integrate a real function of one variable over a finite
+      DGAUS8-D  interval using an adaptive 8-point Legendre-Gauss
+                algorithm.  Intended primarily for high accuracy
+                integration or integration of smooth functions.
+
+      QAG-S     The routine calculates an approximation result to a given
+      DQAG-D    definite integral I = integral of F over (A,B),
+                hopefully satisfying following claim for accuracy
+                ABS(I-RESULT)LE.MAX(EPSABS,EPSREL*ABS(I)).
+
+      QAGE-S    The routine calculates an approximation result to a given
+      DQAGE-D   definite integral   I = Integral of F over (A,B),
+                hopefully satisfying following claim for accuracy
+                ABS(I-RESLT).LE.MAX(EPSABS,EPSREL*ABS(I)).
+
+      QAGS-S    The routine calculates an approximation result to a given
+      DQAGS-D   Definite integral  I = Integral of F over (A,B),
+                Hopefully satisfying following claim for accuracy
+                ABS(I-RESULT).LE.MAX(EPSABS,EPSREL*ABS(I)).
+
+      QAGSE-S   The routine calculates an approximation result to a given
+      DQAGSE-D  definite integral I = Integral of F over (A,B),
+                hopefully satisfying following claim for accuracy
+                ABS(I-RESULT).LE.MAX(EPSABS,EPSREL*ABS(I)).
+
+      QNC79-S   Integrate a function using a 7-point adaptive Newton-Cotes
+      DQNC79-D  quadrature rule.
+
+      QNG-S     The routine calculates an approximation result to a
+      DQNG-D    given definite integral I = integral of F over (A,B),
+                hopefully satisfying following claim for accuracy
+                ABS(I-RESULT).LE.MAX(EPSABS,EPSREL*ABS(I)).</code></pre><p>H2A1A2.  Nonautomatic</p><pre><code class="nohighlight hljs">      QK15-S    To compute I = Integral of F over (A,B), with error
+      DQK15-D                  estimate
+                           J = integral of ABS(F) over (A,B)
+
+      QK21-S    To compute I = Integral of F over (A,B), with error
+      DQK21-D                  estimate
+                           J = Integral of ABS(F) over (A,B)
+
+      QK31-S    To compute I = Integral of F over (A,B) with error
+      DQK31-D                  estimate
+                           J = Integral of ABS(F) over (A,B)
+
+      QK41-S    To compute I = Integral of F over (A,B), with error
+      DQK41-D                  estimate
+                           J = Integral of ABS(F) over (A,B)
+
+      QK51-S    To compute I = Integral of F over (A,B) with error
+      DQK51-D                  estimate
+                           J = Integral of ABS(F) over (A,B)
+
+      QK61-S    To compute I = Integral of F over (A,B) with error
+      DQK61-D                  estimate
+                           J = Integral of ABS(F) over (A,B)</code></pre><p>H2A1B.  Integrand available only on grid H2A1B2.  Nonautomatic</p><pre><code class="nohighlight hljs">      AVINT-S   Integrate a function tabulated at arbitrarily spaced
+      DAVINT-D  abscissas using overlapping parabolas.
+
+      PCHIA-S   Evaluate the definite integral of a piecewise cubic
+      DPCHIA-D  Hermite function over an arbitrary interval.
+
+      PCHID-S   Evaluate the definite integral of a piecewise cubic
+      DPCHID-D  Hermite function over an interval whose endpoints are data
+                points.</code></pre><p>H2A2.  Finite interval (specific or special type integrand including weight        functions, oscillating and singular integrands, principal value        integrals, splines, etc.) H2A2A.  Integrand available via user-defined procedure H2A2A1.  Automatic (user need only specify required accuracy)</p><pre><code class="nohighlight hljs">      BFQAD-S   Compute the integral of a product of a function and a
+      DBFQAD-D  derivative of a B-spline.
+
+      BSQAD-S   Compute the integral of a K-th order B-spline using the
+      DBSQAD-D  B-representation.
+
+      PFQAD-S   Compute the integral on (X1,X2) of a product of a function
+      DPFQAD-D  F and the ID-th derivative of a B-spline,
+                (PP-representation).
+
+      PPQAD-S   Compute the integral on (X1,X2) of a K-th order B-spline
+      DPPQAD-D  using the piecewise polynomial (PP) representation.
+
+      QAGP-S    The routine calculates an approximation result to a given
+      DQAGP-D   definite integral I = Integral of F over (A,B),
+                hopefully satisfying following claim for accuracy
+                break points of the integration interval, where local
+                difficulties of the integrand may occur(e.g. SINGULARITIES,
+                DISCONTINUITIES), are provided by the user.
+
+      QAGPE-S   Approximate a given definite integral I = Integral of F
+      DQAGPE-D  over (A,B), hopefully satisfying the accuracy claim:
+                      ABS(I-RESULT).LE.MAX(EPSABS,EPSREL*ABS(I)).
+                Break points of the integration interval, where local
+                difficulties of the integrand may occur (e.g. singularities
+                or discontinuities) are provided by the user.
+
+      QAWC-S    The routine calculates an approximation result to a
+      DQAWC-D   Cauchy principal value I = INTEGRAL of F*W over (A,B)
+                (W(X) = 1/((X-C), C.NE.A, C.NE.B), hopefully satisfying
+                following claim for accuracy
+                ABS(I-RESULT).LE.MAX(EPSABE,EPSREL*ABS(I)).
+
+      QAWCE-S   The routine calculates an approximation result to a
+      DQAWCE-D  CAUCHY PRINCIPAL VALUE I = Integral of F*W over (A,B)
+                (W(X) = 1/(X-C), (C.NE.A, C.NE.B), hopefully satisfying
+                following claim for accuracy
+                ABS(I-RESULT).LE.MAX(EPSABS,EPSREL*ABS(I))
+
+      QAWO-S    Calculate an approximation to a given definite integral
+      DQAWO-D    I = Integral of F(X)*W(X) over (A,B), where
+                       W(X) = COS(OMEGA*X)
+                    or W(X) = SIN(OMEGA*X),
+                hopefully satisfying the following claim for accuracy
+                    ABS(I-RESULT).LE.MAX(EPSABS,EPSREL*ABS(I)).
+
+      QAWOE-S   Calculate an approximation to a given definite integral
+      DQAWOE-D     I = Integral of F(X)*W(X) over (A,B), where
+                      W(X) = COS(OMEGA*X)
+                   or W(X) = SIN(OMEGA*X),
+                hopefully satisfying the following claim for accuracy
+                   ABS(I-RESULT).LE.MAX(EPSABS,EPSREL*ABS(I)).
+
+      QAWS-S    The routine calculates an approximation result to a given
+      DQAWS-D   definite integral I = Integral of F*W over (A,B),
+                (where W shows a singular behaviour at the end points
+                see parameter INTEGR).
+                Hopefully satisfying following claim for accuracy
+                ABS(I-RESULT).LE.MAX(EPSABS,EPSREL*ABS(I)).
+
+      QAWSE-S   The routine calculates an approximation result to a given
+      DQAWSE-D  definite integral I = Integral of F*W over (A,B),
+                (where W shows a singular behaviour at the end points,
+                see parameter INTEGR).
+                Hopefully satisfying following claim for accuracy
+                ABS(I-RESULT).LE.MAX(EPSABS,EPSREL*ABS(I)).
+
+      QMOMO-S   This routine computes modified Chebyshev moments.  The K-th
+      DQMOMO-D  modified Chebyshev moment is defined as the integral over
+                (-1,1) of W(X)*T(K,X), where T(K,X) is the Chebyshev
+                polynomial of degree K.</code></pre><p>H2A2A2.  Nonautomatic</p><pre><code class="nohighlight hljs">      QC25C-S   To compute I = Integral of F*W over (A,B) with
+      DQC25C-D  error estimate, where W(X) = 1/(X-C)
+
+      QC25F-S   To compute the integral I=Integral of F(X) over (A,B)
+      DQC25F-D  Where W(X) = COS(OMEGA*X) Or (WX)=SIN(OMEGA*X)
+                and to compute J=Integral of ABS(F) over (A,B). For small
+                value of OMEGA or small intervals (A,B) 15-point GAUSS-
+                KRONROD Rule used. Otherwise generalized CLENSHAW-CURTIS us
+
+      QC25S-S   To compute I = Integral of F*W over (BL,BR), with error
+      DQC25S-D  estimate, where the weight function W has a singular
+                behaviour of ALGEBRAICO-LOGARITHMIC type at the points
+                A and/or B. (BL,BR) is a part of (A,B).
+
+      QK15W-S   To compute I = Integral of F*W over (A,B), with error
+      DQK15W-D                 estimate
+                           J = Integral of ABS(F*W) over (A,B)</code></pre><p>H2A3.  Semi-infinite interval (including e**(-x) weight function) H2A3A.  Integrand available via user-defined procedure H2A3A1.  Automatic (user need only specify required accuracy)</p><pre><code class="nohighlight hljs">      QAGI-S    The routine calculates an approximation result to a given
+      DQAGI-D   INTEGRAL   I = Integral of F over (BOUND,+INFINITY)
+                        OR I = Integral of F over (-INFINITY,BOUND)
+                        OR I = Integral of F over (-INFINITY,+INFINITY)
+                Hopefully satisfying following claim for accuracy
+                ABS(I-RESULT).LE.MAX(EPSABS,EPSREL*ABS(I)).
+
+      QAGIE-S   The routine calculates an approximation result to a given
+      DQAGIE-D  integral   I = Integral of F over (BOUND,+INFINITY)
+                        or I = Integral of F over (-INFINITY,BOUND)
+                        or I = Integral of F over (-INFINITY,+INFINITY),
+                        hopefully satisfying following claim for accuracy
+                        ABS(I-RESULT).LE.MAX(EPSABS,EPSREL*ABS(I))
+
+      QAWF-S    The routine calculates an approximation result to a given
+      DQAWF-D   Fourier integral
+                I = Integral of F(X)*W(X) over (A,INFINITY)
+                where W(X) = COS(OMEGA*X) or W(X) = SIN(OMEGA*X).
+                Hopefully satisfying following claim for accuracy
+                ABS(I-RESULT).LE.EPSABS.
+
+      QAWFE-S   The routine calculates an approximation result to a
+      DQAWFE-D  given Fourier integral
+                I = Integral of F(X)*W(X) over (A,INFINITY)
+                 where W(X) = COS(OMEGA*X) or W(X) = SIN(OMEGA*X),
+                hopefully satisfying following claim for accuracy
+                ABS(I-RESULT).LE.EPSABS.</code></pre><p>H2A3A2.  Nonautomatic</p><pre><code class="nohighlight hljs">      QK15I-S   The original (infinite integration range is mapped
+      DQK15I-D  onto the interval (0,1) and (A,B) is a part of (0,1).
+                it is the purpose to compute
+                I = Integral of transformed integrand over (A,B),
+                J = Integral of ABS(Transformed Integrand) over (A,B).</code></pre><p>H2A4.  Infinite interval (including e<strong>(-x</strong>2)) weight function) H2A4A.  Integrand available via user-defined procedure H2A4A1.  Automatic (user need only specify required accuracy)</p><pre><code class="nohighlight hljs">      QAGI-S    The routine calculates an approximation result to a given
+      DQAGI-D   INTEGRAL   I = Integral of F over (BOUND,+INFINITY)
+                        OR I = Integral of F over (-INFINITY,BOUND)
+                        OR I = Integral of F over (-INFINITY,+INFINITY)
+                Hopefully satisfying following claim for accuracy
+                ABS(I-RESULT).LE.MAX(EPSABS,EPSREL*ABS(I)).
+
+      QAGIE-S   The routine calculates an approximation result to a given
+      DQAGIE-D  integral   I = Integral of F over (BOUND,+INFINITY)
+                        or I = Integral of F over (-INFINITY,BOUND)
+                        or I = Integral of F over (-INFINITY,+INFINITY),
+                        hopefully satisfying following claim for accuracy
+                        ABS(I-RESULT).LE.MAX(EPSABS,EPSREL*ABS(I))</code></pre><p>H2A4A2.  Nonautomatic</p><pre><code class="nohighlight hljs">      QK15I-S   The original (infinite integration range is mapped
+      DQK15I-D  onto the interval (0,1) and (A,B) is a part of (0,1).
+                it is the purpose to compute
+                I = Integral of transformed integrand over (A,B),
+                J = Integral of ABS(Transformed Integrand) over (A,B).</code></pre><h2 id="I.-Differential-and-integral-equations"><a class="docs-heading-anchor" href="#I.-Differential-and-integral-equations">I. Differential and integral equations</a><a id="I.-Differential-and-integral-equations-1"></a><a class="docs-heading-anchor-permalink" href="#I.-Differential-and-integral-equations" title="Permalink"></a></h2><h3 id="I1.-Ordinary-differential-equations"><a class="docs-heading-anchor" href="#I1.-Ordinary-differential-equations">I1. Ordinary differential equations</a><a id="I1.-Ordinary-differential-equations-1"></a><a class="docs-heading-anchor-permalink" href="#I1.-Ordinary-differential-equations" title="Permalink"></a></h3><p>I1A.  Initial value problems I1A1.  General, nonstiff or mildly stiff</p><p>I1A1A.  One-step methods (e.g., Runge-Kutta)</p><pre><code class="nohighlight hljs">      DERKF-S   Solve an initial value problem in ordinary differential
+      DDERKF-D  equations using a Runge-Kutta-Fehlberg scheme.</code></pre><p>I1A1B.  Multistep methods (e.g., Adams&#39; predictor-corrector)</p><pre><code class="nohighlight hljs">      DEABM-S   Solve an initial value problem in ordinary differential
+      DDEABM-D  equations using an Adams-Bashforth method.
+
+      SDRIV1-S  The function of SDRIV1 is to solve N (200 or fewer)
+      DDRIV1-D  ordinary differential equations of the form
+      CDRIV1-C  dY(I)/dT = F(Y(I),T), given the initial conditions
+                Y(I) = YI.  SDRIV1 uses single precision arithmetic.
+
+      SDRIV2-S  The function of SDRIV2 is to solve N ordinary differential
+      DDRIV2-D  equations of the form dY(I)/dT = F(Y(I),T), given the
+      CDRIV2-C  initial conditions Y(I) = YI.  The program has options to
+                allow the solution of both stiff and non-stiff differential
+                equations.  SDRIV2 uses single precision arithmetic.
+
+      SDRIV3-S  The function of SDRIV3 is to solve N ordinary differential
+      DDRIV3-D  equations of the form dY(I)/dT = F(Y(I),T), given the
+      CDRIV3-C  initial conditions Y(I) = YI.  The program has options to
+                allow the solution of both stiff and non-stiff differential
+                equations.  Other important options are available.  SDRIV3
+                uses single precision arithmetic.
+
+      SINTRP-S  Approximate the solution at XOUT by evaluating the
+      DINTP-D   polynomial computed in STEPS at XOUT.  Must be used in
+                conjunction with STEPS.
+
+      STEPS-S   Integrate a system of first order ordinary differential
+      DSTEPS-D  equations one step.</code></pre><p>I1A2.  Stiff and mixed algebraic-differential equations</p><pre><code class="nohighlight hljs">      DEBDF-S   Solve an initial value problem in ordinary differential
+      DDEBDF-D  equations using backward differentiation formulas.  It is
+                intended primarily for stiff problems.
+
+      SDASSL-S  This code solves a system of differential/algebraic
+      DDASSL-D  equations of the form G(T,Y,YPRIME) = 0.
+
+      SDRIV1-S  The function of SDRIV1 is to solve N (200 or fewer)
+      DDRIV1-D  ordinary differential equations of the form
+      CDRIV1-C  dY(I)/dT = F(Y(I),T), given the initial conditions
+                Y(I) = YI.  SDRIV1 uses single precision arithmetic.
+
+      SDRIV2-S  The function of SDRIV2 is to solve N ordinary differential
+      DDRIV2-D  equations of the form dY(I)/dT = F(Y(I),T), given the
+      CDRIV2-C  initial conditions Y(I) = YI.  The program has options to
+                allow the solution of both stiff and non-stiff differential
+                equations.  SDRIV2 uses single precision arithmetic.
+
+      SDRIV3-S  The function of SDRIV3 is to solve N ordinary differential
+      DDRIV3-D  equations of the form dY(I)/dT = F(Y(I),T), given the
+      CDRIV3-C  initial conditions Y(I) = YI.  The program has options to
+                allow the solution of both stiff and non-stiff differential
+                equations.  Other important options are available.  SDRIV3
+                uses single precision arithmetic.</code></pre><p>I1B.  Multipoint boundary value problems I1B1.  Linear</p><pre><code class="nohighlight hljs">      BVSUP-S   Solve a linear two-point boundary value problem using
+      DBVSUP-D  superposition coupled with an orthonormalization procedure
+                and a variable-step integration scheme.</code></pre><h3 id="I2.-Partial-differential-equations"><a class="docs-heading-anchor" href="#I2.-Partial-differential-equations">I2. Partial differential equations</a><a id="I2.-Partial-differential-equations-1"></a><a class="docs-heading-anchor-permalink" href="#I2.-Partial-differential-equations" title="Permalink"></a></h3><p>I2B.  Elliptic boundary value problems I2B1.  Linear I2B1A.  Second order I2B1A1.  Poisson (Laplace) or Helmholz equation I2B1A1A.  Rectangular domain (or topologically rectangular in the coordinate           system)</p><pre><code class="nohighlight hljs">      HSTCRT-S  Solve the standard five-point finite difference
+                approximation on a staggered grid to the Helmholtz equation
+                in Cartesian coordinates.
+
+      HSTCSP-S  Solve the standard five-point finite difference
+                approximation on a staggered grid to the modified Helmholtz
+                equation in spherical coordinates assuming axisymmetry
+                (no dependence on longitude).
+
+      HSTCYL-S  Solve the standard five-point finite difference
+                approximation on a staggered grid to the modified
+                Helmholtz equation in cylindrical coordinates.
+
+      HSTPLR-S  Solve the standard five-point finite difference
+                approximation on a staggered grid to the Helmholtz equation
+                in polar coordinates.
+
+      HSTSSP-S  Solve the standard five-point finite difference
+                approximation on a staggered grid to the Helmholtz
+                equation in spherical coordinates and on the surface of
+                the unit sphere (radius of 1).
+
+      HW3CRT-S  Solve the standard seven-point finite difference
+                approximation to the Helmholtz equation in Cartesian
+                coordinates.
+
+      HWSCRT-S  Solves the standard five-point finite difference
+                approximation to the Helmholtz equation in Cartesian
+                coordinates.
+
+      HWSCSP-S  Solve a finite difference approximation to the modified
+                Helmholtz equation in spherical coordinates assuming
+                axisymmetry  (no dependence on longitude).
+
+      HWSCYL-S  Solve a standard finite difference approximation
+                to the Helmholtz equation in cylindrical coordinates.
+
+      HWSPLR-S  Solve a finite difference approximation to the Helmholtz
+                equation in polar coordinates.
+
+      HWSSSP-S  Solve a finite difference approximation to the Helmholtz
+                equation in spherical coordinates and on the surface of the
+                unit sphere (radius of 1).</code></pre><p>I2B1A2.  Other separable problems</p><pre><code class="nohighlight hljs">      SEPELI-S  Discretize and solve a second and, optionally, a fourth
+                order finite difference approximation on a uniform grid to
+                the general separable elliptic partial differential
+                equation on a rectangle with any combination of periodic or
+                mixed boundary conditions.
+
+      SEPX4-S   Solve for either the second or fourth order finite
+                difference approximation to the solution of a separable
+                elliptic partial differential equation on a rectangle.
+                Any combination of periodic or mixed boundary conditions is
+                allowed.</code></pre><p>I2B4.  Service routines I2B4B.  Solution of discretized elliptic equations</p><pre><code class="nohighlight hljs">      BLKTRI-S  Solve a block tridiagonal system of linear equations
+      CBLKTR-C  (usually resulting from the discretization of separable
+                two-dimensional elliptic equations).
+
+      GENBUN-S  Solve by a cyclic reduction algorithm the linear system
+      CMGNBN-C  of equations that results from a finite difference
+                approximation to certain 2-d elliptic PDE&#39;s on a centered
+                grid .
+
+      POIS3D-S  Solve a three-dimensional block tridiagonal linear system
+                which arises from a finite difference approximation to a
+                three-dimensional Poisson equation using the Fourier
+                transform package FFTPAK written by Paul Swarztrauber.
+
+      POISTG-S  Solve a block tridiagonal system of linear equations
+                that results from a staggered grid finite difference
+                approximation to 2-D elliptic PDE&#39;s.</code></pre><h2 id="J.-Integral-transforms"><a class="docs-heading-anchor" href="#J.-Integral-transforms">J. Integral transforms</a><a id="J.-Integral-transforms-1"></a><a class="docs-heading-anchor-permalink" href="#J.-Integral-transforms" title="Permalink"></a></h2><h3 id="J1.-Fast-Fourier-transforms"><a class="docs-heading-anchor" href="#J1.-Fast-Fourier-transforms">J1. Fast Fourier transforms</a><a id="J1.-Fast-Fourier-transforms-1"></a><a class="docs-heading-anchor-permalink" href="#J1.-Fast-Fourier-transforms" title="Permalink"></a></h3><p>(search class L10 for time series analysis)</p><pre><code class="nohighlight hljs">      FFTDOC-A  Documentation for FFTPACK, a collection of Fast Fourier
+                Transform routines.</code></pre><p>J1A.  One-dimensional J1A1.  Real</p><pre><code class="nohighlight hljs">      EZFFTB-S  A simplified real, periodic, backward fast Fourier
+                transform.
+
+      EZFFTF-S  Compute a simplified real, periodic, fast Fourier forward
+                transform.
+
+      EZFFTI-S  Initialize a work array for EZFFTF and EZFFTB.
+
+      RFFTB1-S  Compute the backward fast Fourier transform of a real
+      CFFTB1-C  coefficient array.
+
+      RFFTF1-S  Compute the forward transform of a real, periodic sequence.
+      CFFTF1-C
+
+      RFFTI1-S  Initialize a real and an integer work array for RFFTF1 and
+      CFFTI1-C  RFFTB1.</code></pre><p>J1A2.  Complex</p><pre><code class="nohighlight hljs">      CFFTB1-C  Compute the unnormalized inverse of CFFTF1.
+      RFFTB1-S
+
+      CFFTF1-C  Compute the forward transform of a complex, periodic
+      RFFTF1-S  sequence.
+
+      CFFTI1-C  Initialize a real and an integer work array for CFFTF1 and
+      RFFTI1-S  CFFTB1.</code></pre><p>J1A3.  Trigonometric (sine, cosine)</p><pre><code class="nohighlight hljs">      COSQB-S   Compute the unnormalized inverse cosine transform.
+
+      COSQF-S   Compute the forward cosine transform with odd wave numbers.
+
+      COSQI-S   Initialize a work array for COSQF and COSQB.
+
+      COST-S    Compute the cosine transform of a real, even sequence.
+
+      COSTI-S   Initialize a work array for COST.
+
+      SINQB-S   Compute the unnormalized inverse of SINQF.
+
+      SINQF-S   Compute the forward sine transform with odd wave numbers.
+
+      SINQI-S   Initialize a work array for SINQF and SINQB.
+
+      SINT-S    Compute the sine transform of a real, odd sequence.
+
+      SINTI-S   Initialize a work array for SINT.</code></pre><h3 id="J4.-Hilbert-transforms"><a class="docs-heading-anchor" href="#J4.-Hilbert-transforms">J4. Hilbert transforms</a><a id="J4.-Hilbert-transforms-1"></a><a class="docs-heading-anchor-permalink" href="#J4.-Hilbert-transforms" title="Permalink"></a></h3><pre><code class="nohighlight hljs">      QAWC-S    The routine calculates an approximation result to a
+      DQAWC-D   Cauchy principal value I = INTEGRAL of F*W over (A,B)
+                (W(X) = 1/((X-C), C.NE.A, C.NE.B), hopefully satisfying
+                following claim for accuracy
+                ABS(I-RESULT).LE.MAX(EPSABE,EPSREL*ABS(I)).
+
+      QAWCE-S   The routine calculates an approximation result to a
+      DQAWCE-D  CAUCHY PRINCIPAL VALUE I = Integral of F*W over (A,B)
+                (W(X) = 1/(X-C), (C.NE.A, C.NE.B), hopefully satisfying
+                following claim for accuracy
+                ABS(I-RESULT).LE.MAX(EPSABS,EPSREL*ABS(I))
+
+      QC25C-S   To compute I = Integral of F*W over (A,B) with
+      DQC25C-D  error estimate, where W(X) = 1/(X-C)</code></pre><h2 id="K.-Approximation"><a class="docs-heading-anchor" href="#K.-Approximation">K. Approximation</a><a id="K.-Approximation-1"></a><a class="docs-heading-anchor-permalink" href="#K.-Approximation" title="Permalink"></a></h2><blockquote><p>(search also class L8)</p></blockquote><pre><code class="nohighlight hljs">      BSPDOC-A  Documentation for BSPLINE, a package of subprograms for
+                working with piecewise polynomial functions
+                in B-representation.</code></pre><h3 id="K1.-Least-squares-(L-2)-approximation"><a class="docs-heading-anchor" href="#K1.-Least-squares-(L-2)-approximation">K1. Least squares (L-2) approximation</a><a id="K1.-Least-squares-(L-2)-approximation-1"></a><a class="docs-heading-anchor-permalink" href="#K1.-Least-squares-(L-2)-approximation" title="Permalink"></a></h3><p>K1A.  Linear least squares (search also classes D5, D6, D9)</p><p>K1A1.  Unconstrained K1A1A.  Univariate data (curve fitting) K1A1A1.  Polynomial splines (piecewise polynomials)</p><pre><code class="nohighlight hljs">      EFC-S     Fit a piecewise polynomial curve to discrete data.
+      DEFC-D    The piecewise polynomials are represented as B-splines.
+                The fitting is done in a weighted least squares sense.
+
+      FC-S      Fit a piecewise polynomial curve to discrete data.
+      DFC-D     The piecewise polynomials are represented as B-splines.
+                The fitting is done in a weighted least squares sense.
+                Equality and inequality constraints can be imposed on the
+                fitted curve.</code></pre><p>K1A1A2.  Polynomials</p><pre><code class="nohighlight hljs">      PCOEF-S   Convert the POLFIT coefficients to Taylor series form.
+      DPCOEF-D
+
+      POLFIT-S  Fit discrete data in a least squares sense by polynomials
+      DPOLFT-D  in one variable.</code></pre><p>K1A2.  Constrained K1A2A.  Linear constraints</p><pre><code class="nohighlight hljs">      EFC-S     Fit a piecewise polynomial curve to discrete data.
+      DEFC-D    The piecewise polynomials are represented as B-splines.
+                The fitting is done in a weighted least squares sense.
+
+      FC-S      Fit a piecewise polynomial curve to discrete data.
+      DFC-D     The piecewise polynomials are represented as B-splines.
+                The fitting is done in a weighted least squares sense.
+                Equality and inequality constraints can be imposed on the
+                fitted curve.
+
+      LSEI-S    Solve a linearly constrained least squares problem with
+      DLSEI-D   equality and inequality constraints, and optionally compute
+                a covariance matrix.
+
+      SBOCLS-S  Solve the bounded and constrained least squares
+      DBOCLS-D  problem consisting of solving the equation
+                          E*X = F  (in the least squares sense)
+                 subject to the linear constraints
+                                C*X = Y.
+
+      SBOLS-S   Solve the problem
+      DBOLS-D        E*X = F (in the least  squares  sense)
+                with bounds on selected X values.
+
+      WNNLS-S   Solve a linearly constrained least squares problem with
+      DWNNLS-D  equality constraints and nonnegativity constraints on
+                selected variables.</code></pre><p>K1B.  Nonlinear least squares K1B1.  Unconstrained</p><pre><code class="nohighlight hljs">      SCOV-S    Calculate the covariance matrix for a nonlinear data
+      DCOV-D    fitting problem.  It is intended to be used after a
+                successful return from either SNLS1 or SNLS1E.</code></pre><p>K1B1A.  Smooth functions K1B1A1.  User provides no derivatives</p><pre><code class="nohighlight hljs">      SNLS1-S   Minimize the sum of the squares of M nonlinear functions
+      DNLS1-D   in N variables by a modification of the Levenberg-Marquardt
+                algorithm.
+
+      SNLS1E-S  An easy-to-use code which minimizes the sum of the squares
+      DNLS1E-D  of M nonlinear functions in N variables by a modification
+                of the Levenberg-Marquardt algorithm.</code></pre><p>K1B1A2.  User provides first derivatives</p><pre><code class="nohighlight hljs">      SNLS1-S   Minimize the sum of the squares of M nonlinear functions
+      DNLS1-D   in N variables by a modification of the Levenberg-Marquardt
+                algorithm.
+
+      SNLS1E-S  An easy-to-use code which minimizes the sum of the squares
+      DNLS1E-D  of M nonlinear functions in N variables by a modification
+                of the Levenberg-Marquardt algorithm.</code></pre><h3 id="K6.-Service-routines"><a class="docs-heading-anchor" href="#K6.-Service-routines">K6. Service routines</a><a id="K6.-Service-routines-1"></a><a class="docs-heading-anchor-permalink" href="#K6.-Service-routines" title="Permalink"></a></h3><blockquote><p>(e.g., mesh generation, evaluation of fitted functions) (search also class N5)</p></blockquote><pre><code class="nohighlight hljs">      BFQAD-S   Compute the integral of a product of a function and a
+      DBFQAD-D  derivative of a B-spline.
+
+      DBSPDR-D  Use the B-representation to construct a divided difference
+      BSPDR-S   table preparatory to a (right) derivative calculation.
+
+      BSPEV-S   Calculate the value of the spline and its derivatives from
+      DBSPEV-D  the B-representation.
+
+      BSPPP-S   Convert the B-representation of a B-spline to the piecewise
+      DBSPPP-D  polynomial (PP) form.
+
+      BSPVD-S   Calculate the value and all derivatives of order less than
+      DBSPVD-D  NDERIV of all basis functions which do not vanish at X.
+
+      BSPVN-S   Calculate the value of all (possibly) nonzero basis
+      DBSPVN-D  functions at X.
+
+      BSQAD-S   Compute the integral of a K-th order B-spline using the
+      DBSQAD-D  B-representation.
+
+      BVALU-S   Evaluate the B-representation of a B-spline at X for the
+      DBVALU-D  function value or any of its derivatives.
+
+      INTRV-S   Compute the largest integer ILEFT in 1 .LE. ILEFT .LE. LXT
+      DINTRV-D  such that XT(ILEFT) .LE. X where XT(*) is a subdivision
+                of the X interval.
+
+      PFQAD-S   Compute the integral on (X1,X2) of a product of a function
+      DPFQAD-D  F and the ID-th derivative of a B-spline,
+                (PP-representation).
+
+      PPQAD-S   Compute the integral on (X1,X2) of a K-th order B-spline
+      DPPQAD-D  using the piecewise polynomial (PP) representation.
+
+      PPVAL-S   Calculate the value of the IDERIV-th derivative of the
+      DPPVAL-D  B-spline from the PP-representation.
+
+      PVALUE-S  Use the coefficients generated by POLFIT to evaluate the
+      DP1VLU-D  polynomial fit of degree L, along with the first NDER of
+                its derivatives, at a specified point.</code></pre><h2 id="L.-Statistics,-probability"><a class="docs-heading-anchor" href="#L.-Statistics,-probability">L. Statistics, probability</a><a id="L.-Statistics,-probability-1"></a><a class="docs-heading-anchor-permalink" href="#L.-Statistics,-probability" title="Permalink"></a></h2><h3 id="L5.-Function-evaluation"><a class="docs-heading-anchor" href="#L5.-Function-evaluation">L5. Function evaluation</a><a id="L5.-Function-evaluation-1"></a><a class="docs-heading-anchor-permalink" href="#L5.-Function-evaluation" title="Permalink"></a></h3><blockquote><p>(search also class C)</p></blockquote><p>L5A.  Univariate L5A1.  Cumulative distribution functions, probability density functions L5A1E.  Error function, exponential, extreme value</p><pre><code class="nohighlight hljs">      ERF-S     Compute the error function.
+      DERF-D
+
+      ERFC-S    Compute the complementary error function.
+      DERFC-D</code></pre><h3 id="L6.-Pseudo-random-number-generation"><a class="docs-heading-anchor" href="#L6.-Pseudo-random-number-generation">L6. Pseudo-random number generation</a><a id="L6.-Pseudo-random-number-generation-1"></a><a class="docs-heading-anchor-permalink" href="#L6.-Pseudo-random-number-generation" title="Permalink"></a></h3><p>L6A.  Univariate L6A14.  Negative binomial, normal</p><pre><code class="nohighlight hljs">      RGAUSS-S  Generate a normally distributed (Gaussian) random number.</code></pre><p>L6A21.  Uniform</p><pre><code class="nohighlight hljs">      RAND-S    Generate a uniformly distributed random number.
+
+      RUNIF-S   Generate a uniformly distributed random number.</code></pre><h3 id="L7.-Experimental-design,-including-analysis-of-variance"><a class="docs-heading-anchor" href="#L7.-Experimental-design,-including-analysis-of-variance">L7. Experimental design, including analysis of variance</a><a id="L7.-Experimental-design,-including-analysis-of-variance-1"></a><a class="docs-heading-anchor-permalink" href="#L7.-Experimental-design,-including-analysis-of-variance" title="Permalink"></a></h3><p>L7A.  Univariate L7A3.  Analysis of covariance</p><pre><code class="nohighlight hljs">      CV-S      Evaluate the variance function of the curve obtained
+      DCV-D     by the constrained B-spline fitting subprogram FC.</code></pre><h3 id="L8.-Regression"><a class="docs-heading-anchor" href="#L8.-Regression">L8. Regression</a><a id="L8.-Regression-1"></a><a class="docs-heading-anchor-permalink" href="#L8.-Regression" title="Permalink"></a></h3><blockquote><p>(search also classes G, K)</p></blockquote><p>L8A.  Linear least squares (L-2) (search also classes D5, D6, D9)</p><p>L8A3.  Piecewise polynomial (i.e. multiphase or spline)</p><pre><code class="nohighlight hljs">      EFC-S     Fit a piecewise polynomial curve to discrete data.
+      DEFC-D    The piecewise polynomials are represented as B-splines.
+                The fitting is done in a weighted least squares sense.
+
+      FC-S      Fit a piecewise polynomial curve to discrete data.
+      DFC-D     The piecewise polynomials are represented as B-splines.
+                The fitting is done in a weighted least squares sense.
+                Equality and inequality constraints can be imposed on the
+                fitted curve.</code></pre><h2 id="N.-Data-handling"><a class="docs-heading-anchor" href="#N.-Data-handling">N. Data handling</a><a id="N.-Data-handling-1"></a><a class="docs-heading-anchor-permalink" href="#N.-Data-handling" title="Permalink"></a></h2><blockquote><p>(search also class L2)</p></blockquote><h3 id="N1.-Input,-output"><a class="docs-heading-anchor" href="#N1.-Input,-output">N1. Input, output</a><a id="N1.-Input,-output-1"></a><a class="docs-heading-anchor-permalink" href="#N1.-Input,-output" title="Permalink"></a></h3><pre><code class="nohighlight hljs">      SBHIN-S   Read a Sparse Linear System in the Boeing/Harwell Format.
+      DBHIN-D   The matrix is read in and if the right hand side is also
+                present in the input file then it too is read in.  The
+                matrix is then modified to be in the SLAP Column format.
+
+      SCPPLT-S  Printer Plot of SLAP Column Format Matrix.
+      DCPPLT-D  Routine to print out a SLAP Column format matrix in a
+                &quot;printer plot&quot; graphical representation.
+
+      STIN-S    Read in SLAP Triad Format Linear System.
+      DTIN-D    Routine to read in a SLAP Triad format matrix and right
+                hand side and solution to the system, if known.
+
+      STOUT-S   Write out SLAP Triad Format Linear System.
+      DTOUT-D   Routine to write out a SLAP Triad format matrix and right
+                hand side and solution to the system, if known.</code></pre><h3 id="N6.-Sorting"><a class="docs-heading-anchor" href="#N6.-Sorting">N6. Sorting</a><a id="N6.-Sorting-1"></a><a class="docs-heading-anchor-permalink" href="#N6.-Sorting" title="Permalink"></a></h3><p>N6A.  Internal N6A1.  Passive (i.e. construct pointer array, rank)</p><p>N6A1A.  Integer</p><pre><code class="nohighlight hljs">      IPSORT-I  Return the permutation vector generated by sorting a given
+      SPSORT-S  array and, optionally, rearrange the elements of the array.
+      DPSORT-D  The array may be sorted in increasing or decreasing order.
+      HPSORT-H  A slightly modified quicksort algorithm is used.</code></pre><p>N6A1B.  Real</p><pre><code class="nohighlight hljs">      SPSORT-S  Return the permutation vector generated by sorting a given
+      DPSORT-D  array and, optionally, rearrange the elements of the array.
+      IPSORT-I  The array may be sorted in increasing or decreasing order.
+      HPSORT-H  A slightly modified quicksort algorithm is used.</code></pre><p>N6A1C.  Character</p><pre><code class="nohighlight hljs">      HPSORT-H  Return the permutation vector generated by sorting a
+      SPSORT-S  substring within a character array and, optionally,
+      DPSORT-D  rearrange the elements of the array.  The array may be
+      IPSORT-I  sorted in forward or reverse lexicographical order.  A
+                slightly modified quicksort algorithm is used.</code></pre><p>N6A2.  Active N6A2A.  Integer</p><pre><code class="nohighlight hljs">      IPSORT-I  Return the permutation vector generated by sorting a given
+      SPSORT-S  array and, optionally, rearrange the elements of the array.
+      DPSORT-D  The array may be sorted in increasing or decreasing order.
+      HPSORT-H  A slightly modified quicksort algorithm is used.
+
+      ISORT-I   Sort an array and optionally make the same interchanges in
+      SSORT-S   an auxiliary array.  The array may be sorted in increasing
+      DSORT-D   or decreasing order.  A slightly modified QUICKSORT
+                algorithm is used.</code></pre><p>N6A2B.  Real</p><pre><code class="nohighlight hljs">      SPSORT-S  Return the permutation vector generated by sorting a given
+      DPSORT-D  array and, optionally, rearrange the elements of the array.
+      IPSORT-I  The array may be sorted in increasing or decreasing order.
+      HPSORT-H  A slightly modified quicksort algorithm is used.
+
+      SSORT-S   Sort an array and optionally make the same interchanges in
+      DSORT-D   an auxiliary array.  The array may be sorted in increasing
+      ISORT-I   or decreasing order.  A slightly modified QUICKSORT
+                algorithm is used.</code></pre><p>N6A2C.  Character</p><pre><code class="nohighlight hljs">      HPSORT-H  Return the permutation vector generated by sorting a
+      SPSORT-S  substring within a character array and, optionally,
+      DPSORT-D  rearrange the elements of the array.  The array may be
+      IPSORT-I  sorted in forward or reverse lexicographical order.  A
+                slightly modified quicksort algorithm is used.</code></pre><h3 id="N8.-Permuting"><a class="docs-heading-anchor" href="#N8.-Permuting">N8. Permuting</a><a id="N8.-Permuting-1"></a><a class="docs-heading-anchor-permalink" href="#N8.-Permuting" title="Permalink"></a></h3><pre><code class="nohighlight hljs">      SPPERM-S  Rearrange a given array according to a prescribed
+      DPPERM-D  permutation vector.
+      IPPERM-I
+      HPPERM-H</code></pre><h2 id="R.-Service-routines"><a class="docs-heading-anchor" href="#R.-Service-routines">R. Service routines</a><a id="R.-Service-routines-1"></a><a class="docs-heading-anchor-permalink" href="#R.-Service-routines" title="Permalink"></a></h2><h3 id="R1.-Machine-dependent-constants"><a class="docs-heading-anchor" href="#R1.-Machine-dependent-constants">R1. Machine-dependent constants</a><a id="R1.-Machine-dependent-constants-1"></a><a class="docs-heading-anchor-permalink" href="#R1.-Machine-dependent-constants" title="Permalink"></a></h3><pre><code class="nohighlight hljs">      I1MACH-I  Return integer machine dependent constants.
+
+      R1MACH-S  Return floating point machine dependent constants.
+      D1MACH-D</code></pre><h3 id="R2.-Error-checking"><a class="docs-heading-anchor" href="#R2.-Error-checking">R2. Error checking</a><a id="R2.-Error-checking-1"></a><a class="docs-heading-anchor-permalink" href="#R2.-Error-checking" title="Permalink"></a></h3><p>(e.g., check monotonicity)</p><pre><code class="nohighlight hljs">      GAMLIM-S  Compute the minimum and maximum bounds for the argument in
+      DGAMLM-D  the Gamma function.</code></pre><h3 id="R3.-Error-handling"><a class="docs-heading-anchor" href="#R3.-Error-handling">R3. Error handling</a><a id="R3.-Error-handling-1"></a><a class="docs-heading-anchor-permalink" href="#R3.-Error-handling" title="Permalink"></a></h3><pre><code class="nohighlight hljs">      FDUMP-A   Symbolic dump (should be locally written).</code></pre><p>R3A.  Set criteria for fatal errors</p><pre><code class="nohighlight hljs">      XSETF-A   Set the error control flag.</code></pre><p>R3B.  Set unit number for error messages</p><pre><code class="nohighlight hljs">      XSETUA-A  Set logical unit numbers (up to 5) to which error
+                messages are to be sent.
+
+      XSETUN-A  Set output file to which error messages are to be sent.</code></pre><p>R3C.  Other utility programs</p><pre><code class="nohighlight hljs">      NUMXER-I  Return the most recent error number.
+
+      XERCLR-A  Reset current error number to zero.
+
+      XERDMP-A  Print the error tables and then clear them.
+
+      XERMAX-A  Set maximum number of times any error message is to be
+                printed.
+
+      XERMSG-A  Process error messages for SLATEC and other libraries.
+
+      XGETF-A   Return the current value of the error control flag.
+
+      XGETUA-A  Return unit number(s) to which error messages are being
+                sent.
+
+      XGETUN-A  Return the (first) output file to which error messages
+                are being sent.</code></pre><h2 id="Z.-Other"><a class="docs-heading-anchor" href="#Z.-Other">Z. Other</a><a id="Z.-Other-1"></a><a class="docs-heading-anchor-permalink" href="#Z.-Other" title="Permalink"></a></h2><ul><li><p><a href="../ref/fnlib/#SLATEC.FNLIB"><code>FNLIB</code></a>: <code>FUNDOC-A</code>,   Documentation for FNLIB, a collection of routines for   evaluating elementary and special functions.</p><pre><code class="nohighlight hljs">    AAAAAA-A  SLATEC Common Mathematical Library disclaimer and version.
+
+    BSPDOC-A  Documentation for BSPLINE, a package of subprograms for
+              working with piecewise polynomial functions
+              in B-representation.
+
+    EISDOC-A  Documentation for EISPACK, a collection of subprograms for
+              solving matrix eigen-problems.
+
+    FFTDOC-A  Documentation for FFTPACK, a collection of Fast Fourier
+              Transform routines.
+
+    FUNDOC-A  Documentation for FNLIB, a collection of routines for
+              evaluating elementary and special functions.
+
+    PCHDOC-A  Documentation for PCHIP, a Fortran package for piecewise
+              cubic Hermite interpolation of data.
+
+    QPDOC-A   Documentation for QUADPACK, a package of subprograms for
+              automatic evaluation of one-dimensional definite integrals.
+
+    SLPDOC-S  Sparse Linear Algebra Package Version 2.0.2 Documentation.
+    DLPDOC-D  Routines to solve large sparse symmetric and nonsymmetric
+              positive definite linear systems, Ax = b, using precondi-
+              tioned iterative methods.</code></pre></li></ul></article><nav class="docs-footer"><a class="docs-footer-prevpage" href="../ref/fnlib/">« FNLib</a><a class="docs-footer-nextpage" href="gams-c/">C. Elementary and special functions »</a><div class="flexbox-break"></div><p class="footer-message">Powered by <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> and the <a href="https://julialang.org/">Julia Programming Language</a>.</p></nav></div><div class="modal" id="documenter-settings"><div class="modal-background"></div><div class="modal-card"><header class="modal-card-head"><p class="modal-card-title">Settings</p><button class="delete"></button></header><section class="modal-card-body"><p><label class="label">Theme</label><div class="select"><select id="documenter-themepicker"><option value="auto">Automatic (OS)</option><option value="documenter-light">documenter-light</option><option value="documenter-dark">documenter-dark</option><option value="catppuccin-latte">catppuccin-latte</option><option value="catppuccin-frappe">catppuccin-frappe</option><option value="catppuccin-macchiato">catppuccin-macchiato</option><option value="catppuccin-mocha">catppuccin-mocha</option></select></div></p><hr/><p>This document was generated with <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> version 1.16.1 on <span class="colophon-date" title="Saturday 3 January 2026 11:37">Saturday 3 January 2026</span>. Using Julia version 1.12.3.</p></section><footer class="modal-card-foot"></footer></div></div></div></body></html>

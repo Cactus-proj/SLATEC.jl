@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>C. Elementary and special functions · SLATEC.jl</title><meta name="title" content="C. Elementary and special functions · SLATEC.jl"/><meta property="og:title" content="C. Elementary and special functions · SLATEC.jl"/><meta property="twitter:title" content="C. Elementary and special functions · SLATEC.jl"/><meta name="description" content="Documentation for SLATEC.jl."/><meta property="og:description" content="Documentation for SLATEC.jl."/><meta property="twitter:description" content="Documentation for SLATEC.jl."/><meta property="og:url" content="https://cyhan.dev/SLATEC.jl/slatec/gams-c/"/><meta property="twitter:url" content="https://cyhan.dev/SLATEC.jl/slatec/gams-c/"/><link rel="canonical" href="https://cyhan.dev/SLATEC.jl/slatec/gams-c/"/><script data-outdated-warner src="../../assets/warner.js"></script><link href="https://cdnjs.cloudflare.com/ajax/libs/lato-font/3.0.0/css/lato-font.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/juliamono/0.050/juliamono.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/fontawesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/solid.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/brands.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.8/katex.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL="../.."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" data-main="../../assets/documenter.js"></script><script src="../../search_index.js"></script><script src="../../siteinfo.js"></script><script src="../../../versions.js"></script><link class="docs-theme-link" rel="stylesheet" type="text/css" href="../../assets/themes/catppuccin-mocha.css" data-theme-name="catppuccin-mocha"/><link class="docs-theme-link" rel="stylesheet" type="text/css" href="../../assets/themes/catppuccin-macchiato.css" data-theme-name="catppuccin-macchiato"/><link class="docs-theme-link" rel="stylesheet" type="text/css" href="../../assets/themes/catppuccin-frappe.css" data-theme-name="catppuccin-frappe"/><link class="docs-theme-link" rel="stylesheet" type="text/css" href="../../assets/themes/catppuccin-latte.css" data-theme-name="catppuccin-latte"/><link class="docs-theme-link" rel="stylesheet" type="text/css" href="../../assets/themes/documenter-dark.css" data-theme-name="documenter-dark" data-theme-primary-dark/><link class="docs-theme-link" rel="stylesheet" type="text/css" href="../../assets/themes/documenter-light.css" data-theme-name="documenter-light" data-theme-primary/><script src="../../assets/themeswap.js"></script></head><body><div id="documenter"><nav class="docs-sidebar"><div class="docs-package-name"><span class="docs-autofit"><a href="../../">SLATEC.jl</a></span></div><button class="docs-search-query input is-rounded is-small is-clickable my-2 mx-auto py-1 px-2" id="documenter-search-query">Search docs (Ctrl + /)</button><ul class="docs-menu"><li><a class="tocitem" href="../../">Home</a></li><li><span class="tocitem">Reference</span><ul><li><a class="tocitem" href="../../ref/">API</a></li><li><a class="tocitem" href="../../ref/fnlib/">FNLib</a></li></ul></li><li><span class="tocitem">SLATEC TOC</span><ul><li><a class="tocitem" href="../">TOC All</a></li><li class="is-active"><a class="tocitem" href>C. Elementary and special functions</a><ul class="internal"><li><a class="tocitem" href="#Page-TOC"><span>Page TOC</span></a></li><li><a class="tocitem" href="#C1.-Integer-valued-functions"><span>C1. Integer-valued functions</span></a></li><li><a class="tocitem" href="#C2.-Powers,-roots,-reciprocals"><span>C2. Powers, roots, reciprocals</span></a></li><li><a class="tocitem" href="#C3.-Polynomials"><span>C3. Polynomials</span></a></li><li><a class="tocitem" href="#C4.-Elementary-transcendental-functions"><span>C4. Elementary transcendental functions</span></a></li><li><a class="tocitem" href="#C5.-Exponential-and-logarithmic-integrals"><span>C5. Exponential and logarithmic integrals</span></a></li><li><a class="tocitem" href="#C7.-Gamma"><span>C7. Gamma</span></a></li><li><a class="tocitem" href="#C8.-Error-functions"><span>C8. Error functions</span></a></li><li><a class="tocitem" href="#C9.-Legendre-functions"><span>C9. Legendre functions</span></a></li><li><a class="tocitem" href="#C10.-Bessel-functions"><span>C10.  Bessel functions</span></a></li><li><a class="tocitem" href="#C11.-Confluent-hypergeometric-functions"><span>C11.  Confluent hypergeometric functions</span></a></li><li><a class="tocitem" href="#C14.-Elliptic-integrals"><span>C14.  Elliptic integrals</span></a></li><li><a class="tocitem" href="#C19.-Other-special-functions"><span>C19.  Other special functions</span></a></li></ul></li><li><a class="tocitem" href="../gams-d/">D. Linear Algebra</a></li></ul></li></ul><div class="docs-version-selector field has-addons"><div class="control"><span class="docs-label button is-static is-size-7">Version</span></div><div class="docs-selector control is-expanded"><div class="select is-fullwidth is-size-7"><select id="documenter-version-selector"></select></div></div></div></nav><div class="docs-main"><header class="docs-navbar"><a class="docs-sidebar-button docs-navbar-link fa-solid fa-bars is-hidden-desktop" id="documenter-sidebar-button" href="#"></a><nav class="breadcrumb"><ul class="is-hidden-mobile"><li><a class="is-disabled">SLATEC TOC</a></li><li class="is-active"><a href>C. Elementary and special functions</a></li></ul><ul class="is-hidden-tablet"><li class="is-active"><a href>C. Elementary and special functions</a></li></ul></nav><div class="docs-right"><a class="docs-navbar-link" href="https://github.com/inkydragon/SLATEC.jl" title="View the repository on GitHub"><span class="docs-icon fa-brands"></span><span class="docs-label is-hidden-touch">GitHub</span></a><a class="docs-navbar-link" href="https://github.com/inkydragon/SLATEC.jl/blob/main/docs/src/slatec/gams-c.md" title="Edit source on GitHub"><span class="docs-icon fa-solid"></span></a><a class="docs-settings-button docs-navbar-link fa-solid fa-gear" id="documenter-settings-button" href="#" title="Settings"></a><a class="docs-article-toggle-button fa-solid fa-chevron-up" id="documenter-article-toggle-button" href="javascript:;" title="Collapse all docstrings"></a></div></header><article class="content" id="documenter-page"><h1 id="C.-Elementary-and-special-functions"><a class="docs-heading-anchor" href="#C.-Elementary-and-special-functions">C. Elementary and special functions</a><a id="C.-Elementary-and-special-functions-1"></a><a class="docs-heading-anchor-permalink" href="#C.-Elementary-and-special-functions" title="Permalink"></a></h1><blockquote><p>(search also class L5)</p></blockquote><ul><li><a href="../../ref/fnlib/#SLATEC.FNLIB"><code>FNLIB</code></a>: <code>FUNDOC-A</code>,   Documentation for FNLIB, a collection of routines for   evaluating elementary and special functions.</li></ul><h2 id="Page-TOC"><a class="docs-heading-anchor" href="#Page-TOC">Page TOC</a><a id="Page-TOC-1"></a><a class="docs-heading-anchor-permalink" href="#Page-TOC" title="Permalink"></a></h2><ul><li><a href="#C.-Elementary-and-special-functions">C. Elementary and special functions</a></li><li class="no-marker"><ul><li><a href="#Page-TOC">Page TOC</a></li><li><a href="#C1.-Integer-valued-functions">C1. Integer-valued functions</a></li><li><a href="#C2.-Powers,-roots,-reciprocals">C2. Powers, roots, reciprocals</a></li><li><a href="#C3.-Polynomials">C3. Polynomials</a></li><li class="no-marker"><ul><li><a href="#C3A.-Orthogonal">C3A.  Orthogonal</a></li></ul></li><li><a href="#C4.-Elementary-transcendental-functions">C4. Elementary transcendental functions</a></li><li class="no-marker"><ul><li><a href="#C4A.-Trigonometric,-inverse-trigonometric">C4A.  Trigonometric, inverse trigonometric</a></li><li><a href="#C4B.-Exponential,-logarithmic">C4B.  Exponential, logarithmic</a></li><li><a href="#C4C.-Hyperbolic,-inverse-hyperbolic">C4C.  Hyperbolic, inverse hyperbolic</a></li></ul></li><li><a href="#C5.-Exponential-and-logarithmic-integrals">C5. Exponential and logarithmic integrals</a></li><li><a href="#C7.-Gamma">C7. Gamma</a></li><li class="no-marker"><ul><li><a href="#C7A.-Gamma,-log-gamma,-reciprocal-gamma">C7A.  Gamma, log gamma, reciprocal gamma</a></li><li><a href="#C7B.-Beta,-log-beta">C7B.  Beta, log beta</a></li><li><a href="#C7C.-Psi-function">C7C.  Psi function</a></li><li><a href="#C7E.-Incomplete-gamma">C7E.  Incomplete gamma</a></li><li><a href="#C7F.-Incomplete-beta">C7F.  Incomplete beta</a></li></ul></li><li><a href="#C8.-Error-functions">C8. Error functions</a></li><li class="no-marker"><ul><li><a href="#C8A.-Error-functions,-their-inverses,-integrals,-including-the-normal-distribution-function">C8A.  Error functions, their inverses, integrals, including the normal distribution function</a></li><li><a href="#C8C.-Dawson&#39;s-integral">C8C.  Dawson&#39;s integral</a></li></ul></li><li><a href="#C9.-Legendre-functions">C9. Legendre functions</a></li><li><a href="#C10.-Bessel-functions">C10.  Bessel functions</a></li><li class="no-marker"><ul><li><a href="#C10A.-J,-Y,-H-(1),-H-(2)">C10A.  J, Y, H-(1), H-(2)</a></li><li><a href="#C10B.-I,-K">C10B.  I, K</a></li><li><a href="#C10D.-Airy-and-Scorer-functions">C10D.  Airy and Scorer functions</a></li><li><a href="#C10F.-Integrals-of-Bessel-functions">C10F.  Integrals of Bessel functions</a></li></ul></li><li><a href="#C11.-Confluent-hypergeometric-functions">C11.  Confluent hypergeometric functions</a></li><li><a href="#C14.-Elliptic-integrals">C14.  Elliptic integrals</a></li><li><a href="#C19.-Other-special-functions">C19.  Other special functions</a></li></ul></li></ul><h2 id="C1.-Integer-valued-functions"><a class="docs-heading-anchor" href="#C1.-Integer-valued-functions">C1. Integer-valued functions</a><a id="C1.-Integer-valued-functions-1"></a><a class="docs-heading-anchor-permalink" href="#C1.-Integer-valued-functions" title="Permalink"></a></h2><blockquote><p>(e.g., floor, ceiling, factorial, binomial coefficient)</p></blockquote><pre><code class="nohighlight hljs">      BINOM-S   Compute the binomial coefficients.
+      DBINOM-D
+
+      FAC-S     Compute the factorial function.
+      DFAC-D
+
+      POCH-S    Evaluate a generalization of Pochhammer&#39;s symbol.
+      DPOCH-D
+
+      POCH1-S   Calculate a generalization of Pochhammer&#39;s symbol starting
+      DPOCH1-D  from first order.</code></pre><h2 id="C2.-Powers,-roots,-reciprocals"><a class="docs-heading-anchor" href="#C2.-Powers,-roots,-reciprocals">C2. Powers, roots, reciprocals</a><a id="C2.-Powers,-roots,-reciprocals-1"></a><a class="docs-heading-anchor-permalink" href="#C2.-Powers,-roots,-reciprocals" title="Permalink"></a></h2><pre><code class="nohighlight hljs">      CBRT-S    Compute the cube root.
+      DCBRT-D
+      CCBRT-C</code></pre><h2 id="C3.-Polynomials"><a class="docs-heading-anchor" href="#C3.-Polynomials">C3. Polynomials</a><a id="C3.-Polynomials-1"></a><a class="docs-heading-anchor-permalink" href="#C3.-Polynomials" title="Permalink"></a></h2><h3 id="C3A.-Orthogonal"><a class="docs-heading-anchor" href="#C3A.-Orthogonal">C3A.  Orthogonal</a><a id="C3A.-Orthogonal-1"></a><a class="docs-heading-anchor-permalink" href="#C3A.-Orthogonal" title="Permalink"></a></h3><h4 id="C3A2.-Chebyshev,-Legendre"><a class="docs-heading-anchor" href="#C3A2.-Chebyshev,-Legendre">C3A2.  Chebyshev, Legendre</a><a id="C3A2.-Chebyshev,-Legendre-1"></a><a class="docs-heading-anchor-permalink" href="#C3A2.-Chebyshev,-Legendre" title="Permalink"></a></h4><pre><code class="nohighlight hljs">      CSEVL-S   Evaluate a Chebyshev series.
+      DCSEVL-D
+
+      INITS-S   Determine the number of terms needed in an orthogonal
+      INITDS-D  polynomial series so that it meets a specified accuracy.
+
+      QMOMO-S   This routine computes modified Chebyshev moments.  The K-th
+      DQMOMO-D  modified Chebyshev moment is defined as the integral over
+                (-1,1) of W(X)*T(K,X), where T(K,X) is the Chebyshev
+                polynomial of degree K.
+
+      XLEGF-S   Compute normalized Legendre polynomials and associated
+      DXLEGF-D  Legendre functions.
+
+      XNRMP-S   Compute normalized Legendre polynomials.
+      DXNRMP-D</code></pre><h2 id="C4.-Elementary-transcendental-functions"><a class="docs-heading-anchor" href="#C4.-Elementary-transcendental-functions">C4. Elementary transcendental functions</a><a id="C4.-Elementary-transcendental-functions-1"></a><a class="docs-heading-anchor-permalink" href="#C4.-Elementary-transcendental-functions" title="Permalink"></a></h2><h3 id="C4A.-Trigonometric,-inverse-trigonometric"><a class="docs-heading-anchor" href="#C4A.-Trigonometric,-inverse-trigonometric">C4A.  Trigonometric, inverse trigonometric</a><a id="C4A.-Trigonometric,-inverse-trigonometric-1"></a><a class="docs-heading-anchor-permalink" href="#C4A.-Trigonometric,-inverse-trigonometric" title="Permalink"></a></h3><pre><code class="nohighlight hljs">      CACOS-C   Compute the complex arc cosine.
+
+      CASIN-C   Compute the complex arc sine.
+
+      CATAN-C   Compute the complex arc tangent.
+
+      CATAN2-C  Compute the complex arc tangent in the proper quadrant.
+
+      COSDG-S   Compute the cosine of an argument in degrees.
+      DCOSDG-D
+
+      COT-S     Compute the cotangent.
+      DCOT-D
+      CCOT-C
+
+      CTAN-C    Compute the complex tangent.
+
+      SINDG-S   Compute the sine of an argument in degrees.
+      DSINDG-D</code></pre><h3 id="C4B.-Exponential,-logarithmic"><a class="docs-heading-anchor" href="#C4B.-Exponential,-logarithmic">C4B.  Exponential, logarithmic</a><a id="C4B.-Exponential,-logarithmic-1"></a><a class="docs-heading-anchor-permalink" href="#C4B.-Exponential,-logarithmic" title="Permalink"></a></h3><pre><code class="nohighlight hljs">      ALNREL-S  Evaluate ln(1+X) accurate in the sense of relative error.
+      DLNREL-D
+      CLNREL-C
+
+      CLOG10-C  Compute the principal value of the complex base 10
+                logarithm.
+
+      EXPREL-S  Calculate the relative error exponential (EXP(X)-1)/X.
+      DEXPRL-D
+      CEXPRL-C</code></pre><h3 id="C4C.-Hyperbolic,-inverse-hyperbolic"><a class="docs-heading-anchor" href="#C4C.-Hyperbolic,-inverse-hyperbolic">C4C.  Hyperbolic, inverse hyperbolic</a><a id="C4C.-Hyperbolic,-inverse-hyperbolic-1"></a><a class="docs-heading-anchor-permalink" href="#C4C.-Hyperbolic,-inverse-hyperbolic" title="Permalink"></a></h3><pre><code class="nohighlight hljs">      ACOSH-S   Compute the arc hyperbolic cosine.
+      DACOSH-D
+      CACOSH-C
+
+      ASINH-S   Compute the arc hyperbolic sine.
+      DASINH-D
+      CASINH-C
+
+      ATANH-S   Compute the arc hyperbolic tangent.
+      DATANH-D
+      CATANH-C
+
+      CCOSH-C   Compute the complex hyperbolic cosine.
+
+      CSINH-C   Compute the complex hyperbolic sine.
+
+      CTANH-C   Compute the complex hyperbolic tangent.</code></pre><h2 id="C5.-Exponential-and-logarithmic-integrals"><a class="docs-heading-anchor" href="#C5.-Exponential-and-logarithmic-integrals">C5. Exponential and logarithmic integrals</a><a id="C5.-Exponential-and-logarithmic-integrals-1"></a><a class="docs-heading-anchor-permalink" href="#C5.-Exponential-and-logarithmic-integrals" title="Permalink"></a></h2><ul><li><a href="../../ref/fnlib/#SLATEC.FNLIB.ali"><code>ali(x)</code></a>: <code>ALI-S, DLI-D</code>,   Compute the logarithmic integral.</li><li><a href="../../ref/fnlib/#SLATEC.FNLIB.e1"><code>e1(x)</code></a>: <code>E1-S, DE1-D</code>,   Compute the exponential integral <code>E1(X)</code>.</li><li><a href="../../ref/fnlib/#SLATEC.FNLIB.ei"><code>ei(x)</code></a>: <code>EI-S, DEI-D</code>,   Compute the exponential integral <code>Ei(X)</code>.</li><li><a href="../../ref/fnlib/#SLATEC.FNLIB.exint"><code>exint(x,n,kode,m,tol)</code></a>: <code>EXINT-S, DEXINT-D</code>,   Compute an M member sequence of exponential integrals.  <code>E(N+K,X)</code>, <code>K=0,1,...,M-1 for N .GE. 1</code> and <code>X .GE. 0</code>.</li><li><a href="../../ref/fnlib/#SLATEC.FNLIB.spenc"><code>spenc(x)</code></a>: <code>SPENC-S, DSPENC-D</code>,   Compute a form of Spence&#39;s integral due to K. Mitchell.</li></ul><h2 id="C7.-Gamma"><a class="docs-heading-anchor" href="#C7.-Gamma">C7. Gamma</a><a id="C7.-Gamma-1"></a><a class="docs-heading-anchor-permalink" href="#C7.-Gamma" title="Permalink"></a></h2><h3 id="C7A.-Gamma,-log-gamma,-reciprocal-gamma"><a class="docs-heading-anchor" href="#C7A.-Gamma,-log-gamma,-reciprocal-gamma">C7A.  Gamma, log gamma, reciprocal gamma</a><a id="C7A.-Gamma,-log-gamma,-reciprocal-gamma-1"></a><a class="docs-heading-anchor-permalink" href="#C7A.-Gamma,-log-gamma,-reciprocal-gamma" title="Permalink"></a></h3><pre><code class="nohighlight hljs">      ALGAMS-S  Compute the logarithm of the absolute value of the Gamma
+      DLGAMS-D  function.
+
+      ALNGAM-S  Compute the logarithm of the absolute value of the Gamma
+      DLNGAM-D  function.
+      CLNGAM-C
+
+      C0LGMC-C  Evaluate (Z+0.5)*LOG((Z+1.)/Z) - 1.0 with relative
+                accuracy.
+
+      GAMLIM-S  Compute the minimum and maximum bounds for the argument in
+      DGAMLM-D  the Gamma function.
+
+      GAMMA-S   Compute the complete Gamma function.
+      DGAMMA-D
+      CGAMMA-C
+
+      GAMR-S    Compute the reciprocal of the Gamma function.
+      DGAMR-D
+      CGAMR-C
+
+      POCH-S    Evaluate a generalization of Pochhammer&#39;s symbol.
+      DPOCH-D
+
+      POCH1-S   Calculate a generalization of Pochhammer&#39;s symbol starting
+      DPOCH1-D  from first order.</code></pre><h3 id="C7B.-Beta,-log-beta"><a class="docs-heading-anchor" href="#C7B.-Beta,-log-beta">C7B.  Beta, log beta</a><a id="C7B.-Beta,-log-beta-1"></a><a class="docs-heading-anchor-permalink" href="#C7B.-Beta,-log-beta" title="Permalink"></a></h3><pre><code class="nohighlight hljs">      ALBETA-S  Compute the natural logarithm of the complete Beta
+      DLBETA-D  function.
+      CLBETA-C
+
+      BETA-S    Compute the complete Beta function.
+      DBETA-D
+      CBETA-C</code></pre><h3 id="C7C.-Psi-function"><a class="docs-heading-anchor" href="#C7C.-Psi-function">C7C.  Psi function</a><a id="C7C.-Psi-function-1"></a><a class="docs-heading-anchor-permalink" href="#C7C.-Psi-function" title="Permalink"></a></h3><pre><code class="nohighlight hljs">      PSI-S     Compute the Psi (or Digamma) function.
+      DPSI-D
+      CPSI-C
+
+      PSIFN-S   Compute derivatives of the Psi function.
+      DPSIFN-D</code></pre><h3 id="C7E.-Incomplete-gamma"><a class="docs-heading-anchor" href="#C7E.-Incomplete-gamma">C7E.  Incomplete gamma</a><a id="C7E.-Incomplete-gamma-1"></a><a class="docs-heading-anchor-permalink" href="#C7E.-Incomplete-gamma" title="Permalink"></a></h3><pre><code class="nohighlight hljs">      GAMI-S    Evaluate the incomplete Gamma function.
+      DGAMI-D
+
+      GAMIC-S   Calculate the complementary incomplete Gamma function.
+      DGAMIC-D
+
+      GAMIT-S   Calculate Tricomi&#39;s form of the incomplete Gamma function.
+      DGAMIT-D</code></pre><h3 id="C7F.-Incomplete-beta"><a class="docs-heading-anchor" href="#C7F.-Incomplete-beta">C7F.  Incomplete beta</a><a id="C7F.-Incomplete-beta-1"></a><a class="docs-heading-anchor-permalink" href="#C7F.-Incomplete-beta" title="Permalink"></a></h3><pre><code class="nohighlight hljs">      BETAI-S   Calculate the incomplete Beta function.
+      DBETAI-D</code></pre><h2 id="C8.-Error-functions"><a class="docs-heading-anchor" href="#C8.-Error-functions">C8. Error functions</a><a id="C8.-Error-functions-1"></a><a class="docs-heading-anchor-permalink" href="#C8.-Error-functions" title="Permalink"></a></h2><h3 id="C8A.-Error-functions,-their-inverses,-integrals,-including-the-normal-distribution-function"><a class="docs-heading-anchor" href="#C8A.-Error-functions,-their-inverses,-integrals,-including-the-normal-distribution-function">C8A.  Error functions, their inverses, integrals, including the normal distribution function</a><a id="C8A.-Error-functions,-their-inverses,-integrals,-including-the-normal-distribution-function-1"></a><a class="docs-heading-anchor-permalink" href="#C8A.-Error-functions,-their-inverses,-integrals,-including-the-normal-distribution-function" title="Permalink"></a></h3><pre><code class="nohighlight hljs">      ERF-S     Compute the error function.
+      DERF-D
+
+      ERFC-S    Compute the complementary error function.
+      DERFC-D</code></pre><h3 id="C8C.-Dawson&#39;s-integral"><a class="docs-heading-anchor" href="#C8C.-Dawson&#39;s-integral">C8C.  Dawson&#39;s integral</a><a id="C8C.-Dawson&#39;s-integral-1"></a><a class="docs-heading-anchor-permalink" href="#C8C.-Dawson&#39;s-integral" title="Permalink"></a></h3><pre><code class="nohighlight hljs">      DAWS-S    Compute Dawson&#39;s function.
+      DDAWS-D</code></pre><h2 id="C9.-Legendre-functions"><a class="docs-heading-anchor" href="#C9.-Legendre-functions">C9. Legendre functions</a><a id="C9.-Legendre-functions-1"></a><a class="docs-heading-anchor-permalink" href="#C9.-Legendre-functions" title="Permalink"></a></h2><pre><code class="nohighlight hljs">      XLEGF-S   Compute normalized Legendre polynomials and associated
+      DXLEGF-D  Legendre functions.
+
+      XNRMP-S   Compute normalized Legendre polynomials.
+      DXNRMP-D</code></pre><h2 id="C10.-Bessel-functions"><a class="docs-heading-anchor" href="#C10.-Bessel-functions">C10.  Bessel functions</a><a id="C10.-Bessel-functions-1"></a><a class="docs-heading-anchor-permalink" href="#C10.-Bessel-functions" title="Permalink"></a></h2><h3 id="C10A.-J,-Y,-H-(1),-H-(2)"><a class="docs-heading-anchor" href="#C10A.-J,-Y,-H-(1),-H-(2)">C10A.  J, Y, H-(1), H-(2)</a><a id="C10A.-J,-Y,-H-(1),-H-(2)-1"></a><a class="docs-heading-anchor-permalink" href="#C10A.-J,-Y,-H-(1),-H-(2)" title="Permalink"></a></h3><h4 id="C10A1.-Real-argument,-integer-order"><a class="docs-heading-anchor" href="#C10A1.-Real-argument,-integer-order">C10A1.  Real argument, integer order</a><a id="C10A1.-Real-argument,-integer-order-1"></a><a class="docs-heading-anchor-permalink" href="#C10A1.-Real-argument,-integer-order" title="Permalink"></a></h4><pre><code class="nohighlight hljs">      BESJ0-S   Compute the Bessel function of the first kind of order
+      DBESJ0-D  zero.
+
+      BESJ1-S   Compute the Bessel function of the first kind of order one.
+      DBESJ1-D
+
+      BESY0-S   Compute the Bessel function of the second kind of order
+      DBESY0-D  zero.
+
+      BESY1-S   Compute the Bessel function of the second kind of order
+      DBESY1-D  one.</code></pre><h4 id="C10A3.-Real-argument,-real-order"><a class="docs-heading-anchor" href="#C10A3.-Real-argument,-real-order">C10A3.  Real argument, real order</a><a id="C10A3.-Real-argument,-real-order-1"></a><a class="docs-heading-anchor-permalink" href="#C10A3.-Real-argument,-real-order" title="Permalink"></a></h4><pre><code class="nohighlight hljs">      BESJ-S    Compute an N member sequence of J Bessel functions
+      DBESJ-D   J/SUB(ALPHA+K-1)/(X), K=1,...,N for non-negative ALPHA
+                and X.
+
+      BESY-S    Implement forward recursion on the three term recursion
+      DBESY-D   relation for a sequence of non-negative order Bessel
+                functions Y/SUB(FNU+I-1)/(X), I=1,...,N for real, positive
+                X and non-negative orders FNU.</code></pre><h4 id="C10A4.-Complex-argument,-real-order"><a class="docs-heading-anchor" href="#C10A4.-Complex-argument,-real-order">C10A4.  Complex argument, real order</a><a id="C10A4.-Complex-argument,-real-order-1"></a><a class="docs-heading-anchor-permalink" href="#C10A4.-Complex-argument,-real-order" title="Permalink"></a></h4><pre><code class="nohighlight hljs">      CBESH-C   Compute a sequence of the Hankel functions H(m,a,z)
+      ZBESH-C   for superscript m=1 or 2, real nonnegative orders a=b,
+                b+1,... where b&gt;0, and nonzero complex argument z.  A
+                scaling option is available to help avoid overflow.
+
+      CBESJ-C   Compute a sequence of the Bessel functions J(a,z) for
+      ZBESJ-C   complex argument z and real nonnegative orders a=b,b+1,
+                b+2,... where b&gt;0.  A scaling option is available to
+                help avoid overflow.
+
+      CBESY-C   Compute a sequence of the Bessel functions Y(a,z) for
+      ZBESY-C   complex argument z and real nonnegative orders a=b,b+1,
+                b+2,... where b&gt;0.  A scaling option is available to
+                help avoid overflow.</code></pre><h3 id="C10B.-I,-K"><a class="docs-heading-anchor" href="#C10B.-I,-K">C10B.  I, K</a><a id="C10B.-I,-K-1"></a><a class="docs-heading-anchor-permalink" href="#C10B.-I,-K" title="Permalink"></a></h3><h4 id="C10B1.-Real-argument,-integer-order"><a class="docs-heading-anchor" href="#C10B1.-Real-argument,-integer-order">C10B1.  Real argument, integer order</a><a id="C10B1.-Real-argument,-integer-order-1"></a><a class="docs-heading-anchor-permalink" href="#C10B1.-Real-argument,-integer-order" title="Permalink"></a></h4><pre><code class="nohighlight hljs">      BESI0-S   Compute the hyperbolic Bessel function of the first kind
+      DBESI0-D  of order zero.
+
+      BESI0E-S  Compute the exponentially scaled modified (hyperbolic)
+      DBSI0E-D  Bessel function of the first kind of order zero.
+
+      BESI1-S   Compute the modified (hyperbolic) Bessel function of the
+      DBESI1-D  first kind of order one.
+
+      BESI1E-S  Compute the exponentially scaled modified (hyperbolic)
+      DBSI1E-D  Bessel function of the first kind of order one.
+
+      BESK0-S   Compute the modified (hyperbolic) Bessel function of the
+      DBESK0-D  third kind of order zero.
+
+      BESK0E-S  Compute the exponentially scaled modified (hyperbolic)
+      DBSK0E-D  Bessel function of the third kind of order zero.
+
+      BESK1-S   Compute the modified (hyperbolic) Bessel function of the
+      DBESK1-D  third kind of order one.
+
+      BESK1E-S  Compute the exponentially scaled modified (hyperbolic)
+      DBSK1E-D  Bessel function of the third kind of order one.</code></pre><h4 id="C10B3.-Real-argument,-real-order"><a class="docs-heading-anchor" href="#C10B3.-Real-argument,-real-order">C10B3.  Real argument, real order</a><a id="C10B3.-Real-argument,-real-order-1"></a><a class="docs-heading-anchor-permalink" href="#C10B3.-Real-argument,-real-order" title="Permalink"></a></h4><pre><code class="nohighlight hljs">      BESI-S    Compute an N member sequence of I Bessel functions
+      DBESI-D   I/SUB(ALPHA+K-1)/(X), K=1,...,N or scaled Bessel functions
+                EXP(-X)*I/SUB(ALPHA+K-1)/(X), K=1,...,N for non-negative
+                ALPHA and X.
+
+      BESK-S    Implement forward recursion on the three term recursion
+      DBESK-D   relation for a sequence of non-negative order Bessel
+                functions K/SUB(FNU+I-1)/(X), or scaled Bessel functions
+                EXP(X)*K/SUB(FNU+I-1)/(X), I=1,...,N for real, positive
+                X and non-negative orders FNU.
+
+      BESKES-S  Compute a sequence of exponentially scaled modified Bessel
+      DBSKES-D  functions of the third kind of fractional order.
+
+      BESKS-S   Compute a sequence of modified Bessel functions of the
+      DBESKS-D  third kind of fractional order.</code></pre><h4 id="C10B4.-Complex-argument,-real-order"><a class="docs-heading-anchor" href="#C10B4.-Complex-argument,-real-order">C10B4.  Complex argument, real order</a><a id="C10B4.-Complex-argument,-real-order-1"></a><a class="docs-heading-anchor-permalink" href="#C10B4.-Complex-argument,-real-order" title="Permalink"></a></h4><pre><code class="nohighlight hljs">      CBESI-C   Compute a sequence of the Bessel functions I(a,z) for
+      ZBESI-C   complex argument z and real nonnegative orders a=b,b+1,
+                b+2,... where b&gt;0.  A scaling option is available to
+                help avoid overflow.
+
+      CBESK-C   Compute a sequence of the Bessel functions K(a,z) for
+      ZBESK-C   complex argument z and real nonnegative orders a=b,b+1,
+                b+2,... where b&gt;0.  A scaling option is available to
+                help avoid overflow.</code></pre><h3 id="C10D.-Airy-and-Scorer-functions"><a class="docs-heading-anchor" href="#C10D.-Airy-and-Scorer-functions">C10D.  Airy and Scorer functions</a><a id="C10D.-Airy-and-Scorer-functions-1"></a><a class="docs-heading-anchor-permalink" href="#C10D.-Airy-and-Scorer-functions" title="Permalink"></a></h3><pre><code class="nohighlight hljs">      AI-S      Evaluate the Airy function.
+      DAI-D
+
+      AIE-S     Calculate the Airy function for a negative argument and an
+      DAIE-D    exponentially scaled Airy function for a non-negative
+                argument.
+
+      BI-S      Evaluate the Bairy function (the Airy function of the
+      DBI-D     second kind).
+
+      BIE-S     Calculate the Bairy function for a negative argument and an
+      DBIE-D    exponentially scaled Bairy function for a non-negative
+                argument.
+
+      CAIRY-C   Compute the Airy function Ai(z) or its derivative dAi/dz
+      ZAIRY-C   for complex argument z.  A scaling option is available
+                to help avoid underflow and overflow.
+
+      CBIRY-C   Compute the Airy function Bi(z) or its derivative dBi/dz
+      ZBIRY-C   for complex argument z.  A scaling option is available
+                to help avoid overflow.</code></pre><h3 id="C10F.-Integrals-of-Bessel-functions"><a class="docs-heading-anchor" href="#C10F.-Integrals-of-Bessel-functions">C10F.  Integrals of Bessel functions</a><a id="C10F.-Integrals-of-Bessel-functions-1"></a><a class="docs-heading-anchor-permalink" href="#C10F.-Integrals-of-Bessel-functions" title="Permalink"></a></h3><pre><code class="nohighlight hljs">      BSKIN-S   Compute repeated integrals of the K-zero Bessel function.
+      DBSKIN-D</code></pre><h2 id="C11.-Confluent-hypergeometric-functions"><a class="docs-heading-anchor" href="#C11.-Confluent-hypergeometric-functions">C11.  Confluent hypergeometric functions</a><a id="C11.-Confluent-hypergeometric-functions-1"></a><a class="docs-heading-anchor-permalink" href="#C11.-Confluent-hypergeometric-functions" title="Permalink"></a></h2><ul><li><a href="../../ref/fnlib/#SLATEC.FNLIB.chu"><code>chu(x)</code></a>: <code>CHU-S, DCHU-D</code>,   Compute the logarithmic confluent hypergeometric function.</li></ul><h2 id="C14.-Elliptic-integrals"><a class="docs-heading-anchor" href="#C14.-Elliptic-integrals">C14.  Elliptic integrals</a><a id="C14.-Elliptic-integrals-1"></a><a class="docs-heading-anchor-permalink" href="#C14.-Elliptic-integrals" title="Permalink"></a></h2><pre><code class="nohighlight hljs">      RC-S      Calculate an approximation to
+      DRC-D      RC(X,Y) = Integral from zero to infinity of
+                                  -1/2     -1
+                        (1/2)(t+X)    (t+Y)  dt,
+                where X is nonnegative and Y is positive.
+
+      RD-S      Compute the incomplete or complete elliptic integral of the
+      DRD-D     2nd kind.  For X and Y nonnegative, X+Y and Z positive,
+                 RD(X,Y,Z) = Integral from zero to infinity of
+                                    -1/2     -1/2     -3/2
+                          (3/2)(t+X)    (t+Y)    (t+Z)    dt.
+                If X or Y is zero, the integral is complete.
+
+      RF-S      Compute the incomplete or complete elliptic integral of the
+      DRF-D     1st kind.  For X, Y, and Z non-negative and at most one of
+                them zero, RF(X,Y,Z) = Integral from zero to infinity of
+                                    -1/2     -1/2     -1/2
+                          (1/2)(t+X)    (t+Y)    (t+Z)    dt.
+                If X, Y or Z is zero, the integral is complete.
+
+      RJ-S      Compute the incomplete or complete (X or Y or Z is zero)
+      DRJ-D     elliptic integral of the 3rd kind.  For X, Y, and Z non-
+                negative, at most one of them zero, and P positive,
+                 RJ(X,Y,Z,P) = Integral from zero to infinity of
+                                      -1/2     -1/2     -1/2     -1
+                            (3/2)(t+X)    (t+Y)    (t+Z)    (t+P)  dt.</code></pre><h2 id="C19.-Other-special-functions"><a class="docs-heading-anchor" href="#C19.-Other-special-functions">C19.  Other special functions</a><a id="C19.-Other-special-functions-1"></a><a class="docs-heading-anchor-permalink" href="#C19.-Other-special-functions" title="Permalink"></a></h2><pre><code class="nohighlight hljs">      RC3JJ-S   Evaluate the 3j symbol f(L1) = (  L1   L2 L3)
+      DRC3JJ-D                                 (-M2-M3 M2 M3)
+                for all allowed values of L1, the other parameters
+                being held fixed.
+
+      RC3JM-S   Evaluate the 3j symbol g(M2) = (L1 L2   L3  )
+      DRC3JM-D                                 (M1 M2 -M1-M2)
+                for all allowed values of M2, the other parameters
+                being held fixed.
+
+      RC6J-S    Evaluate the 6j symbol h(L1) = {L1 L2 L3}
+      DRC6J-D                                  {L4 L5 L6}
+                for all allowed values of L1, the other parameters
+                being held fixed.</code></pre></article><nav class="docs-footer"><a class="docs-footer-prevpage" href="../">« TOC All</a><a class="docs-footer-nextpage" href="../gams-d/">D. Linear Algebra »</a><div class="flexbox-break"></div><p class="footer-message">Powered by <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> and the <a href="https://julialang.org/">Julia Programming Language</a>.</p></nav></div><div class="modal" id="documenter-settings"><div class="modal-background"></div><div class="modal-card"><header class="modal-card-head"><p class="modal-card-title">Settings</p><button class="delete"></button></header><section class="modal-card-body"><p><label class="label">Theme</label><div class="select"><select id="documenter-themepicker"><option value="auto">Automatic (OS)</option><option value="documenter-light">documenter-light</option><option value="documenter-dark">documenter-dark</option><option value="catppuccin-latte">catppuccin-latte</option><option value="catppuccin-frappe">catppuccin-frappe</option><option value="catppuccin-macchiato">catppuccin-macchiato</option><option value="catppuccin-mocha">catppuccin-mocha</option></select></div></p><hr/><p>This document was generated with <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> version 1.16.1 on <span class="colophon-date" title="Saturday 3 January 2026 11:37">Saturday 3 January 2026</span>. Using Julia version 1.12.3.</p></section><footer class="modal-card-foot"></footer></div></div></div></body></html>
